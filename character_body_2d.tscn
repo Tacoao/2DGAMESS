@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://be1fy1bs0nfgy"]
+[gd_scene load_steps=196 format=3 uid="uid://be1fy1bs0nfgy"]
 
 [ext_resource type="Texture2D" uid="uid://gbfkgiiugyld" path="res://Assets/MainCHar/red hood itch free Copy-Sheet.png" id="1_cbos1"]
 [ext_resource type="Script" path="res://Perso.cs" id="1_gjhdq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bsigucu0idm60" path="res://Assets/MainCHar/idle and  alter/itch run-Sheet sheet.png" id="6_rlck5"]
 [ext_resource type="Texture2D" uid="uid://ds8u7u3o0j517" path="res://Assets/MainCHar/run turnaround-Sheet.png" id="7_d4ry6"]
 [ext_resource type="Texture2D" uid="uid://c4tctx8rut4hx" path="res://Assets/MainCHar/wall slide-Sheet.png" id="8_bdig1"]
+[ext_resource type="AudioStream" uid="uid://cf0dlgo56foht" path="res://Atrium-Carceri_-Cities-Last-Broadcast_-God-Body-Disconnect-Miles-to-Midnight-_Full-album_-2018.wav" id="10_x3cei"]
 
 [sub_resource type="Gradient" id="Gradient_mn11e"]
 offsets = PackedFloat32Array(0.0299401, 1)
@@ -1545,8 +1546,8 @@ texture = SubResource("GradientTexture2D_ysdqo")
 texture_filter = 1
 position = Vector2(0, 1.5625)
 sprite_frames = SubResource("SpriteFrames_xbmsm")
-animation = &"running"
-frame_progress = 0.669159
+animation = &"Iddle"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.875, 2.3125)
@@ -1568,7 +1569,12 @@ parameters/conditions/is_onFloor = false
 parameters/conditions/is_turning = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-10.5, 5.9375)
+position = Vector2(-9.5625, -4.3125)
 rotation = 3.14159
 scale = Vector2(2.44584e+06, 133737)
-zoom = Vector2(0.15, 0.15)
+zoom = Vector2(0.25, 0.25)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-9.3125, 5.125)
+stream = ExtResource("10_x3cei")
+autoplay = true

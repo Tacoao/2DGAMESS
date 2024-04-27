@@ -65,3 +65,10 @@ punch2={
 
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.295867, 0.295866, 0.295866, 1)
+
+[shader_globals]
+
+location_fade={
+"type": "float",
+"value": 1.0
+}
