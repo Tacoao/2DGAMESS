@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://nj2765log56t"]
+
+[ext_resource type="Script" path="res://StaticBody2D.cs" id="1_blhxt"]
+[ext_resource type="PackedScene" uid="uid://b4xb8fnhro5b2" path="res://collision_polygon_2d.tscn" id="2_rab27"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_blhxt")
+
+[node name="CollisionPolygon2D" parent="." instance=ExtResource("2_rab27")]
+
+[node name="CollisionPolygon2D2" parent="." instance=ExtResource("2_rab27")]
+
+[node name="CollisionPolygon2D3" parent="." instance=ExtResource("2_rab27")]
+
+[node name="CollisionPolygon2D4" parent="." instance=ExtResource("2_rab27")]
+
+[node name="CollisionPolygon2D5" parent="." instance=ExtResource("2_rab27")]

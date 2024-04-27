@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4xb8fnhro5b2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)

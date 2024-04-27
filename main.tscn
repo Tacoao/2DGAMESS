@@ -1,0 +1,305 @@
+[gd_scene load_steps=14 format=3 uid="uid://gliin2hev3xh"]
+
+[ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
+[ext_resource type="Texture2D" uid="uid://6q2olbudbuxg" path="res://Assets/Tile/Mossy/Mossy - MossyHills.png" id="2_d261c"]
+[ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
+[ext_resource type="PackedScene" uid="uid://be1fy1bs0nfgy" path="res://character_body_2d.tscn" id="2_oyqtt"]
+[ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
+[ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
+[ext_resource type="Shader" path="res://main.gdshader" id="4_4cc0b"]
+[ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="7_0d5gh"]
+[ext_resource type="Texture2D" uid="uid://b07o5lv67rgw1" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.52.12-removebg-preview.png" id="8_f1r7y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jb3wa"]
+texture = ExtResource("3_uffme")
+texture_region_size = Vector2i(512, 512)
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+6:6/0 = 0
+6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:6/0/physics_layer_0/angular_velocity = 0.0
+5:6/0 = 0
+5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:6/0/physics_layer_0/angular_velocity = 0.0
+4:6/0 = 0
+4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0 = 0
+3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:6/0/physics_layer_0/angular_velocity = 0.0
+2:6/0 = 0
+2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:6/0/physics_layer_0/angular_velocity = 0.0
+1:6/0 = 0
+1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:6/0/physics_layer_0/angular_velocity = 0.0
+1:5/0 = 0
+1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:5/0/physics_layer_0/angular_velocity = 0.0
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:5/0 = 0
+0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+4:5/0 = 0
+4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:5/0/physics_layer_0/angular_velocity = 0.0
+6:5/0 = 0
+6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:5/0/physics_layer_0/angular_velocity = 0.0
+5:5/0 = 0
+5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:5/0/physics_layer_0/angular_velocity = 0.0
+4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
+5:4/0 = 0
+5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:4/0/physics_layer_0/angular_velocity = 0.0
+6:4/0 = 0
+6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+6:3/0 = 0
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0 = 0
+5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+6:2/0 = 0
+6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qw2wm"]
+texture = ExtResource("2_d261c")
+texture_region_size = Vector2i(512, 512)
+1:1/size_in_atlas = Vector2i(3, 2)
+1:1/next_alternative_id = 2
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:3/size_in_atlas = Vector2i(3, 1)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:0/size_in_atlas = Vector2i(3, 1)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_abaen"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_jb3wa")
+sources/2 = SubResource("TileSetAtlasSource_qw2wm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iegel"]
+render_priority = 0
+shader = ExtResource("4_4cc0b")
+
+[node name="Node" type="Node"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-5, 0)
+scale = Vector2(1, 1)
+color = Color(0.257476, 0.257476, 0.257476, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-1344, 30)
+tile_set = SubResource("TileSet_abaen")
+format = 2
+layer_0/tile_data = PackedInt32Array(131069, 65536, 1, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 65548, 131072, 0, 131084, 131072, 1, 196620, 131072, 1, 262156, 131072, 1, 327692, 131072, 2, 327691, 65536, 2, 327690, 65536, 2, 327689, 65536, 2, 327688, 65536, 2, 327687, 65536, 2, 327686, 65536, 2, 327685, 65536, 2, 327684, 65536, 2, 327683, 65536, 2, 327682, 65536, 2, 327681, 65536, 2, 327680, 65536, 2, 393215, 65536, 2, 393214, 65536, 2, 393213, 65536, 2, 196605, 65536, 1, 262141, 65536, 1, 327677, 65536, 1, 196606, 65536, 1, 196607, 65536, 1, 131072, 65536, 1, 131073, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 131077, 65536, 1, 131078, 65536, 1, 131079, 65536, 1, 131080, 65536, 1, 131081, 65536, 1, 131082, 65536, 1, 131083, 65536, 1, 196619, 65536, 1, 196618, 65536, 1, 196617, 65536, 1, 196616, 65536, 1, 196615, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196611, 65536, 1, 196610, 65536, 1, 196609, 65536, 1, 196608, 65536, 1, 262143, 65536, 1, 262142, 65536, 1, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 262155, 65536, 1, -262142, 65536, 0, -262143, 0, 0, -196606, 65536, 2, -196607, 0, 2, 65533, 65536, 1, -3, 65536, 1, -65539, 65536, 1, -131075, 65536, 1, -196611, 65536, 1, 65534, 131072, 1, -2, 131072, 1, -65538, 131072, 1, -131074, 131072, 1, -196610, 131072, 1, -262146, 65536, 1, -262147, 65536, 1, -262148, 0, 1, -196612, 0, 1, -131076, 0, 1, -65540, 0, 1, -4, 0, 1, 65532, 0, 1, 131068, 0, 1, 196604, 0, 1, 262140, 0, 1, 327676, 0, 1, 393212, 0, 2, -262138, 0, 0, -262137, 65536, 0, -262136, 131072, 0, -196602, 0, 2, -196601, 65536, 2, -196600, 131072, 2, -262141, 131072, 0, -196605, 131072, 2, -327684, 0, 0, -327683, 65536, 0, -327682, 65536, 0, -327681, 65536, 0, -393216, 65536, 0, -393215, 65536, 0, -393214, 65536, 0, -393213, 65536, 0, -393212, 65536, 0, -393211, 65536, 0, -393210, 65536, 0, -393209, 65536, 0, -393208, 65536, 0, -393207, 65536, 0, -393206, 65536, 0, -393205, 65536, 0, -393204, 65536, 0, -262145, 65536, 2, -327680, 65536, 2, -327679, 65536, 2, -327678, 65536, 2, -327677, 65536, 2, -327676, 65536, 2, -327675, 65536, 2, -327674, 65536, 2, -327673, 65536, 2, -327672, 65536, 2, -327671, 65536, 2, -327670, 65536, 2, -327669, 65536, 2, -327668, 65536, 2)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_oyqtt")]
+position = Vector2(6, 165)
+
+[node name="-4" type="CanvasLayer" parent="."]
+layer = -4
+follow_viewport_enabled = true
+follow_viewport_scale = 0.6
+
+[node name="Images" type="Sprite2D" parent="-4"]
+material = SubResource("ShaderMaterial_iegel")
+position = Vector2(2807, -1306)
+scale = Vector2(75.1461, 72.7619)
+texture = ExtResource("1_rt5h8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="-4"]
+position = Vector2(-5, 0)
+color = Color(0.257476, 0.257476, 0.257476, 1)
+
+[node name="-3" type="CanvasLayer" parent="."]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview" type="Sprite2D" parent="-3"]
+position = Vector2(-2421.43, -2231.43)
+scale = Vector2(7.59391, 6.98087)
+texture = ExtResource("4_1g41i")
+
+[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="-3"]
+position = Vector2(720, 691.429)
+scale = Vector2(7.24436, 10.4806)
+texture = ExtResource("2_nrq5j")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="-3"]
+texture_filter = 2
+position = Vector2(-5, 0)
+scale = Vector2(1, 1)
+color = Color(0.808998, 0.808998, 0.808998, 1)
+
+[node name="-2" type="CanvasLayer" parent="."]
+layer = -2
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="-1" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="0" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="1" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="2" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="2"]
+position = Vector2(-213.333, 607.5)
+scale = Vector2(2.56689, 2.906)
+texture = ExtResource("2_nrq5j")
+
+[node name="3" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview" type="Sprite2D" parent="3"]
+position = Vector2(3511.54, 364.615)
+scale = Vector2(2.53261, 2.4929)
+texture = ExtResource("7_0d5gh")
+
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview" type="Sprite2D" parent="3"]
+position = Vector2(-1123.85, 356.923)
+scale = Vector2(2.67965, 4.31065)
+texture = ExtResource("7_0d5gh")
+
+[node name="CaptureDÉcran2024-04-27À00_52_12-removebg-preview" type="Sprite2D" parent="3"]
+position = Vector2(1692.31, -508.462)
+scale = Vector2(3.37732, 4.28455)
+texture = ExtResource("8_f1r7y")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="3"]
+position = Vector2(-5, 0)
+color = Color(0.257476, 0.257476, 0.257476, 1)
