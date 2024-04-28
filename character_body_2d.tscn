@@ -1532,19 +1532,120 @@ graph_offset = Vector2(-12.571, 104.225)
 scale = Vector2(16, 16)
 script = ExtResource("1_gjhdq")
 
+[node name="RayCast" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, -16)
+rotation = -1.5708
+
+[node name="RayCast01" type="RayCast2D" parent="RayCast"]
+position = Vector2(-9.48208e-07, 19.875)
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast02" type="RayCast2D" parent="RayCast"]
+position = Vector2(1, 19.875)
+rotation = -0.0872665
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast03" type="RayCast2D" parent="RayCast"]
+position = Vector2(-1, 19.875)
+rotation = 0.0872665
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast04" type="RayCast2D" parent="RayCast"]
+position = Vector2(2, 19.875)
+rotation = -0.174533
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast05" type="RayCast2D" parent="RayCast"]
+position = Vector2(-2, 19.875)
+rotation = 0.174533
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast06" type="RayCast2D" parent="RayCast"]
+position = Vector2(3, 20)
+rotation = -0.261799
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast07" type="RayCast2D" parent="RayCast"]
+position = Vector2(-3, 19.875)
+rotation = 0.261799
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast08" type="RayCast2D" parent="RayCast"]
+position = Vector2(4, 19.875)
+rotation = -0.349066
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast09" type="RayCast2D" parent="RayCast"]
+position = Vector2(-4, 20)
+rotation = 0.349066
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast10" type="RayCast2D" parent="RayCast"]
+position = Vector2(5, 19.875)
+rotation = -0.436332
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast11" type="RayCast2D" parent="RayCast"]
+position = Vector2(-5, 19.875)
+rotation = 0.436332
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast12" type="RayCast2D" parent="RayCast"]
+position = Vector2(6, 19.875)
+rotation = -0.523599
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast13" type="RayCast2D" parent="RayCast"]
+position = Vector2(-6, 19.875)
+rotation = 0.523599
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast14" type="RayCast2D" parent="RayCast"]
+position = Vector2(7, 19.875)
+rotation = -0.610865
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast15" type="RayCast2D" parent="RayCast"]
+position = Vector2(-7, 19.875)
+rotation = 0.610865
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast16" type="RayCast2D" parent="RayCast"]
+position = Vector2(8, 19.875)
+rotation = -0.698132
+scale = Vector2(1, 1)
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast17" type="RayCast2D" parent="RayCast"]
+position = Vector2(-8, 19.875)
+rotation = 0.698132
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast18" type="RayCast2D" parent="RayCast"]
+position = Vector2(9, 19.875)
+rotation = -0.785398
+scale = Vector2(1, 1)
+target_position = Vector2(500, 2.08165e-12)
+
+[node name="RayCast19" type="RayCast2D" parent="RayCast"]
+position = Vector2(-9, 19.875)
+rotation = 0.785398
+target_position = Vector2(500, 2.08165e-12)
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 1.6875)
+position = Vector2(12.125, -21.6875)
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Iddle"
+frame = 8
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-12.4375, 3.5625)
+position = Vector2(0.5625, -20.125)
 shape = SubResource("CapsuleShape2D_mx5ke")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(14, 57.3333)
+position = Vector2(0.25, -18.5625)
 texture = SubResource("GradientTexture2D_ysdqo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1563,7 +1664,7 @@ parameters/conditions/is_onFloor = false
 parameters/conditions/is_turning = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-10.5, 5.9375)
+position = Vector2(0.624998, -17.5625)
 rotation = 3.14159
 scale = Vector2(2.44584e+06, 133737)
 zoom = Vector2(0.15, 0.15)
