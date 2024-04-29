@@ -1,6 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=23 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
+[ext_resource type="PackedScene" uid="uid://dpdiagsn5cyvi" path="res://hand_enemy.tscn" id="1_tpy68"]
+[ext_resource type="PackedScene" uid="uid://ro4i3bfbalwy" path="res://bat.tscn" id="2_bk5sa"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
@@ -233,19 +235,27 @@ color = Color(0.24, 0.75, 0, 0.682)
 shader = ExtResource("4_4cc0b")
 shader_parameter/base_color = Color(0.811765, 0.996078, 0.929412, 0.74902)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_tabg0"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v8l2s"]
 frequency = 0.0063
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o8k1c"]
 seamless = true
-noise = SubResource("FastNoiseLite_tabg0")
+noise = SubResource("FastNoiseLite_v8l2s")
 
 [node name="Node" type="Node"]
 
+[node name="HandEnemy" parent="." instance=ExtResource("1_tpy68")]
+texture_filter = 1
+position = Vector2(4416, -331)
+scale = Vector2(29.9875, 29.9875)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 
+[node name="Bat" parent="." instance=ExtResource("2_bk5sa")]
+position = Vector2(-790, -966)
+scale = Vector2(18.84, 18.84)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 position = Vector2(-5, 0)
 color = Color(0.257476, 0.257476, 0.257476, 1)
 
@@ -271,7 +281,6 @@ color = Color(0.257476, 0.257476, 0.257476, 1)
 
 [node name="-3" type="CanvasLayer" parent="."]
 layer = -1
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
@@ -292,7 +301,6 @@ color = Color(0.808998, 0.808998, 0.808998, 1)
 
 [node name="-2" type="CanvasLayer" parent="."]
 layer = -2
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
@@ -303,7 +311,6 @@ follow_viewport_scale = 0.9
 
 [node name="0" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 follow_viewport_enabled = true
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="0"]
@@ -329,7 +336,6 @@ follow_viewport_scale = 1.2
 
 [node name="3" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
