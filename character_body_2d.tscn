@@ -1,14 +1,18 @@
-[gd_scene load_steps=190 format=3 uid="uid://biic1783ehm6s"]
+[gd_scene load_steps=191 format=3 uid="uid://biic1783ehm6s"]
 
 [ext_resource type="Texture2D" uid="uid://gbfkgiiugyld" path="res://Assets/MainCHar/red hood itch free Copy-Sheet.png" id="1_cbos1"]
 [ext_resource type="Script" path="res://Perso.cs" id="1_gjhdq"]
 [ext_resource type="Texture2D" uid="uid://c6ihummp0dys" path="res://Assets/MainCHar/idle and  alter/itch jump sheet-Sheet.png" id="2_5xxy4"]
+[ext_resource type="PackedScene" uid="uid://d3hk0ayhfwnms" path="res://Rope.tscn" id="2_afyjw"]
 [ext_resource type="Texture2D" uid="uid://chhccveen2nfr" path="res://Assets/MainCHar/idle and  alter/itch hurt 2 sheet-Sheet.png" id="3_uxscn"]
 [ext_resource type="Texture2D" uid="uid://dm42qo4ilcdih" path="res://Assets/MainCHar/idle and  alter/idle sheet-Sheet.png" id="4_xuhi4"]
 [ext_resource type="Texture2D" uid="uid://dbee5rysksutq" path="res://Assets/MainCHar/idle and  alter/itch light atk sheet-Sheet.png" id="5_8ru6y"]
 [ext_resource type="Texture2D" uid="uid://bsigucu0idm60" path="res://Assets/MainCHar/idle and  alter/itch run-Sheet sheet.png" id="6_rlck5"]
 [ext_resource type="Texture2D" uid="uid://ds8u7u3o0j517" path="res://Assets/MainCHar/run turnaround-Sheet.png" id="7_d4ry6"]
 [ext_resource type="Texture2D" uid="uid://c4tctx8rut4hx" path="res://Assets/MainCHar/wall slide-Sheet.png" id="8_bdig1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m55ka"]
 atlas = ExtResource("1_cbos1")
@@ -1088,9 +1092,6 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
-height = 28.0
-
 [sub_resource type="Gradient" id="Gradient_dsb5k"]
 offsets = PackedFloat32Array(0.0299401, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -1532,6 +1533,9 @@ graph_offset = Vector2(-12.571, 104.225)
 scale = Vector2(16, 16)
 script = ExtResource("1_gjhdq")
 
+[node name="Rope" parent="." instance=ExtResource("2_afyjw")]
+position = Vector2(1, -17.375)
+
 [node name="RayCast" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -16)
 rotation = -1.5708
@@ -1613,7 +1617,6 @@ target_position = Vector2(500, 2.08165e-12)
 [node name="RayCast16" type="RayCast2D" parent="RayCast"]
 position = Vector2(8, 19.875)
 rotation = -0.698132
-scale = Vector2(1, 1)
 target_position = Vector2(500, 2.08165e-12)
 
 [node name="RayCast17" type="RayCast2D" parent="RayCast"]
@@ -1624,7 +1627,6 @@ target_position = Vector2(500, 2.08165e-12)
 [node name="RayCast18" type="RayCast2D" parent="RayCast"]
 position = Vector2(9, 19.875)
 rotation = -0.785398
-scale = Vector2(1, 1)
 target_position = Vector2(500, 2.08165e-12)
 
 [node name="RayCast19" type="RayCast2D" parent="RayCast"]
@@ -1632,17 +1634,17 @@ position = Vector2(-9, 19.875)
 rotation = 0.785398
 target_position = Vector2(500, 2.08165e-12)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5625, -20.125)
+shape = SubResource("CapsuleShape2D_mx5ke")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(12.125, -21.6875)
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Iddle"
-frame = 8
+frame = 11
 speed_scale = 0.5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5625, -20.125)
-shape = SubResource("CapsuleShape2D_mx5ke")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0.25, -18.5625)

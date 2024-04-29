@@ -5,9 +5,11 @@ using System.Security.Cryptography;
 
 public partial class Perso : CharacterBody2D
 {
+
 	public const float Speed = 2000.0f;
 	public const float JumpVelocity = -1850.0f;
 	private AnimationTree animationTree;
+	private Node2D rope ;
 	private Vector2 HookPosition = new Vector2();
 	private Vector2 motion = new Vector2();
 
@@ -19,6 +21,7 @@ public partial class Perso : CharacterBody2D
 
 	public override void _Ready()
 	{
+		rope = GetNode<Node2D>("Rope");
 		animationTree = GetNode<AnimationTree>("AnimationTree");
 		animationTree.Active = true;
 		this.CurrentRopeLenght = RopeLenght;
@@ -32,35 +35,29 @@ public partial class Perso : CharacterBody2D
 	   UpdateAnimationParameters();
 	}
 
+
     public override void _Draw()
     {
-        var pos = GlobalPosition;
-    if (hooked)
-    {
-        DrawLine(new Vector2(0, -16), ToLocal(HookPosition), new Color(0.35f, 0.7f, 0.9f), 3, true);
-        // Cyan
-    }
-    else
-    {
-        return;
+		GD.Print("_Draw");
+		
+        if (hooked)
+		{
+			DrawLine(new Vector2(0,-16),ToLocal(HookPosition),new Color(0,0,0),3,true);
+		}
+		else{
+			return;
+			var colliding = GetNode<RayCast2D>("RayCast").IsColliding();
+			var colliding_pint = GetNode<RayCast2D>("RayCast").GetCollisionPoint();
+			if (colliding && Position.DistanceTo(colliding_pint)< RopeLenght)
+            {
+                DrawLine(new Vector2(0,-16),ToLocal(colliding_pint),new Color(0,35,0),3,true);
+            }
+		}
+
     }
 
-    var colliding = GetNode<RayCast2D>("RayCast").IsColliding();
-    var collidePoint = GetNode<RayCast2D>("RayCast").GetCollisionPoint();
-    if (colliding)
-    {
-        var distance = pos.DistanceTo(collidePoint);
-        if (distance < RopeLenght)
-        {
-            // Draw line with white color
-            DrawLine(new Vector2(0, -16), ToLocal(collidePoint), new Color(1, 1, 1, 0.25f), 0.5f, true);
-        }
-    }
-    }
 
-    
-	
-	public void  hook(){
+    public void  hook(){
 		GetNode<Node2D>("RayCast").LookAt(GetGlobalMousePosition());
 		if (Input.IsActionJustPressed("hook"))
 		{
@@ -69,11 +66,13 @@ public partial class Perso : CharacterBody2D
 			{
 				this.hooked = true;
 				CurrentRopeLenght = GlobalPosition.DistanceTo(HookPosition);
+				//rope.Call("spawn_rope", this.GlobalPosition, HookPosition);
 			}
 		}
 		if (Input.IsActionJustReleased("hook")&&hooked)
 		{
 			hooked=false;
+		
 		}
 	}
 	public Vector2 GetHookPosition(){
@@ -107,13 +106,16 @@ public partial class Perso : CharacterBody2D
 	}
 
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		motion = Velocity;
 		Gravity();
 		hook();
+		QueueRedraw();
 		if (hooked)
 		{
+			GD.Print(hooked );
+			float distance = GlobalPosition.DistanceTo(HookPosition);
 			Gravity();
 			Swing(delta);
 			motion+=new Vector2(0.975f, 0.975f);
@@ -159,7 +161,8 @@ public partial class Perso : CharacterBody2D
 	
 			Velocity = motion;
 			MoveAndSlide();
-	
+			// Dessiner la corde
+		
 			// Flip the sprite based on the direction.
 			bool isLeft = direction < 0;
 		if (isLeft != GetNode<AnimatedSprite2D>("Sprite2D").FlipH) {
@@ -171,37 +174,37 @@ public partial class Perso : CharacterBody2D
 
 	public void UpdateAnimationParameters()
 {
-	    Vector2 velocity = Velocity;
-    if (IsOnFloor())
-    {
+		Vector2 velocity = Velocity;
+	if (IsOnFloor())
+	{
 		animationTree.Set("parameters/conditions/is_onFloor", true);
 		animationTree.Set("parameters/conditions/is_falling", false);
-        if (velocity == Vector2.Zero)
-        {
-            animationTree.Set("parameters/conditions/is_idle", true);
-            animationTree.Set("parameters/conditions/is_moving", false);
-        }
-        else
-        {
-            animationTree.Set("parameters/conditions/is_idle", false);
-            animationTree.Set("parameters/conditions/is_moving", true);
-        }
-    }
-    else
-    {
-        animationTree.Set("parameters/conditions/is_idle", false);
-        animationTree.Set("parameters/conditions/is_moving", false);
-    }
+		if (velocity == Vector2.Zero)
+		{
+			animationTree.Set("parameters/conditions/is_idle", true);
+			animationTree.Set("parameters/conditions/is_moving", false);
+		}
+		else
+		{
+			animationTree.Set("parameters/conditions/is_idle", false);
+			animationTree.Set("parameters/conditions/is_moving", true);
+		}
+	}
+	else
+	{
+		animationTree.Set("parameters/conditions/is_idle", false);
+		animationTree.Set("parameters/conditions/is_moving", false);
+	}
 
-    // Other conditions for jumping, falling, turning, and attacks remain unchanged
-    if (Input.IsActionJustPressed("left") || Input.IsActionJustPressed("right"))
-    {
-        animationTree.Set("parameters/conditions/is_turning", true);
-    }
-    else
-    {
-        animationTree.Set("parameters/conditions/is_turning", false);
-    }
+	// Other conditions for jumping, falling, turning, and attacks remain unchanged
+	if (Input.IsActionJustPressed("left") || Input.IsActionJustPressed("right"))
+	{
+		animationTree.Set("parameters/conditions/is_turning", true);
+	}
+	else
+	{
+		animationTree.Set("parameters/conditions/is_turning", false);
+	}
 
 	if (Input.IsActionJustPressed("Jump_Only"))
 	{

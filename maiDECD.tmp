@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=19 format=3 uid="uid://gliin2hev3xh"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_7xgw3"]
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
@@ -230,6 +231,7 @@ scale_over_velocity_curve = SubResource("CurveTexture_0wbof")
 color = Color(0.24, 0.75, 0, 0.682)
 
 [node name="Node" type="Node2D"]
+script = ExtResource("1_7xgw3")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 

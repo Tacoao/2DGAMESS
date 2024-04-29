@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6b2ysbddkbcy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bc461"]
+radius = 3.0
+
+[node name="RopeEndPiece" type="RigidBody2D"]
+collision_layer = 3
+freeze = true
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bc461")
+
+[node name="J" type="PinJoint2D" parent="C"]
