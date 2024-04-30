@@ -1,9 +1,8 @@
-[gd_scene load_steps=191 format=3 uid="uid://biic1783ehm6s"]
+[gd_scene load_steps=190 format=3 uid="uid://biic1783ehm6s"]
 
 [ext_resource type="Texture2D" uid="uid://gbfkgiiugyld" path="res://Assets/MainCHar/red hood itch free Copy-Sheet.png" id="1_cbos1"]
 [ext_resource type="Script" path="res://Perso.cs" id="1_gjhdq"]
 [ext_resource type="Texture2D" uid="uid://c6ihummp0dys" path="res://Assets/MainCHar/idle and  alter/itch jump sheet-Sheet.png" id="2_5xxy4"]
-[ext_resource type="PackedScene" uid="uid://d3hk0ayhfwnms" path="res://Rope.tscn" id="2_afyjw"]
 [ext_resource type="Texture2D" uid="uid://chhccveen2nfr" path="res://Assets/MainCHar/idle and  alter/itch hurt 2 sheet-Sheet.png" id="3_uxscn"]
 [ext_resource type="Texture2D" uid="uid://dm42qo4ilcdih" path="res://Assets/MainCHar/idle and  alter/idle sheet-Sheet.png" id="4_xuhi4"]
 [ext_resource type="Texture2D" uid="uid://dbee5rysksutq" path="res://Assets/MainCHar/idle and  alter/itch light atk sheet-Sheet.png" id="5_8ru6y"]
@@ -1092,12 +1091,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_dsb5k"]
+[sub_resource type="Gradient" id="Gradient_jlx1d"]
 offsets = PackedFloat32Array(0.0299401, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ysdqo"]
-gradient = SubResource("Gradient_dsb5k")
+gradient = SubResource("Gradient_jlx1d")
 fill = 1
 fill_from = Vector2(0.519481, 0.465368)
 fill_to = Vector2(0.155844, 0.924242)
@@ -1533,106 +1532,13 @@ graph_offset = Vector2(-12.571, 104.225)
 scale = Vector2(16, 16)
 script = ExtResource("1_gjhdq")
 
-[node name="Rope" parent="." instance=ExtResource("2_afyjw")]
-position = Vector2(1, -17.375)
-
 [node name="RayCast" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -16)
 rotation = -1.5708
 
-[node name="RayCast01" type="RayCast2D" parent="RayCast"]
-position = Vector2(-9.48208e-07, 19.875)
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast02" type="RayCast2D" parent="RayCast"]
-position = Vector2(1, 19.875)
-rotation = -0.0872665
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast03" type="RayCast2D" parent="RayCast"]
-position = Vector2(-1, 19.875)
-rotation = 0.0872665
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast04" type="RayCast2D" parent="RayCast"]
-position = Vector2(2, 19.875)
-rotation = -0.174533
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast05" type="RayCast2D" parent="RayCast"]
-position = Vector2(-2, 19.875)
-rotation = 0.174533
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast06" type="RayCast2D" parent="RayCast"]
-position = Vector2(3, 20)
-rotation = -0.261799
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast07" type="RayCast2D" parent="RayCast"]
-position = Vector2(-3, 19.875)
-rotation = 0.261799
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast08" type="RayCast2D" parent="RayCast"]
-position = Vector2(4, 19.875)
-rotation = -0.349066
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast09" type="RayCast2D" parent="RayCast"]
-position = Vector2(-4, 20)
-rotation = 0.349066
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast10" type="RayCast2D" parent="RayCast"]
-position = Vector2(5, 19.875)
-rotation = -0.436332
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast11" type="RayCast2D" parent="RayCast"]
-position = Vector2(-5, 19.875)
-rotation = 0.436332
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast12" type="RayCast2D" parent="RayCast"]
-position = Vector2(6, 19.875)
-rotation = -0.523599
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast13" type="RayCast2D" parent="RayCast"]
-position = Vector2(-6, 19.875)
-rotation = 0.523599
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast14" type="RayCast2D" parent="RayCast"]
-position = Vector2(7, 19.875)
-rotation = -0.610865
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast15" type="RayCast2D" parent="RayCast"]
-position = Vector2(-7, 19.875)
-rotation = 0.610865
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast16" type="RayCast2D" parent="RayCast"]
-position = Vector2(8, 19.875)
-rotation = -0.698132
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast17" type="RayCast2D" parent="RayCast"]
-position = Vector2(-8, 19.875)
-rotation = 0.698132
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast18" type="RayCast2D" parent="RayCast"]
-position = Vector2(9, 19.875)
-rotation = -0.785398
-target_position = Vector2(500, 2.08165e-12)
-
-[node name="RayCast19" type="RayCast2D" parent="RayCast"]
-position = Vector2(-9, 19.875)
-rotation = 0.785398
-target_position = Vector2(500, 2.08165e-12)
+[node name="RayCast2D" type="RayCast2D" parent="RayCast"]
+rotation = 1.5708
+target_position = Vector2(250, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5625, -20.125)
@@ -1643,11 +1549,14 @@ texture_filter = 1
 position = Vector2(12.125, -21.6875)
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Iddle"
-frame = 11
+frame = 9
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0.25, -18.5625)
+light_mask = 1023
+visibility_layer = 1023
+position = Vector2(1.5, -19.5)
+energy = 1.71
 texture = SubResource("GradientTexture2D_ysdqo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

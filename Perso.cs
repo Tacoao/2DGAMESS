@@ -9,19 +9,20 @@ public partial class Perso : CharacterBody2D
 	public const float Speed = 2000.0f;
 	public const float JumpVelocity = -1850.0f;
 	private AnimationTree animationTree;
-	private Node2D rope ;
+
 	private Vector2 HookPosition = new Vector2();
 	private Vector2 motion = new Vector2();
 
 	private float RopeLenght  = 500;
 
 	private float CurrentRopeLenght;
-
-	private bool hooked = false;
-
+	private Node2D rope;
+	public bool hooked = false;
+	public bool GetHooked(){
+		return hooked;
+	}
 	public override void _Ready()
 	{
-		rope = GetNode<Node2D>("Rope");
 		animationTree = GetNode<AnimationTree>("AnimationTree");
 		animationTree.Active = true;
 		this.CurrentRopeLenght = RopeLenght;
@@ -36,13 +37,13 @@ public partial class Perso : CharacterBody2D
 	}
 
 
-    public override void _Draw()
+    /*public override void _Draw()
     {
 		GD.Print("_Draw");
 		
         if (hooked)
 		{
-			DrawLine(new Vector2(0,-16),ToLocal(HookPosition),new Color(0,0,0),3,true);
+			DrawLine(new Vector2(0,-16),ToLocal(HookPosition),new Color(0,0,0),1,true);
 		}
 		else{
 			return;
@@ -50,17 +51,18 @@ public partial class Perso : CharacterBody2D
 			var colliding_pint = GetNode<RayCast2D>("RayCast").GetCollisionPoint();
 			if (colliding && Position.DistanceTo(colliding_pint)< RopeLenght)
             {
-                DrawLine(new Vector2(0,-16),ToLocal(colliding_pint),new Color(0,35,0),3,true);
+                DrawLine(new Vector2(0,-16),ToLocal(colliding_pint),new Color(0,35,0),1,true);
             }
 		}
 
-    }
+    }*/
 
 
     public void  hook(){
-		GetNode<Node2D>("RayCast").LookAt(GetGlobalMousePosition());
+		GetNode<Node2D>("RayCast/RayCast2D").LookAt(GetGlobalMousePosition());
 		if (Input.IsActionJustPressed("hook"))
 		{
+			//rope.Call("spawn_rope", GlobalPosition, GetGlobalMousePosition());
 			HookPosition = GetHookPosition();
 			if (HookPosition != Vector2.Zero)
 			{
@@ -114,7 +116,6 @@ public partial class Perso : CharacterBody2D
 		QueueRedraw();
 		if (hooked)
 		{
-			GD.Print(hooked );
 			float distance = GlobalPosition.DistanceTo(HookPosition);
 			Gravity();
 			Swing(delta);

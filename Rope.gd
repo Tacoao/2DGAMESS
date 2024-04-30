@@ -47,6 +47,27 @@ func add_piece(parent:Object, id:int,spawn_angle:float) -> Object:
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
 	return piece
+func retirer_piece(count: int) -> void:
+	for i in count:
+		if rope_parts.size() > 0:
+			var last_piece = rope_parts.pop_back()
+			last_piece.queue_free()
+
+func update_rope_position(position: Vector2) -> void:
+	var start_pos = rope_start_piece.global_position
+	var end_pos = rope_end_piece.global_position
+	rope_start_piece.global_position = position
+	var distance = start_pos.distance_to(end_pos)
+	var new_distance = start_pos.distance_to(position)
+	var new_piece_amount = round(new_distance / piece_lenght)
+	if new_piece_amount > rope_parts.size():
+		var additional_pieces = new_piece_amount - rope_parts.size()
+		
+		for i in additional_pieces+10:
+			add_piece(rope_parts[-1], rope_parts.size() + i, 0)
+	elif new_piece_amount < rope_parts.size():
+		var pieces_to_remove = rope_parts.size() - new_piece_amount 
+		retirer_piece(pieces_to_remove)
 	
 
 
