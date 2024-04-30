@@ -35,16 +35,17 @@ func _ready():
 
 func on_start_button_pressed() -> void :
 	get_tree().change_scene_to_packed(start_level)
+	$ClickSound.play()
 
 func on_continue_button_pressed() -> void :
 	get_tree().change_scene("res://ContinueMenu.tscn")
-
+	$ClickSound.play()
 func on_option_button_pressed() -> void :
 	get_tree().change_scene("res://OptionMenu.tscn")
-
+	$ClickSound.play()
 func on_exit_button_pressed() -> void :
 	get_tree().quit()
-
+	$ClickSound.play()
 
 
 func on_start_button_hover() -> void:
@@ -52,29 +53,31 @@ func on_start_button_hover() -> void:
 	LightContinue.hide()
 	LightOptions.hide()
 	LightQuit.hide()
+	$Hoversound.play()
 
 func on_continue_button_hover() -> void:
 	LightPlay.hide()
 	LightContinue.show()
 	LightOptions.hide()
 	LightQuit.hide()
+	$Hoversound.play()
 
 func on_option_button_hover() -> void:
 	LightPlay.hide()
 	LightContinue.hide()
 	LightOptions.show()
 	LightQuit.hide()
-
+	$Hoversound.play()
 func on_quit_button_hover() -> void:
 	LightPlay.hide()
 	LightContinue.hide()
 	LightOptions.hide()
 	LightQuit.show()
-
+	$Hoversound.play()
 
 func on_start_button_exited() -> void:
 	LightPlay.hide()
-
+	
 func on_continue_button_exited() -> void:
 	LightContinue.hide()
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj2s1rmsx77wi"
+path="res://.godot/imported/atmospheric-metallic-swipe-17-196791.mp3-707535496d26c9d15870584bc4f47880.mp3str"
+
+[deps]
+
+source_file="res://Assets/Main Menu/atmospheric-metallic-swipe-17-196791.mp3"
+dest_files=["res://.godot/imported/atmospheric-metallic-swipe-17-196791.mp3-707535496d26c9d15870584bc4f47880.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

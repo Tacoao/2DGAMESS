@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8wn87irqbodb"]
+[gd_scene load_steps=20 format=3 uid="uid://c8wn87irqbodb"]
 
 [ext_resource type="Shader" path="res://MainMenu/main_menu.gdshader" id="1_ui7s1"]
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_v2vwx"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cdsuf5patps5k" path="res://Assets/Main Menu/DALL_E-2024-04-28-02.39_1_-removebg-preview.png" id="3_b3l45"]
 [ext_resource type="Texture2D" uid="uid://dde1w303jokd8" path="res://Assets/Main Menu/Btn/DALL_E-2024-04-28-02.39_2_-removebg-preview_3__1_-removebg-preview.png" id="4_l5hj2"]
 [ext_resource type="Shader" path="res://main.gdshader" id="6_le3te"]
+[ext_resource type="AudioStream" uid="uid://ch1lb42x5jrd1" path="res://Assets/Main Menu/Enchanted-Forest-Music-Ambience.mp3" id="7_gh1s0"]
+[ext_resource type="AudioStream" uid="uid://2twfwxp0kkoa" path="res://Assets/Main Menu/click-button-131479.mp3" id="8_2ir6h"]
+[ext_resource type="AudioStream" uid="uid://cj2s1rmsx77wi" path="res://Assets/Main Menu/atmospheric-metallic-swipe-17-196791.mp3" id="9_6v823"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_66fpf"]
 shader = ExtResource("1_ui7s1")
@@ -24,6 +27,7 @@ noise = SubResource("FastNoiseLite_tabg0")
 
 [sub_resource type="SystemFont" id="SystemFont_qdofj"]
 font_names = PackedStringArray("Cinzel Decorative")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbwon"]
 texture = ExtResource("4_l5hj2")
@@ -72,6 +76,7 @@ scale = Vector2(0.281783, 0.158912)
 texture = ExtResource("2_hnchc")
 
 [node name="Fog" type="TextureRect" parent="."]
+visible = false
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_u5hqo")
@@ -173,3 +178,14 @@ visible = false
 position = Vector2(124, 382)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gh1s0")
+autoplay = true
+
+[node name="Hoversound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2ir6h")
+pitch_scale = 0.82
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6v823")

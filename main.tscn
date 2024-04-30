@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
-[ext_resource type="PackedScene" uid="uid://dpdiagsn5cyvi" path="res://hand_enemy.tscn" id="1_tpy68"]
-[ext_resource type="PackedScene" uid="uid://ro4i3bfbalwy" path="res://bat.tscn" id="2_bk5sa"]
+[ext_resource type="PackedScene" path="res://hand_enemy.tscn" id="1_tpy68"]
+[ext_resource type="PackedScene" path="res://bat.tscn" id="2_bk5sa"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
@@ -256,6 +256,7 @@ position = Vector2(-790, -966)
 scale = Vector2(18.84, 18.84)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 position = Vector2(-5, 0)
 color = Color(0.257476, 0.257476, 0.257476, 1)
 
@@ -267,6 +268,7 @@ layer_0/tile_data = PackedInt32Array(131069, 65537, 1, 131070, 65537, 1, 131071,
 
 [node name="-4" type="CanvasLayer" parent="."]
 layer = -4
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.6
 
@@ -276,11 +278,13 @@ scale = Vector2(366.417, 227.019)
 texture = ExtResource("1_rt5h8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="-4"]
+visible = false
 position = Vector2(-5, 0)
 color = Color(0.257476, 0.257476, 0.257476, 1)
 
 [node name="-3" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
@@ -295,25 +299,30 @@ scale = Vector2(7.24436, 10.4806)
 texture = ExtResource("2_nrq5j")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="-3"]
+visible = false
 texture_filter = 2
 position = Vector2(-5, 0)
 color = Color(0.808998, 0.808998, 0.808998, 1)
 
 [node name="-2" type="CanvasLayer" parent="."]
 layer = -2
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
 [node name="-1" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
 
 [node name="0" type="CanvasLayer" parent="."]
 layer = 0
+visible = false
 follow_viewport_enabled = true
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="0"]
+visible = false
 texture_filter = 2
 position = Vector2(-290, 946)
 rotation = 6.29689
@@ -326,16 +335,19 @@ fixed_fps = 0
 draw_order = 0
 
 [node name="1" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
 
 [node name="2" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
 [node name="3" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
@@ -427,6 +439,7 @@ grow_horizontal = 2
 texture = SubResource("NoiseTexture2D_o8k1c")
 
 [node name="CaptureDÉcran2024-04-27À00_51_57-removebg-preview" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(22338.8, -2317.75)
 rotation = 2.11343
 scale = Vector2(1, 6.21113)
