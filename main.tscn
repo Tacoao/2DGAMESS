@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=25 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
 [ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
 [ext_resource type="Texture2D" uid="uid://pmdmo8t4sk0t" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png" id="10_yspm1"]
-[ext_resource type="PackedScene" uid="uid://cqu6dg2sgik2l" path="res://water_body.tscn" id="11_af54a"]
 [ext_resource type="Script" path="res://addons/ropesim/Rope.gd" id="12_f3pge"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeRendererLine2D.gd" id="13_sq8iy"]
 
@@ -284,7 +283,7 @@ rope_path = NodePath("../Rope")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 position = Vector2(-5, 0)
-color = Color(0.257476, 0.257476, 0.257476, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1344, 30)
@@ -304,7 +303,7 @@ texture = ExtResource("1_rt5h8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="-4"]
 position = Vector2(-5, 0)
-color = Color(0.257476, 0.257476, 0.257476, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 
 [node name="-3" type="CanvasLayer" parent="."]
 layer = -1
@@ -324,7 +323,6 @@ texture = ExtResource("2_nrq5j")
 [node name="CanvasModulate" type="CanvasModulate" parent="-3"]
 texture_filter = 2
 position = Vector2(-5, 0)
-color = Color(0.808998, 0.808998, 0.808998, 1)
 
 [node name="-2" type="CanvasLayer" parent="."]
 layer = -2
@@ -451,6 +449,3 @@ position = Vector2(22338.8, -2317.75)
 rotation = 2.11343
 scale = Vector2(1, 6.21113)
 texture = ExtResource("10_yspm1")
-
-[node name="Water_Body" parent="." instance=ExtResource("11_af54a")]
-position = Vector2(5781, 672)
