@@ -1536,8 +1536,8 @@ script = ExtResource("1_gjhdq")
 texture_filter = 1
 position = Vector2(0, 1.6875)
 sprite_frames = SubResource("SpriteFrames_xbmsm")
-animation = &"Arc"
-frame_progress = 0.507285
+animation = &"Iddle"
+frame = 17
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
