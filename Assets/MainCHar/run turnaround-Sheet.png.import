@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds8u7u3o0j517"
-path="res://.godot/imported/run turnaround-Sheet.png-d2025e337d37fbe85113e7a262c4304b.ctex"
+path="res://godot/imported/run turnaround-Sheet.png-d2025e337d37fbe85113e7a262c4304b.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/MainCHar/run turnaround-Sheet.png"
-dest_files=["res://.godot/imported/run turnaround-Sheet.png-d2025e337d37fbe85113e7a262c4304b.ctex"]
+dest_files=["res://godot/imported/run turnaround-Sheet.png-d2025e337d37fbe85113e7a262c4304b.ctex"]
 
 [params]
 

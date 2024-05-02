@@ -1,6 +1,6 @@
 extends Node2D
 @onready var rope = $Rope
-@onready var Handle = $Marker2D
+@onready var Handle = $RopeHandle
 @onready var player = $CharacterBody2D
 const FRAME_HEIGHT = 25
 func _ready():

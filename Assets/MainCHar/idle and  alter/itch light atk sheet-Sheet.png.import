@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbee5rysksutq"
-path="res://.godot/imported/itch light atk sheet-Sheet.png-352f72cb99db60889d0cf15054e96447.ctex"
+path="res://godot/imported/itch light atk sheet-Sheet.png-352f72cb99db60889d0cf15054e96447.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/MainCHar/idle and  alter/itch light atk sheet-Sheet.png"
-dest_files=["res://.godot/imported/itch light atk sheet-Sheet.png-352f72cb99db60889d0cf15054e96447.ctex"]
+dest_files=["res://godot/imported/itch light atk sheet-Sheet.png-352f72cb99db60889d0cf15054e96447.ctex"]
 
 [params]
 

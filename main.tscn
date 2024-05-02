@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=21 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
+[ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://rope.tscn" id="3_pr2jr"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="3_ye5vl"]
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
@@ -12,23 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
 [ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
 [ext_resource type="Texture2D" uid="uid://pmdmo8t4sk0t" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png" id="10_yspm1"]
-[ext_resource type="Script" path="res://addons/ropesim/Rope.gd" id="12_f3pge"]
-[ext_resource type="Script" path="res://addons/ropesim/RopeRendererLine2D.gd" id="13_sq8iy"]
-
-[sub_resource type="Gradient" id="Gradient_eejgo"]
-interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.987805, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="Gradient" id="Gradient_dsb5k"]
-offsets = PackedFloat32Array(0.0299401, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q56w4"]
-gradient = SubResource("Gradient_dsb5k")
-fill = 1
-fill_from = Vector2(0.519481, 0.465368)
-fill_to = Vector2(0.155844, 0.924242)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rckr5"]
 texture = ExtResource("3_uffme")
@@ -252,31 +236,12 @@ color = Color(0.24, 0.75, 0, 0.682)
 script = ExtResource("1_ulyes")
 metadata/_edit_horizontal_guides_ = [-678.0]
 
-[node name="Rope" type="Node2D" parent="."]
-position = Vector2(835, -191)
-script = ExtResource("12_f3pge")
-num_segments = 30
-rope_length = 1500.0
-damping = 50.0
-
-[node name="RopeRendererLine2D" type="Line2D" parent="Rope"]
-points = PackedVector2Array(0, 0, -57.1646, -41.7386, -114.223, -83.6962, -171.118, -125.977, -227.823, -168.636, -284.328, -211.697, -340.635, -255.167, -396.744, -299.047, -452.66, -343.335, -508.383, -388.029, -563.915, -433.126, -619.256, -478.622, -674.405, -524.513, -729.363, -570.796, -784.135, -617.469, -838.727, -664.537, -893.146, -712, -947.384, -759.85, -1001.41, -808.052, -1055.14, -856.532, -1108.62, -905.313, -1162.07, -954.595, -1215.72, -1004.61, -1269.54, -1055.34, -1323.08, -1106.36, -1375.5, -1156.83, -1425.79, -1205.71, -1473.02, -1251.96, -1516.52, -1294.84, -1555.96, -1333.93, -1591.4, -1369.2)
-gradient = SubResource("Gradient_eejgo")
-texture_mode = 1
-script = ExtResource("13_sq8iy")
-
-[node name="PointLight2D" type="PointLight2D" parent="Rope"]
-light_mask = 1023
-visibility_layer = 1023
-position = Vector2(0.25, -18.5625)
-energy = 9.28
-texture = SubResource("GradientTexture2D_q56w4")
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 position = Vector2(179, 619)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-923, -1730)
+[node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
+
+[node name="RopeHandle" type="Marker2D" parent="."]
 script = ExtResource("3_ye5vl")
 rope_path = NodePath("../Rope")
 
@@ -439,9 +404,9 @@ scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
 [node name="TextureRect" parent="3" instance=ExtResource("9_hti77")]
-offset_left = -8034.62
+offset_left = -7993.08
 offset_top = -18669.2
-offset_right = 53295.4
+offset_right = 53336.9
 offset_bottom = 15778.8
 
 [node name="CaptureDÉcran2024-04-27À00_51_57-removebg-preview" type="Sprite2D" parent="."]

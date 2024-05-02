@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfhs6w71oie5u"]
+
+[ext_resource type="Script" path="res://addons/ropesim/Rope.gd" id="1_6ckvw"]
+[ext_resource type="Script" path="res://addons/ropesim/RopeRendererLine2D.gd" id="2_ku57n"]
+[ext_resource type="Script" path="res://addons/ropesim/RopeToolHelper.gd" id="3_61mq8"]
+
+[node name="Rope" type="Node2D"]
+position = Vector2(-384, 15)
+script = ExtResource("1_6ckvw")
+num_segments = 50
+damping = 12.0
+
+[node name="RopeRendererLine2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 6.63443, 5.27429, 13.2801, 10.4614, 19.9434, 15.5257, 26.6288, 20.44, 33.3387, 25.1847, 40.0745, 29.7459, 46.8364, 34.1143, 53.6244, 38.2833, 60.4381, 42.2485, 67.2769, 46.0068, 74.1404, 49.5554, 81.028, 52.8922, 87.9388, 56.0152, 94.8721, 58.9226, 101.827, 61.6125, 108.803, 64.0831, 115.798, 66.3328, 122.812, 68.3598, 129.843, 70.1626, 136.89, 71.7397, 143.95, 73.0897, 151.023, 74.2115, 158.106, 75.1039, 165.197, 75.7661, 172.295, 76.1973, 179.397, 76.397, 186.502, 76.3649, 193.607, 76.1008, 200.71, 75.6048, 207.809, 74.8772, 214.901, 73.9185, 221.985, 72.7298, 229.058, 71.3118, 236.12, 69.6654, 243.171, 67.7906, 250.211, 65.6874, 257.236, 63.3577, 264.233, 60.8088, 271.178, 58.058, 278.082, 55.106, 285.013, 51.9127, 292.04, 48.4229, 299.15, 44.6319, 306.204, 40.6371, 312.946, 36.6357, 319.07, 32.8765, 324.286, 29.5981, 328.387, 26.9804, 331.271, 25.1209, 332.95, 24.0333)
+script = ExtResource("2_ku57n")
+
+[node name="_Node_23495" type="Node" parent="RopeRendererLine2D"]
+script = ExtResource("3_61mq8")
+
+[node name="@Node@28063" type="Node" parent="RopeRendererLine2D"]
+script = ExtResource("3_61mq8")

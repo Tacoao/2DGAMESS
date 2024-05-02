@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1lsh3u46fr4"
-path="res://.godot/imported/Slime_Spiked_Run.png-76b22688d02ca26a7ffb34c28b5220fc.ctex"
+path="res://godot/imported/Slime_Spiked_Run.png-76b22688d02ca26a7ffb34c28b5220fc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Slime/Slime_Spiked_Run.png"
-dest_files=["res://.godot/imported/Slime_Spiked_Run.png-76b22688d02ca26a7ffb34c28b5220fc.ctex"]
+dest_files=["res://godot/imported/Slime_Spiked_Run.png-76b22688d02ca26a7ffb34c28b5220fc.ctex"]
 
 [params]
 

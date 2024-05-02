@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsigucu0idm60"
-path="res://.godot/imported/itch run-Sheet sheet.png-c905edf3c74f3cdb8238de36f49a4121.ctex"
+path="res://godot/imported/itch run-Sheet sheet.png-c905edf3c74f3cdb8238de36f49a4121.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/MainCHar/idle and  alter/itch run-Sheet sheet.png"
-dest_files=["res://.godot/imported/itch run-Sheet sheet.png-c905edf3c74f3cdb8238de36f49a4121.ctex"]
+dest_files=["res://godot/imported/itch run-Sheet sheet.png-c905edf3c74f3cdb8238de36f49a4121.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4tctx8rut4hx"
-path="res://.godot/imported/wall slide-Sheet.png-ba5ccc2b353618b921c7c8a0b1d85e53.ctex"
+path="res://godot/imported/wall slide-Sheet.png-ba5ccc2b353618b921c7c8a0b1d85e53.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/MainCHar/wall slide-Sheet.png"
-dest_files=["res://.godot/imported/wall slide-Sheet.png-ba5ccc2b353618b921c7c8a0b1d85e53.ctex"]
+dest_files=["res://godot/imported/wall slide-Sheet.png-ba5ccc2b353618b921c7c8a0b1d85e53.ctex"]
 
 [params]
 
