@@ -14,3 +14,7 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 *.wav
+*.cache
+*.md5
+*.ctex
+*.cfg
