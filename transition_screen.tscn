@@ -1,22 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://62yeyuiw7rfs"]
+[gd_scene load_steps=7 format=3 uid="uid://62yeyuiw7rfs"]
 
 [ext_resource type="Script" path="res://Transition_screen.gd" id="1_x2p6f"]
-
-[sub_resource type="Animation" id="Animation_ifi3u"]
-resource_name = "fade_to_black"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[ext_resource type="AudioStream" uid="uid://cj2s1rmsx77wi" path="res://Assets/Main Menu/atmospheric-metallic-swipe-17-196791.mp3" id="2_tt4je"]
 
 [sub_resource type="Animation" id="Animation_gi7l1"]
 length = 0.001
@@ -43,10 +28,26 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.5),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ifi3u"]
+resource_name = "fade_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b7vds"]
@@ -72,3 +73,6 @@ color = Color(0.0644606, 0.0132004, 0.0366172, 1)
 libraries = {
 "": SubResource("AnimationLibrary_b7vds")
 }
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tt4je")

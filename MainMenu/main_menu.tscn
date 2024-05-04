@@ -76,7 +76,6 @@ scale = Vector2(0.281783, 0.158912)
 texture = ExtResource("2_hnchc")
 
 [node name="Fog" type="TextureRect" parent="."]
-visible = false
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_u5hqo")

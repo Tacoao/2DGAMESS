@@ -16,3 +16,4 @@ func _on_animation_finished(anim_name):
 func transition():
 	color_react.visible = true
 	animation_player.play("fade_to_black")
+	$ClickSound.play()
