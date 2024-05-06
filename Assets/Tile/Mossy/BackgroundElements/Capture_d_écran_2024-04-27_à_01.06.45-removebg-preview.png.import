@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl3oek1gcd4px"
-path="res://godot/imported/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png-fd36fe16ee124726011ef3b96d601758.ctex"
+path="res://.godot/imported/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png-fd36fe16ee124726011ef3b96d601758.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png"
-dest_files=["res://godot/imported/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png-fd36fe16ee124726011ef3b96d601758.ctex"]
+dest_files=["res://.godot/imported/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png-fd36fe16ee124726011ef3b96d601758.ctex"]
 
 [params]
 

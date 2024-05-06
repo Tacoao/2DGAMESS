@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6q2olbudbuxg"
-path="res://godot/imported/Mossy - MossyHills.png-c6340df997f5c475238bac4776563f5c.ctex"
+path="res://.godot/imported/Mossy - MossyHills.png-c6340df997f5c475238bac4776563f5c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Tile/Mossy/Mossy - MossyHills.png"
-dest_files=["res://godot/imported/Mossy - MossyHills.png-c6340df997f5c475238bac4776563f5c.ctex"]
+dest_files=["res://.godot/imported/Mossy - MossyHills.png-c6340df997f5c475238bac4776563f5c.ctex"]
 
 [params]
 
