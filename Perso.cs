@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Numerics;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 
 

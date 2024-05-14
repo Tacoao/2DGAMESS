@@ -1,18 +1,32 @@
-[gd_scene load_steps=21 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=48 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
+[ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="3_nxi73"]
 [ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://rope.tscn" id="3_pr2jr"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
+[ext_resource type="AudioStream" uid="uid://cia0am5qhbanc" path="res://Assets/MainCHar/ScreenStateLife/MURMURES-INQUIETANTS-Bruitage-Gratuit-_mp3cut.net_.wav" id="3_w2pmg"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="3_ye5vl"]
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_35vp1"]
 [ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="7_0d5gh"]
 [ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="7_xg385"]
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
 [ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
 [ext_resource type="Texture2D" uid="uid://pmdmo8t4sk0t" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png" id="10_yspm1"]
+[ext_resource type="Script" path="res://StatusLife.gd" id="15_dpxxg"]
+[ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="15_usgjh"]
+[ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="16_hxg1i"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_0iomu"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_0atvm"]
+
+[sub_resource type="Resource" id="Resource_pfmpj"]
+script = ExtResource("20_0atvm")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rckr5"]
 texture = ExtResource("3_uffme")
@@ -232,12 +246,206 @@ scale_curve = SubResource("CurveTexture_h64h8")
 scale_over_velocity_curve = SubResource("CurveTexture_0wbof")
 color = Color(0.24, 0.75, 0, 0.682)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqlrb"]
+animation = &"State1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_it6ur"]
+animation = &"State2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rtixr"]
+animation = &"State3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y3hd5"]
+animation = &"StateFine"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghc7b"]
+advance_mode = 2
+advance_condition = &"isState2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_24boh"]
+advance_mode = 2
+advance_condition = &"isState3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2log"]
+advance_mode = 2
+advance_condition = &"isState2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vmbl7"]
+advance_mode = 2
+advance_condition = &"isState1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fuh6s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_37ggs"]
+advance_mode = 2
+advance_condition = &"isState1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sr3ab"]
+advance_mode = 2
+advance_condition = &"isStateFine"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_id14n"]
+states/Start/position = Vector2(47, 100)
+states/State1/node = SubResource("AnimationNodeAnimation_gqlrb")
+states/State1/position = Vector2(312, 100)
+states/State2/node = SubResource("AnimationNodeAnimation_it6ur")
+states/State2/position = Vector2(474, 100)
+states/State3/node = SubResource("AnimationNodeAnimation_rtixr")
+states/State3/position = Vector2(662, 100)
+states/StateFine/node = SubResource("AnimationNodeAnimation_y3hd5")
+states/StateFine/position = Vector2(171, 100)
+transitions = ["State1", "State2", SubResource("AnimationNodeStateMachineTransition_ghc7b"), "State2", "State3", SubResource("AnimationNodeStateMachineTransition_24boh"), "State3", "State2", SubResource("AnimationNodeStateMachineTransition_j2log"), "State2", "State1", SubResource("AnimationNodeStateMachineTransition_vmbl7"), "Start", "StateFine", SubResource("AnimationNodeStateMachineTransition_fuh6s"), "StateFine", "State1", SubResource("AnimationNodeStateMachineTransition_37ggs"), "State1", "StateFine", SubResource("AnimationNodeStateMachineTransition_sr3ab")]
+
+[sub_resource type="Animation" id="Animation_dvbvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusLife/StatusLife1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatusLife/StatusLife2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StatusLife/StatusLife3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dgls7"]
+resource_name = "State1"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusLife/StatusLife1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_vpqmo"]
+resource_name = "State2"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusLife/StatusLife2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_trmgt"]
+resource_name = "State3"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusLife/StatusLife3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_08wpw"]
+resource_name = "StateFine"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusLife/StatusLife1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ex0pc"]
+_data = {
+"RESET": SubResource("Animation_dvbvc"),
+"State1": SubResource("Animation_dgls7"),
+"State2": SubResource("Animation_vpqmo"),
+"State3": SubResource("Animation_trmgt"),
+"StateFine": SubResource("Animation_08wpw")
+}
+
 [node name="Node" type="Node2D"]
 script = ExtResource("1_ulyes")
 metadata/_edit_horizontal_guides_ = [-678.0]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+texture_filter = 2
+position = Vector2(-5, 0)
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
-position = Vector2(179, 619)
+position = Vector2(787, -29)
+
+[node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(-11.1875, -38.6875)
+scale = Vector2(0.0625, 0.0625)
+stream = ExtResource("3_w2pmg")
+volume_db = -11.142
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(0.0625, 0.0625)
+zoom = Vector2(0.2, 0.2)
+
+[node name="PhantomCameraHost" type="Node" parent="CharacterBody2D/Camera2D"]
+script = ExtResource("4_35vp1")
+
+[node name="PhantomCamera2D" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("follow_target")]
+scale = Vector2(0.0625, 0.0625)
+script = ExtResource("19_0iomu")
+priority = 5
+follow_mode = 2
+follow_target = NodePath("..")
+zoom = Vector2(0.2, 0.2)
+tween_resource = SubResource("Resource_pfmpj")
+follow_damping = true
+follow_damping_value = Vector2(2, 2)
 
 [node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
 
@@ -245,65 +453,63 @@ position = Vector2(179, 619)
 script = ExtResource("3_ye5vl")
 rope_path = NodePath("../Rope")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-position = Vector2(-5, 0)
-color = Color(0, 0, 0, 1)
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1344, 30)
 tile_set = SubResource("TileSet_abaen")
 format = 2
 layer_0/tile_data = PackedInt32Array(131069, 65537, 1, 131070, 65537, 1, 131071, 65537, 0, 65536, 65537, 0, 65537, 65537, 0, 65538, 65537, 0, 65539, 65537, 0, 65540, 65537, 0, 65541, 65537, 0, 65542, 65537, 0, 65543, 65537, 0, 65544, 65537, 0, 65545, 65537, 0, 65546, 65537, 0, 65547, 65537, 0, 65548, 131073, 0, 131084, 131073, 1, 196620, 131073, 1, 262156, 131073, 1, 327692, 131073, 2, 327691, 65537, 2, 327690, 65537, 2, 327689, 65537, 2, 327688, 65537, 2, 327687, 65537, 2, 327686, 65537, 2, 327685, 65537, 2, 327684, 65537, 2, 327683, 65537, 2, 327682, 65537, 2, 327681, 65537, 2, 327680, 65537, 2, 393215, 65537, 2, 393214, 65537, 2, 393213, 65537, 2, 196605, 65537, 1, 262141, 65537, 1, 327677, 65537, 1, 196606, 65537, 1, 196607, 65537, 1, 131072, 65537, 1, 131073, 65537, 1, 131074, 65537, 1, 131075, 65537, 1, 131076, 65537, 1, 131077, 65537, 1, 131078, 65537, 1, 131079, 65537, 1, 131080, 65537, 1, 131081, 65537, 1, 131082, 65537, 1, 131083, 65537, 1, 196619, 65537, 1, 196618, 65537, 1, 196617, 65537, 1, 196616, 65537, 1, 196615, 65537, 1, 196614, 65537, 1, 196613, 65537, 1, 196612, 65537, 1, 196611, 65537, 1, 196610, 65537, 1, 196609, 65537, 1, 196608, 65537, 1, 262143, 65537, 1, 262142, 65537, 1, 327678, 65537, 1, 327679, 65537, 1, 262144, 65537, 1, 262145, 65537, 1, 262146, 65537, 1, 262147, 65537, 1, 262148, 65537, 1, 262149, 65537, 1, 262150, 65537, 1, 262151, 65537, 1, 262152, 65537, 1, 262153, 65537, 1, 262154, 65537, 1, 262155, 65537, 1, 65533, 65537, 1, -3, 65537, 1, -65539, 65537, 1, -131075, 65537, 1, -196611, 65537, 1, 65534, 131073, 1, -2, 131073, 1, -65538, 131073, 1, -131074, 131073, 1, -196610, 131073, 1, -262146, 65537, 1, -262147, 65537, 1, -262148, 1, 1, -196612, 1, 1, -131076, 1, 1, -65540, 1, 1, -4, 1, 1, 65532, 1, 1, 131068, 1, 1, 196604, 1, 1, 262140, 1, 1, 327676, 1, 1, 393212, 1, 2, -327684, 1, 0, -393207, 65537, 0, -393206, 65537, 0, -393205, 65537, 0, -393204, 65537, 0, -262145, 65537, 2, -327680, 65537, 2, -327679, 65537, 2, -327678, 65537, 2, -327677, 65537, 2, -327676, 65537, 2, -327675, 65537, 2, -327674, 65537, 2, -327673, 65537, 2, -327672, 65537, 2, -327671, 65537, 2, -327670, 65537, 2, -327669, 65537, 2, -327668, 65537, 2, -327683, 65537, 0, -327682, 65537, 0, -327681, 65537, 0, -393216, 65537, 0, -393215, 65537, 0, -393214, 65537, 0, -393213, 65537, 0, -393212, 65537, 0, -393211, 65537, 0, -393210, 65537, 0, -393209, 65537, 0, -393208, 65537, 0, -393203, 131073, 0, -327667, 131073, 2, 65551, 1, 0, 65552, 65537, 0, 65553, 65537, 0, 65554, 131073, 0, 131088, 65537, 1, 196624, 65537, 1, 262160, 65537, 1, 327696, 65537, 1, 262161, 65537, 1, 196625, 65537, 1, 131089, 65537, 1, 327697, 65537, 1, 131087, 1, 1, 196623, 1, 1, 262159, 1, 1, 131090, 131073, 1, 196626, 131073, 1, 262162, 131073, 1, 327695, 1, 1, 327698, 131073, 1, 393231, 1, 2, 393232, 65537, 2, 393233, 65537, 2, 393234, 131073, 2, 29, 1, 0, 30, 65537, 0, 31, 131073, 0, 65566, 65537, 2, 65567, 131073, 2, 65565, 1, 2, 65568, 1, 2, 33, 65537, 0, 34, 131073, 0, 65569, 65537, 2, -196572, 196609, 1, -131036, 196609, 1, -65500, 196609, 2, -262110, 196609, 1, -196574, 196609, 1, -131038, 196609, 2, -262108, 196609, 1, -327644, 196609, 1, -393180, 196609, 1, -458716, 1, 0, -327646, 196609, 1, -393182, 196609, 1, -458718, 196609, 1, -524254, 196609, 1, -589790, 196609, 0, -458715, 65537, 3, -458714, 65537, 3, -458713, 65537, 3, -458712, 65537, 3, -458711, 65537, 3, -458710, 65537, 3, 32, 1, 0, 65570, 131073, 2, -196559, 1, 0, -196558, 65537, 0, -196557, 65537, 0, -196556, 131073, 0, -131022, 65537, 2, -131021, 65537, 2, -131023, 1, 2, -131020, 131073, 2, 65557, 65537, 0, 65558, 65537, 0, 65559, 65537, 0, 65560, 65537, 0, 65561, 65537, 0, 65562, 65537, 0, 65563, 131073, 0, 65556, 1, 0, 131092, 1, 2, 131099, 131073, 2, 131093, 65537, 2, 131094, 65537, 2, 131095, 65537, 2, 131096, 65537, 2, 131097, 65537, 2, 131098, 65537, 2, -131016, 196609, 0, -65480, 196609, 1, 56, 196609, 2, -65473, 196609, 0, 63, 196609, 1, 65599, 196609, 2, -131002, 196609, 0, -65466, 196609, 1, 70, 196609, 2, 79, 196609, 0, 65615, 196609, 1, 131151, 196609, 2, 196695, 196609, 0, 262231, 196609, 1, 327767, 196609, 2, 262239, 196609, 0, 327775, 196609, 1, 393311, 196609, 2, 65639, 196609, 0, 131175, 196609, 1, 196711, 196609, 2, -196591, 196609, 3, -196588, 196609, 3, -196585, 196609, 3, -262119, 196609, 3, -262116, 196609, 3)
 
-[node name="-4" type="CanvasLayer" parent="."]
+[node name="WorldDetails" type="Node2D" parent="."]
+
+[node name="-4" type="CanvasLayer" parent="WorldDetails"]
 layer = -4
 follow_viewport_enabled = true
 follow_viewport_scale = 0.6
 
-[node name="Images" type="Sprite2D" parent="-4"]
+[node name="Images" type="Sprite2D" parent="WorldDetails/-4"]
 position = Vector2(9661.67, 495)
 scale = Vector2(366.417, 227.019)
 texture = ExtResource("1_rt5h8")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="-4"]
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-4"]
 position = Vector2(-5, 0)
-color = Color(0.176419, 0.176419, 0.176419, 1)
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
-[node name="-3" type="CanvasLayer" parent="."]
+[node name="-3" type="CanvasLayer" parent="WorldDetails"]
 layer = -1
 follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
-[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview" type="Sprite2D" parent="-3"]
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview" type="Sprite2D" parent="WorldDetails/-3"]
 position = Vector2(-2421.43, -2231.43)
 scale = Vector2(7.59391, 6.98087)
 texture = ExtResource("4_1g41i")
 
-[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="-3"]
+[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="WorldDetails/-3"]
 position = Vector2(720, 691.429)
 scale = Vector2(7.24436, 10.4806)
 texture = ExtResource("2_nrq5j")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="-3"]
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-3"]
 texture_filter = 2
 position = Vector2(-5, 0)
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
-[node name="-2" type="CanvasLayer" parent="."]
+[node name="-2" type="CanvasLayer" parent="WorldDetails"]
 layer = -2
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
-[node name="-1" type="CanvasLayer" parent="."]
+[node name="-1" type="CanvasLayer" parent="WorldDetails"]
 layer = -1
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
 
-[node name="0" type="CanvasLayer" parent="."]
+[node name="0" type="CanvasLayer" parent="WorldDetails"]
 layer = 0
 follow_viewport_enabled = true
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="0"]
+[node name="CPUParticles2D" type="GPUParticles2D" parent="WorldDetails/0"]
 texture_filter = 2
 position = Vector2(-290, 946)
 rotation = 6.29689
@@ -315,102 +521,156 @@ lifetime = 0.9
 fixed_fps = 0
 draw_order = 0
 
-[node name="1" type="CanvasLayer" parent="."]
+[node name="1" type="CanvasLayer" parent="WorldDetails"]
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
 
-[node name="2" type="CanvasLayer" parent="."]
+[node name="2" type="CanvasLayer" parent="WorldDetails"]
 layer = 2
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
-[node name="3" type="CanvasLayer" parent="."]
+[node name="3" type="CanvasLayer" parent="WorldDetails"]
 layer = 3
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
-[node name="Images" type="Sprite2D" parent="3"]
+[node name="Images" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-5033.85, 2898.46)
 scale = Vector2(9.85913, 65.0092)
 texture = ExtResource("7_xg385")
 
-[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-213.333, 607.5)
 scale = Vector2(2.56689, 2.906)
 texture = ExtResource("2_nrq5j")
 
-[node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(2067.69, 706.923)
 scale = Vector2(3.50398, 3.66538)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-797.692, 598.462)
 rotation = 0.00550431
 scale = Vector2(4.06639, 5.20824)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview3" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview3" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-883.846, 1953.85)
 rotation = 3.08868
 scale = Vector2(4.46581, 5.90624)
 skew = -0.0027523
 texture = ExtResource("7_0d5gh")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="3"]
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/3"]
+visible = false
 position = Vector2(-5, 0)
-color = Color(0.360949, 0.360949, 0.360949, 1)
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview2" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview2" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-756.864, -1879.93)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview4" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview4" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(2057.69, -1769.23)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview5" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview5" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(610.769, -1840.77)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview6" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview6" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-1817.69, -1082.31)
 rotation = 1.71078
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview7" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview7" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-1828.46, 90)
 rotation = 1.46336
 scale = Vector2(1.26547, 3.27396)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview8" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview8" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(3340.77, -1864.62)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview9" type="Sprite2D" parent="3"]
+[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview9" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(4433.08, -2022.31)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
 
-[node name="TextureRect" parent="3" instance=ExtResource("9_hti77")]
+[node name="StatusLife" type="Node2D" parent="WorldDetails/3"]
+script = ExtResource("15_dpxxg")
+
+[node name="StatusLife1" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
+z_index = 3
+z_as_relative = false
+position = Vector2(223, -190.5)
+scale = Vector2(5.00833, 4.96574)
+texture = ExtResource("3_nxi73")
+
+[node name="StatusLife2" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+z_as_relative = false
+position = Vector2(223, -190.5)
+scale = Vector2(5.00833, 4.96574)
+texture = ExtResource("15_usgjh")
+
+[node name="StatusLife3" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+z_as_relative = false
+position = Vector2(223, -190.5)
+scale = Vector2(5.00833, 4.96574)
+texture = ExtResource("16_hxg1i")
+
+[node name="StatusAnimationTree" type="AnimationTree" parent="WorldDetails/3/StatusLife"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_id14n")
+anim_player = NodePath("../StatusAnimationPlayer")
+parameters/conditions/isState1 = false
+parameters/conditions/isState2 = false
+parameters/conditions/isState3 = false
+parameters/conditions/isStateFine = false
+
+[node name="StatusAnimationPlayer" type="AnimationPlayer" parent="WorldDetails/3/StatusLife"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ex0pc")
+}
+
+[node name="4" type="CanvasLayer" parent="WorldDetails"]
+layer = 3
+
+[node name="TextureRect" parent="WorldDetails/4" instance=ExtResource("9_hti77")]
+visible = false
 offset_left = -7993.08
 offset_top = -18669.2
 offset_right = 53336.9
 offset_bottom = 15778.8
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/4"]
+position = Vector2(-5, 0)
+color = Color(0.154876, 0.154876, 0.154876, 1)
 
 [node name="CaptureDÉcran2024-04-27À00_51_57-removebg-preview" type="Sprite2D" parent="."]
 position = Vector2(22338.8, -2317.75)
 rotation = 2.11343
 scale = Vector2(1, 6.21113)
 texture = ExtResource("10_yspm1")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0, 0.145098, 0, 1)
+energy = 0.6
