@@ -28,7 +28,7 @@ project/assembly_name="2dgame"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/ropesim/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/ropesim/plugin.cfg")
 
 [input]
 
@@ -90,6 +90,7 @@ increase={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.295867, 0.295866, 0.295866, 1)
 
 [shader_globals]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=47 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="3_nxi73"]
 [ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://rope.tscn" id="3_pr2jr"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
-[ext_resource type="AudioStream" uid="uid://cia0am5qhbanc" path="res://Assets/MainCHar/ScreenStateLife/MURMURES-INQUIETANTS-Bruitage-Gratuit-_mp3cut.net_.wav" id="3_w2pmg"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="3_ye5vl"]
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_35vp1"]
@@ -15,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="7_xg385"]
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
 [ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
-[ext_resource type="Texture2D" uid="uid://pmdmo8t4sk0t" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png" id="10_yspm1"]
+[ext_resource type="Texture2D" uid="uid://dxcafp5f72mgy" path="res://forground element.png" id="13_7q2be"]
 [ext_resource type="Script" path="res://StatusLife.gd" id="15_dpxxg"]
 [ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="15_usgjh"]
 [ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="16_hxg1i"]
@@ -420,36 +419,38 @@ texture_filter = 2
 position = Vector2(-5, 0)
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(787, -29)
+zoom = Vector2(0.23, 0.23)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_35vp1")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(787, -29)
+script = ExtResource("19_0iomu")
+priority = 5
+follow_mode = 1
+follow_target = NodePath("../CharacterBody2D")
+zoom = Vector2(0.23, 0.23)
+tween_resource = SubResource("Resource_pfmpj")
+follow_damping = true
+follow_damping_value = Vector2(0.5, 0.5)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 position = Vector2(787, -29)
 
 [node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 position = Vector2(-11.1875, -38.6875)
 scale = Vector2(0.0625, 0.0625)
-stream = ExtResource("3_w2pmg")
 volume_db = -11.142
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-scale = Vector2(0.0625, 0.0625)
-zoom = Vector2(0.2, 0.2)
-
-[node name="PhantomCameraHost" type="Node" parent="CharacterBody2D/Camera2D"]
-script = ExtResource("4_35vp1")
-
-[node name="PhantomCamera2D" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("follow_target")]
-scale = Vector2(0.0625, 0.0625)
-script = ExtResource("19_0iomu")
-priority = 5
-follow_mode = 2
-follow_target = NodePath("..")
-zoom = Vector2(0.2, 0.2)
-tween_resource = SubResource("Resource_pfmpj")
-follow_damping = true
-follow_damping_value = Vector2(2, 2)
-
 [node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
+position = Vector2(2269, -544)
+rope_length = 3000.0
 
 [node name="RopeHandle" type="Marker2D" parent="."]
+position = Vector2(7, 10)
 script = ExtResource("3_ye5vl")
 rope_path = NodePath("../Rope")
 
@@ -535,8 +536,21 @@ layer = 3
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
+[node name="Images2" type="Sprite2D" parent="WorldDetails/3"]
+visible = false
+position = Vector2(31483.1, 4081.54)
+rotation = 1.5708
+scale = Vector2(9.859, 428.654)
+texture = ExtResource("7_xg385")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldDetails/3"]
+visible = false
+position = Vector2(595.385, -978.462)
+scale = Vector2(6.33541, 5.65435)
+texture = ExtResource("13_7q2be")
+
 [node name="Images" type="Sprite2D" parent="WorldDetails/3"]
-position = Vector2(-5033.85, 2898.46)
+position = Vector2(-5033.85, 2901.54)
 scale = Vector2(9.85913, 65.0092)
 texture = ExtResource("7_xg385")
 
@@ -551,22 +565,14 @@ scale = Vector2(3.50398, 3.66538)
 texture = ExtResource("7_0d5gh")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
-position = Vector2(-797.692, 598.462)
+position = Vector2(-930, 851.538)
 rotation = 0.00550431
-scale = Vector2(4.06639, 5.20824)
-texture = ExtResource("7_0d5gh")
-
-[node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview3" type="Sprite2D" parent="WorldDetails/3"]
-position = Vector2(-883.846, 1953.85)
-rotation = 3.08868
-scale = Vector2(4.46581, 5.90624)
-skew = -0.0027523
+scale = Vector2(5.67555, 6.99632)
 texture = ExtResource("7_0d5gh")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/3"]
-visible = false
 position = Vector2(-5, 0)
-color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+color = Color(0.160269, 0.160269, 0.160269, 1)
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview2" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-756.864, -1879.93)
@@ -665,12 +671,6 @@ offset_bottom = 15778.8
 position = Vector2(-5, 0)
 color = Color(0.154876, 0.154876, 0.154876, 1)
 
-[node name="CaptureDÉcran2024-04-27À00_51_57-removebg-preview" type="Sprite2D" parent="."]
-position = Vector2(22338.8, -2317.75)
-rotation = 2.11343
-scale = Vector2(1, 6.21113)
-texture = ExtResource("10_yspm1")
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0, 0.145098, 0, 1)
-energy = 0.6
+energy = 1.5

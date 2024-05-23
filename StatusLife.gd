@@ -4,7 +4,7 @@ extends Node2D
 @onready var sprite1 =$StatusLife1
 @onready var sprite2=$StatusLife2
 @onready var sprite3=$StatusLife3
-@onready var cam = $"../../../CharacterBody2D/Camera2D"
+@onready var cam = $"../../../Camera2D"
 @onready var animationPlayer = $StatusAnimationPlayer
 @onready var animationTree = $StatusAnimationTree
 @onready var audioSound = $"../../../CharacterBody2D/Murmure"

@@ -22,10 +22,9 @@ func _input(event):
 func _process(delta):
 	if action:
 		if player.GetHooked():
-			rope.visible = true
-			
 			Handle.global_position = player.global_position + Vector2(-20, -FRAME_HEIGHT / 2)
 			rope.rope_length = (Handle.global_position - player.global_position).length() +200
 			Handle.global_position.y -= 15
+			rope.visible = true
 	else:
 		rope.visible = false
