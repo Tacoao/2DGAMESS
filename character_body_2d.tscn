@@ -469,13 +469,13 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_olvum"]
+[sub_resource type="Gradient" id="Gradient_3dlkt"]
 offsets = PackedFloat32Array(0.0357143, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2vuo3"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_olvum")
+gradient = SubResource("Gradient_3dlkt")
 width = 256
 height = 256
 use_hdr = true
@@ -487,12 +487,12 @@ fill_to = Vector2(0.818965, 0.219828)
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="Gradient" id="Gradient_2ldqn"]
+[sub_resource type="Gradient" id="Gradient_splfw"]
 offsets = PackedFloat32Array(0.00595238, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ltks1"]
-gradient = SubResource("Gradient_2ldqn")
+gradient = SubResource("Gradient_splfw")
 width = 256
 height = 256
 fill = 1
@@ -878,7 +878,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 17
+frame = 4
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
