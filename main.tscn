@@ -682,4 +682,12 @@ position = Vector2(10982, 72)
 scale = Vector2(15, 15)
 script = ExtResource("21_ulbr5")
 
+[node name="PatrolPointA" type="Node2D" parent="Node2D"]
+position = Vector2(-125.867, 28.2)
+
+[node name="PatrolPointB" type="Node2D" parent="Node2D"]
+position = Vector2(118.067, 29.3333)
+
 [node name="VoidWalker" parent="Node2D" instance=ExtResource("21_2ttnj")]
+patrol_point_a = NodePath("../PatrolPointA")
+patrol_point_b = NodePath("../PatrolPointB")

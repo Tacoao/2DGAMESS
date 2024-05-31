@@ -878,7 +878,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 4
+frame = 1
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
