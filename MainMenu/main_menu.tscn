@@ -1,0 +1,190 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8wn87irqbodb"]
+
+[ext_resource type="Shader" path="res://MainMenu/main_menu.gdshader" id="1_ui7s1"]
+[ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_v2vwx"]
+[ext_resource type="Texture2D" uid="uid://bobmuju2pl7om" path="res://Assets/Main Menu/Bg final(1).png" id="2_hnchc"]
+[ext_resource type="Texture2D" uid="uid://cdsuf5patps5k" path="res://Assets/Main Menu/DALL_E-2024-04-28-02.39_1_-removebg-preview.png" id="3_b3l45"]
+[ext_resource type="Texture2D" uid="uid://dde1w303jokd8" path="res://Assets/Main Menu/Btn/DALL_E-2024-04-28-02.39_2_-removebg-preview_3__1_-removebg-preview.png" id="4_l5hj2"]
+[ext_resource type="Shader" path="res://main.gdshader" id="6_le3te"]
+[ext_resource type="AudioStream" uid="uid://ch1lb42x5jrd1" path="res://Assets/Main Menu/Enchanted-Forest-Music-Ambience.mp3" id="7_gh1s0"]
+[ext_resource type="AudioStream" uid="uid://2twfwxp0kkoa" path="res://Assets/Main Menu/click-button-131479.mp3" id="8_2ir6h"]
+[ext_resource type="AudioStream" uid="uid://cj2s1rmsx77wi" path="res://Assets/Main Menu/atmospheric-metallic-swipe-17-196791.mp3" id="9_6v823"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66fpf"]
+shader = ExtResource("1_ui7s1")
+shader_parameter/base_color = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5hqo"]
+shader = ExtResource("6_le3te")
+shader_parameter/base_color = Color(0.811765, 0.996078, 0.929412, 0.427451)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tabg0"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s3t6c"]
+seamless = true
+noise = SubResource("FastNoiseLite_tabg0")
+
+[sub_resource type="SystemFont" id="SystemFont_qdofj"]
+font_names = PackedStringArray("Cinzel Decorative")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbwon"]
+texture = ExtResource("4_l5hj2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebinp"]
+texture = ExtResource("4_l5hj2")
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_lu5ao"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = SubResource("SystemFont_qdofj")
+Button/styles/disabled = SubResource("StyleBoxTexture_gbwon")
+Button/styles/focus = SubResource("StyleBoxTexture_gbwon")
+Button/styles/hover = SubResource("StyleBoxTexture_ebinp")
+Button/styles/normal = SubResource("StyleBoxTexture_gbwon")
+Button/styles/pressed = SubResource("StyleBoxTexture_gbwon")
+
+[sub_resource type="Gradient" id="Gradient_aw3fl"]
+offsets = PackedFloat32Array(0, 0.784431, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bry8u"]
+gradient = SubResource("Gradient_aw3fl")
+fill = 1
+fill_from = Vector2(0.495726, 0.517094)
+
+[node name="Main_Menu" type="Control"]
+material = SubResource("ShaderMaterial_66fpf")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2vwx")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+offset_right = 4096.0
+offset_bottom = 4096.0
+scale = Vector2(0.281783, 0.158912)
+texture = ExtResource("2_hnchc")
+
+[node name="Fog" type="TextureRect" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u5hqo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_s3t6c")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -83.0
+offset_right = 10.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.608913, 0.608913)
+texture = ExtResource("3_b3l45")
+expand_mode = 5
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+theme = SubResource("Theme_lu5ao")
+text = "NEW GAME"
+
+[node name="LightPlay" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+position = Vector2(125, 107)
+energy = 1.15
+texture = SubResource("GradientTexture2D_bry8u")
+
+[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+theme = SubResource("Theme_lu5ao")
+text = "CONTINUE"
+
+[node name="LightContinue" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+position = Vector2(125, 199)
+energy = 1.15
+texture = SubResource("GradientTexture2D_bry8u")
+
+[node name="Option" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+theme = SubResource("Theme_lu5ao")
+text = "SETTINGS"
+
+[node name="LightOptions" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+position = Vector2(125, 291)
+energy = 1.15
+texture = SubResource("GradientTexture2D_bry8u")
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+theme = SubResource("Theme_lu5ao")
+text = "EXIT"
+
+[node name="LightQuit" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+position = Vector2(124, 382)
+energy = 1.15
+texture = SubResource("GradientTexture2D_bry8u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gh1s0")
+autoplay = true
+
+[node name="Hoversound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2ir6h")
+pitch_scale = 0.82
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6v823")
