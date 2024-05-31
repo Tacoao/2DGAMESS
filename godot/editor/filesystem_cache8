@@ -1,0 +1,123 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1714656886
+character_body_2d.tscn::PackedScene::2964616052460476184::1714656250::0::1::::<><>::uid://gbfkgiiugyld::::res://Assets/MainCHar/red hood itch free Copy-Sheet.png<>res://Perso.cs<>uid://c6ihummp0dys::::res://Assets/MainCHar/idle and  alter/itch jump sheet-Sheet.png<>uid://chhccveen2nfr::::res://Assets/MainCHar/idle and  alter/itch hurt 2 sheet-Sheet.png<>uid://dm42qo4ilcdih::::res://Assets/MainCHar/idle and  alter/idle sheet-Sheet.png<>uid://dbee5rysksutq::::res://Assets/MainCHar/idle and  alter/itch light atk sheet-Sheet.png<>uid://bsigucu0idm60::::res://Assets/MainCHar/idle and  alter/itch run-Sheet sheet.png<>uid://ds8u7u3o0j517::::res://Assets/MainCHar/run turnaround-Sheet.png<>uid://c4tctx8rut4hx::::res://Assets/MainCHar/wall slide-Sheet.png
+icon.svg::CompressedTexture2D::652770346020218778::1714656250::1714656886::1::::<><>::
+main.gd::GDScript::-1::1714656250::0::1::::<>Node2D<>::
+main.gdshader::Shader::-1::1714656250::0::1::::<><>::
+main.tscn::PackedScene::444341964253745677::1714656880::0::1::::<><>::uid://bmselxcr2gvm8::::res://Assets/Tile/Mossy/BackgroundElements/images.png<>res://main.gd<>uid://be7hoy66qhy7e::::res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png<>uid://biic1783ehm6s::::res://character_body_2d.tscn<>uid://bq0vehgwx0wpo::::res://Assets/Tile/Mossy/Mossy - TileSet.png<>res://addons/ropesim/RopeHandle.gd<>uid://bl3oek1gcd4px::::res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png<>uid://bvh8xupaxvea7::::res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png<>uid://b0c0s6yd2ln::::res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg<>uid://pcsh7w3n0o4f::::res://particle.png<>uid://b2q3q4eahdl6s::::res://texture_rect.tscn<>uid://pmdmo8t4sk0t::::res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png<>res://addons/ropesim/Rope.gd<>res://addons/ropesim/RopeRendererLine2D.gd
+node_2d.tscn::PackedScene::5624070591392461566::1714656250::0::1::::<><>::
+particle.png::CompressedTexture2D::1058068532529201711::1714656250::1714656886::1::::<><>::
+Perso.cs::CSharpScript::-1::1714656250::0::1::::<><>::
+pivot.gd::GDScript::-1::1714656250::0::1::::<>Node2D<>::
+Rope.gd::GDScript::-1::1714656250::0::1::::<>CanvasItem<>::
+StaticBody2D.cs::CSharpScript::-1::1714656250::0::1::::<><>::
+static_body_2d.tscn::PackedScene::932732546377367065::1714656250::0::1::::<><>::res://StaticBody2D.cs<>uid://b4xb8fnhro5b2::::res://collision_polygon_2d.tscn
+Terrain (16x16).png::CompressedTexture2D::6500921152669455413::1714656250::1714656886::1::::<><>::
+TestStage.gd::GDScript::-1::1714656250::0::1::::<>Node2D<>::
+texture_rect.tscn::PackedScene::4316279683850729060::1714656250::0::1::::<><>::res://main.gdshader
+Tiles128x128.png::CompressedTexture2D::6100764510966435624::1714656250::1714656886::1::::<><>::
+Tiles.png::CompressedTexture2D::7087738822121026604::1714656250::1714656886::1::::<><>::
+::res://addons/::1714656250
+::res://addons/AS2P/::1714656250
+InspectorConvertor.gd::GDScript::-1::1714656250::0::1::::<>EditorInspectorPlugin<>::
+NodeSelectorProperty.gd::GDScript::-1::1714656250::0::1::::<>EditorProperty<>::
+plugin.cfg::TextFile::-1::1714656250::0::1::::<><>::
+plugin.gd::GDScript::-1::1714656250::0::1::::<>EditorPlugin<>::
+::res://addons/ropesim/::1714656880
+libropesim.gdextension::GDExtension::-1::1714656250::0::1::::<><>::
+plugin.cfg::TextFile::-1::1714656250::0::1::::<><>::
+plugin.gd::GDScript::-1::1714656250::0::1::::<>EditorPlugin<>::
+README.md::TextFile::-1::1714656250::0::1::::<><>::
+Rope.gd::GDScript::-1::1714656250::0::1::::Rope<>Node2D<>::
+RopeAnchor.gd::GDScript::-1::1714656250::0::1::::RopeAnchor<>Marker2D<>::
+RopeCollisionShapeGenerator.gd::GDScript::-1::1714656250::0::1::::RopeCollisionShapeGenerator<>Node<>::
+RopeHandle.gd::GDScript::-1::1714656250::0::1::::RopeHandle<>Marker2D<>::
+RopeRendererLine2D.gd::GDScript::-1::1714656250::0::1::::RopeRendererLine2D<>Line2D<>::
+RopeToolHelper.gd::GDScript::-1::1714656880::0::1::::RopeToolHelper<>Node<>::
+::res://addons/ropesim/bin/::1714656250
+::res://addons/ropesim/bin/libropesim.macos.template_debug.framework/::1714656250
+::res://addons/ropesim/bin/libropesim.macos.template_release.framework/::1714656250
+::res://Assets/::1714656250
+::res://Assets/Bat/::1714656266
+Bat_Attack.png::CompressedTexture2D::9134464391499243237::1714656250::1714656887::1::::<><>::
+Bat_Attack_FX.png::CompressedTexture2D::6141193063509691678::1714656250::1714656887::1::::<><>::
+Bat_Death.png::CompressedTexture2D::259862127425263009::1714656250::1714656887::1::::<><>::
+Bat_Death_FX.png::CompressedTexture2D::6342036656066405190::1714656250::1714656887::1::::<><>::
+Bat_Fly.png::CompressedTexture2D::7847319099631649946::1714656250::1714656887::1::::<><>::
+Bat_Full.png::CompressedTexture2D::4230446326009189893::1714656250::1714656887::1::::<><>::
+Bat_Hit.png::CompressedTexture2D::4242190558623040485::1714656250::1714656886::1::::<><>::
+::res://Assets/HandEnemy/::1714656266
+spr_enemy_mud_strip8.png::CompressedTexture2D::9180501794591917134::1714656250::1714656886::1::::<><>::
+::res://Assets/MainCHar/::1714656267
+Divided.png::CompressedTexture2D::3330348330350771786::1714656250::1714656886::1::::<><>::
+red hood itch free Copy-Sheet.png::CompressedTexture2D::423519210374145609::1714656250::1714656887::1::::<><>::
+run turnaround-Sheet.png::CompressedTexture2D::8492058282099564836::1714656250::1714656886::1::::<><>::
+wall slide-Sheet.png::CompressedTexture2D::6847697634101511473::1714656250::1714656888::1::::<><>::
+::res://Assets/MainCHar/Hook/::1714656266
+hook.png::CompressedTexture2D::4146524461150618137::1714656250::1714656886::1::::<><>::
+link.png::CompressedTexture2D::625650103936928660::1714656250::1714656886::1::::<><>::
+::res://Assets/MainCHar/idle and  alter/::1714656266
+idle sheet-Sheet.png::CompressedTexture2D::8063063841615093667::1714656250::1714656886::1::::<><>::
+itch hurt 2 sheet-Sheet.png::CompressedTexture2D::5278740032073951127::1714656250::1714656886::1::::<><>::
+itch jump sheet-Sheet.png::CompressedTexture2D::204872703722296710::1714656250::1714656886::1::::<><>::
+itch light atk sheet-Sheet.png::CompressedTexture2D::7238005778325978070::1714656250::1714656886::1::::<><>::
+itch run-Sheet sheet.png::CompressedTexture2D::3666735046134356639::1714656250::1714656886::1::::<><>::
+::res://Assets/ParallaxBackground/::1714656268
+BG_Decor.png::CompressedTexture2D::5011113570546743386::1714656250::1714656888::1::::<><>::
+Foreground.png::CompressedTexture2D::1771300854471277568::1714656250::1714656888::1::::<><>::
+Ground.png::CompressedTexture2D::9067207406107695405::1714656250::1714656888::1::::<><>::
+Middle_Decor.png::CompressedTexture2D::730337848459088103::1714656250::1714656888::1::::<><>::
+Sky.png::CompressedTexture2D::7015320372004058762::1714656250::1714656887::1::::<><>::
+::res://Assets/Personnage/::1714656266
+Attack_1.png::CompressedTexture2D::1586803357156831204::1714656250::1714656887::1::::<><>::
+Idle.png::CompressedTexture2D::6058746057556727590::1714656250::1714656887::1::::<><>::
+Jump.png::CompressedTexture2D::9095654061412965729::1714656250::1714656887::1::::<><>::
+Run.png::CompressedTexture2D::7689681425112447628::1714656250::1714656887::1::::<><>::
+::res://Assets/personnage2/::1714656266
+Attack_1.png::CompressedTexture2D::1478894179796701579::1714656250::1714656887::1::::<><>::
+Attack_2.png::CompressedTexture2D::4697245845879082927::1714656250::1714656887::1::::<><>::
+Idle.png::CompressedTexture2D::1758357165165465363::1714656250::1714656887::1::::<><>::
+Jump.png::CompressedTexture2D::3983434638744819400::1714656250::1714656887::1::::<><>::
+Light_charge.png::CompressedTexture2D::3602351247878954005::1714656250::1714656887::1::::<><>::
+Walk.png::CompressedTexture2D::7646164184271555747::1714656250::1714656887::1::::<><>::
+::res://Assets/Slime/::1714656266
+Slime_Spiked_Ability.png::CompressedTexture2D::6804745599505284705::1714656250::1714656887::1::::<><>::
+Slime_Spiked_Ability_FX.png::CompressedTexture2D::8792624350846722628::1714656250::1714656887::1::::<><>::
+Slime_Spiked_Death.png::CompressedTexture2D::7244127005148484749::1714656250::1714656887::1::::<><>::
+Slime_Spiked_Full.png::CompressedTexture2D::5199020428194431088::1714656250::1714656886::1::::<><>::
+Slime_Spiked_Hit.png::CompressedTexture2D::7714538547702210826::1714656250::1714656886::1::::<><>::
+Slime_Spiked_Idle.png::CompressedTexture2D::2291169121762494279::1714656250::1714656886::1::::<><>::
+Slime_Spiked_Jump.png::CompressedTexture2D::4220709050488977039::1714656250::1714656886::1::::<><>::
+Slime_Spiked_Jump_FX.png::CompressedTexture2D::7138494468677255028::1714656250::1714656886::1::::<><>::
+Slime_Spiked_Run.png::CompressedTexture2D::194751951958999867::1714656250::1714656886::1::::<><>::
+::res://Assets/Tile/::1714656250
+::res://Assets/Tile/Mossy/::1714656270
+Mossy - Decorations&Hazards.png::CompressedTexture2D::6337786589555308378::1714656250::1714656891::1::::<><>::
+Mossy - FloatingPlatforms.png::CompressedTexture2D::1331367064219321747::1714656250::1714656888::1::::<><>::
+Mossy - Hanging Plants.png::CompressedTexture2D::6492143250269283053::1714656250::1714656888::1::::<><>::
+Mossy - MossyHills.png::CompressedTexture2D::2210549136977760092::1714656250::1714656888::1::::<><>::
+Mossy - TileSet.png::CompressedTexture2D::3562334203740430044::1714656250::1714656890::1::::<><>::
+::res://Assets/Tile/Mossy/BackgroundElements/::1714656266
+A_black_image.jpg::CompressedTexture2D::3587216491983975::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png::CompressedTexture2D::3217158287573334529::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png::CompressedTexture2D::2733687476318701052::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png::CompressedTexture2D::3876882852061940360::1714656250::1714656886::1::::<><>::
+images.png::CompressedTexture2D::3266109330561991309::1714656250::1714656886::1::::<><>::
+::res://Assets/Tile/Mossy/Environement/::1714656266
+background.jpeg::CompressedTexture2D::1033391357721579102::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-26_à_23.57.16-removebg-preview.png::CompressedTexture2D::1442328848826509106::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.13.46-removebg-preview.png::CompressedTexture2D::3293160898516449623::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.14.11-removebg-preview.png::CompressedTexture2D::2249565931426671506::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.16.34-removebg-preview.png::CompressedTexture2D::988711953595724061::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.16.42-removebg-preview.png::CompressedTexture2D::2829590090397217115::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.16.50-removebg-preview.png::CompressedTexture2D::2752365791853214980::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.17.03-removebg-preview.png::CompressedTexture2D::1849274736977972370::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.17.13-removebg-preview.png::CompressedTexture2D::6158741063199712428::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.51.00-removebg-preview.png::CompressedTexture2D::853526332710158880::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.51.23-removebg-preview.png::CompressedTexture2D::2065663867379295159::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.51.42-removebg-preview.png::CompressedTexture2D::1184773240058021062::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.51.48-removebg-preview.png::CompressedTexture2D::8668627656201235464::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png::CompressedTexture2D::1077809555332555661::1714656250::1714656886::1::::<><>::
+Capture_d_écran_2024-04-27_à_00.52.12-removebg-preview.png::CompressedTexture2D::4208106086139381958::1714656250::1714656886::1::::<><>::
+::res://Images/::1714656266
+Unknown.jpeg::CompressedTexture2D::5313240171458128659::1714656250::1714656886::1::::<><>::
