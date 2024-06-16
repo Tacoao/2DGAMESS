@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TransitionScreen="*res://Scenes/transition_screen.tscn"
+TransitionScreen="*res://transition_screen.tscn"
 
 [display]
 

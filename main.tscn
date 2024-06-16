@@ -1,32 +1,29 @@
-
 [gd_scene load_steps=52 format=3 uid="uid://gliin2hev3xh"]
- 0648711385a28343266fbfdc6af00a95043b6c20
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
+[ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
 [ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="3_nxi73"]
+[ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://rope.tscn" id="3_pr2jr"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="3_ye5vl"]
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_35vp1"]
-[ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://Scenes/character_body_2d.tscn" id="5_7qrq6"]
-[ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://Scenes/rope.tscn" id="6_3eexn"]
 [ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="7_0d5gh"]
 [ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="7_xg385"]
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
+[ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
 [ext_resource type="Texture2D" uid="uid://dxcafp5f72mgy" path="res://forground element.png" id="13_7q2be"]
 [ext_resource type="Script" path="res://StatusLife.gd" id="15_dpxxg"]
 [ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="15_usgjh"]
 [ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="16_hxg1i"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_0iomu"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_0atvm"]
-[ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://Scenes/texture_rect.tscn" id="20_f6oc0"]
+[ext_resource type="PackedScene" uid="uid://bfw38n2y4gciw" path="res://VoidWalker.tscn" id="21_2ttnj"]
 [ext_resource type="Script" path="res://enemy_place.gd" id="21_ulbr5"]
-
 [ext_resource type="PackedScene" uid="uid://ookhgd2rgrgv" path="res://ChainEnnemi.tscn" id="23_g0gdn"]
 [ext_resource type="PackedScene" uid="uid://bii0pbqbfaih0" path="res://explosiveDragon.tscn" id="24_44466"]
-
 
 [sub_resource type="Resource" id="Resource_pfmpj"]
 script = ExtResource("20_0atvm")
@@ -450,7 +447,7 @@ tween_resource = SubResource("Resource_pfmpj")
 follow_damping = true
 follow_damping_value = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_7qrq6")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 position = Vector2(787, -29)
 
 [node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
@@ -458,9 +455,7 @@ position = Vector2(-11.1875, -38.6875)
 scale = Vector2(0.0625, 0.0625)
 volume_db = -11.142
 
-
 [node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
-
 position = Vector2(2269, -544)
 rope_length = 3000.0
 
@@ -677,7 +672,7 @@ libraries = {
 [node name="4" type="CanvasLayer" parent="WorldDetails"]
 layer = 3
 
-[node name="TextureRect" parent="WorldDetails/4" instance=ExtResource("20_f6oc0")]
+[node name="TextureRect" parent="WorldDetails/4" instance=ExtResource("9_hti77")]
 visible = false
 offset_left = -7993.08
 offset_top = -18669.2
@@ -703,9 +698,7 @@ position = Vector2(-125.867, 28.2)
 [node name="PatrolPointB" type="Node2D" parent="VoidWalkerNode"]
 position = Vector2(118.067, 29.3333)
 
-
 [node name="VoidWalker" parent="VoidWalkerNode" instance=ExtResource("21_2ttnj")]
-
 patrol_point_a = NodePath("../PatrolPointA")
 patrol_point_b = NodePath("../PatrolPointB")
 
