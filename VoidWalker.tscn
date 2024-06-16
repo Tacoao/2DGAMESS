@@ -265,13 +265,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_olvum"]
+[sub_resource type="Gradient" id="Gradient_ys8ya"]
 offsets = PackedFloat32Array(0.0357143, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_48msq"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_olvum")
+gradient = SubResource("Gradient_ys8ya")
 width = 256
 height = 256
 use_hdr = true
@@ -283,12 +283,12 @@ fill_to = Vector2(0.668103, 0.288793)
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="Gradient" id="Gradient_2ldqn"]
+[sub_resource type="Gradient" id="Gradient_ingj4"]
 offsets = PackedFloat32Array(0.00595238, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_280ya"]
-gradient = SubResource("Gradient_2ldqn")
+gradient = SubResource("Gradient_ingj4")
 width = 256
 height = 256
 fill = 1
@@ -849,15 +849,15 @@ states/walk/position = Vector2(435, 100)
 transitions = ["Idle", "walk", SubResource("AnimationNodeStateMachineTransition_0ocqk"), "walk", "portalCast", SubResource("AnimationNodeStateMachineTransition_gtr1l"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_mcy5d"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nw1c8"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_h5h25"), "portalCast", "walk", SubResource("AnimationNodeStateMachineTransition_bufn1"), "Idle", "portalCast", SubResource("AnimationNodeStateMachineTransition_sdnes"), "portalCast", "Idle", SubResource("AnimationNodeStateMachineTransition_78faj"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tkdla"), "portalCast", "attack", SubResource("AnimationNodeStateMachineTransition_s5mqy"), "attack", "portalCast", SubResource("AnimationNodeStateMachineTransition_8a20a")]
 graph_offset = Vector2(53.7626, 66.8199)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D2" type="CharacterBody2D"]
 script = ExtResource("1_c7iyn")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
-animation = &"walk"
-frame = 7
+animation = &"Idle"
+frame = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 18)

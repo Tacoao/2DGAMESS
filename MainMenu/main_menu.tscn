@@ -70,8 +70,8 @@ script = ExtResource("1_v2vwx")
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 2
 layout_mode = 1
-offset_right = 4096.0
-offset_bottom = 4096.0
+offset_right = 6807.0
+offset_bottom = 6777.0
 scale = Vector2(0.281783, 0.158912)
 texture = ExtResource("2_hnchc")
 

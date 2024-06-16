@@ -419,7 +419,6 @@ animations = [{
 "texture": ExtResource("94_gsa7d")
 }],
 "loop": true,
-
 "name": &"Run",
 "speed": 40.0
 }, {
@@ -487,7 +486,6 @@ fill_to = Vector2(0.818965, 0.219828)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x6ev3"]
 blend_mode = 1
 light_mode = 2
-
 
 [sub_resource type="Gradient" id="Gradient_splfw"]
 offsets = PackedFloat32Array(0.00595238, 1)
@@ -860,7 +858,7 @@ states/Turn_Around/node = SubResource("AnimationNodeAnimation_un7cn")
 states/Turn_Around/position = Vector2(628, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b4h08"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_lfbn5"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_xgr1j"), "Run", "Turn_Around", SubResource("AnimationNodeStateMachineTransition_j3ct4"), "Turn_Around", "Run", SubResource("AnimationNodeStateMachineTransition_misq4")]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D2" type="CharacterBody2D"]
 scale = Vector2(16, 16)
 script = ExtResource("1_gjhdq")
 
@@ -878,10 +876,9 @@ shape = SubResource("CapsuleShape2D_mx5ke")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
-
 animation = &"Idle"
 autoplay = "Idle"
-frame = 1
+frame = 16
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
@@ -903,7 +900,6 @@ libraries = {
 wait_time = 0.2
 
 [node name="canDashTimer" type="Timer" parent="."]
-
 
 [node name="wallDetect" type="RayCast2D" parent="."]
 target_position = Vector2(12.6875, 0.0625)
