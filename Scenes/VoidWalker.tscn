@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://bfw38n2y4gciw"]
+[gd_scene load_steps=77 format=3 uid="uid://bfw38n2y4gciw"]
 
 [ext_resource type="Script" path="res://VoidWalker.gd" id="1_c7iyn"]
 [ext_resource type="Texture2D" uid="uid://cj3m8kxje8jnf" path="res://Assets/VoidWalker/Bringer-of-Death-SpritSheet.png" id="1_mgy8y"]
@@ -591,30 +591,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_w4i8w"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PortalSkill/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PortalSkill/Sprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["portalSkill"]
-}
 
 [sub_resource type="Animation" id="Animation_wquh0"]
 length = 0.8
@@ -653,126 +629,6 @@ _data = {
 "portalSkill": SubResource("Animation_w4i8w"),
 "walk": SubResource("Animation_wquh0")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shtrn"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(0, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdvei"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(140, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5p1c5"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(280, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nootp"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(420, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1xe4"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(560, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxpe0"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(700, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8j6gl"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(840, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6n5sy"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(980, 558, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pc3ki"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(0, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s70fx"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(140, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qaca"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(280, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbk0f"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(420, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lobr8"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(560, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0f4r1"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(700, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cwj1g"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(840, 651, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eq5a2"]
-atlas = ExtResource("1_mgy8y")
-region = Rect2(980, 651, 140, 93)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i46nr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shtrn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wdvei")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5p1c5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nootp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t1xe4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxpe0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8j6gl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6n5sy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pc3ki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s70fx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qaca")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbk0f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lobr8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0f4r1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cwj1g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eq5a2")
-}],
-"loop": false,
-"name": &"portalSkill",
-"speed": 15.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qgpm"]
 radius = 100.0
@@ -857,7 +713,9 @@ texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
 animation = &"Idle"
+
 frame = 2
+0648711385a28343266fbfdc6af00a95043b6c20:Scenes/VoidWalker.tscn
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 18)
@@ -882,14 +740,6 @@ shape = SubResource("CapsuleShape2D_to5g4")
 libraries = {
 "": SubResource("AnimationLibrary_rmmml")
 }
-
-[node name="PortalSkill" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="PortalSkill"]
-texture_filter = 1
-position = Vector2(2, -59)
-sprite_frames = SubResource("SpriteFrames_i46nr")
-animation = &"portalSkill"
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_layer = 0
