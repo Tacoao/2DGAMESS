@@ -13,7 +13,7 @@ extends Control
 
 
 
-@onready var start_level = preload("res://main.tscn") as PackedScene
+@onready var start_level = preload("res://Scenes/main.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)

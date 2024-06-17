@@ -1,6 +1,6 @@
 [gd_scene load_steps=136 format=3 uid="uid://biic1783ehm6s"]
 
-[ext_resource type="Script" path="res://Perso.cs" id="1_gjhdq"]
+[ext_resource type="Script" path="res://Script/Perso.cs" id="1_gjhdq"]
 [ext_resource type="Texture2D" uid="uid://br6va5ydjyk7d" path="res://Assets/MainCHar/Attack/Heavy/0.png" id="2_2ucgm"]
 [ext_resource type="Texture2D" uid="uid://dqi72cv5063vq" path="res://Assets/MainCHar/IDLE/0.png" id="2_8btus"]
 [ext_resource type="Texture2D" uid="uid://dxs078n3i2bba" path="res://Assets/MainCHar/IDLE/1.png" id="3_obdek"]
@@ -106,7 +106,8 @@
 [ext_resource type="Texture2D" uid="uid://dg6st6cvw8ugx" path="res://Assets/MainCHar/Run/TurnAround/2.png" id="104_krnuu"]
 [ext_resource type="Texture2D" uid="uid://dc87ecsr3x4jc" path="res://Assets/MainCHar/Run/TurnAround/3.png" id="105_xmkls"]
 [ext_resource type="Texture2D" uid="uid://dcdvjwah44gkq" path="res://Assets/MainCHar/Run/TurnAround/4.png" id="106_0ob3l"]
-[ext_resource type="Script" path="res://CharacterLight.gd" id="107_isq8v"]
+[ext_resource type="Script" path="res://Script/CharacterLight.gd" id="107_isq8v"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
 height = 28.0

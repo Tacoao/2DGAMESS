@@ -1,38 +1,38 @@
-[gd_scene load_steps=52 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=53 format=3 uid="uid://gliin2hev3xh"]
 
-[ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
-[ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
-[ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
-[ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
-[ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="3_nxi73"]
-[ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://rope.tscn" id="3_pr2jr"]
-[ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="3_uffme"]
-[ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="3_ye5vl"]
-[ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="4_1g41i"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_35vp1"]
-[ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="7_0d5gh"]
-[ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="7_xg385"]
-[ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="8_3lvq2"]
-[ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://texture_rect.tscn" id="9_hti77"]
-[ext_resource type="Texture2D" uid="uid://dxcafp5f72mgy" path="res://forground element.png" id="13_7q2be"]
-[ext_resource type="Script" path="res://StatusLife.gd" id="15_dpxxg"]
-[ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="15_usgjh"]
-[ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="16_hxg1i"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_0iomu"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_0atvm"]
-[ext_resource type="PackedScene" uid="uid://bfw38n2y4gciw" path="res://VoidWalker.tscn" id="21_2ttnj"]
-[ext_resource type="Script" path="res://enemy_place.gd" id="21_ulbr5"]
-[ext_resource type="PackedScene" uid="uid://ookhgd2rgrgv" path="res://ChainEnnemi.tscn" id="23_g0gdn"]
-[ext_resource type="PackedScene" uid="uid://bii0pbqbfaih0" path="res://explosiveDragon.tscn" id="24_44466"]
+[ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dpr0h"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2plas"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_74e8m"]
+[ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://Scenes/character_body_2d.tscn" id="5_7ujc7"]
+[ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://Scenes/rope.tscn" id="6_gdj0r"]
+[ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="7_2xvto"]
+[ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="8_or0cy"]
+[ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="9_tyh5t"]
+[ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="10_yobc3"]
+[ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="11_vsgey"]
+[ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="12_aa53t"]
+[ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="13_mqdor"]
+[ext_resource type="Texture2D" uid="uid://dxcafp5f72mgy" path="res://forground element.png" id="14_lo1lq"]
+[ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="15_igt8y"]
+[ext_resource type="Script" path="res://Script/StatusLife.gd" id="16_g81p7"]
+[ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="17_rc2w3"]
+[ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="18_3vnds"]
+[ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="19_hqfx2"]
+[ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://Scenes/texture_rect.tscn" id="20_ig61o"]
+[ext_resource type="Script" path="res://Script/enemy_place.gd" id="21_v5m3l"]
+[ext_resource type="PackedScene" uid="uid://bfw38n2y4gciw" path="res://Scenes/VoidWalker.tscn" id="22_pwq0k"]
+[ext_resource type="PackedScene" uid="uid://ookhgd2rgrgv" path="res://Scenes/ChainEnnemi.tscn" id="23_b02lv"]
+[ext_resource type="PackedScene" uid="uid://bii0pbqbfaih0" path="res://Scenes/explosiveDragon.tscn" id="24_pgl6g"]
 
 [sub_resource type="Resource" id="Resource_pfmpj"]
-script = ExtResource("20_0atvm")
+script = ExtResource("4_74e8m")
 duration = 1.0
 transition = 0
 ease = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rckr5"]
-texture = ExtResource("3_uffme")
+texture = ExtResource("8_or0cy")
 texture_region_size = Vector2i(512, 512)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -415,13 +415,19 @@ _data = {
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a2x6c"]
-vertices = PackedVector2Array(9172, -4476, 9170, -4476, 11677, -4590, 5487, 373, -1194, 316, -1250, -1521, 701, -1321, 1771, -1206, 4462, -873, 7091, -1213, 7534, -827, 7659, 423, 5785, -1806, 7487, -1772, 6167, -2920, 6978, -4139, 8650, -2078, 10904, -1950, 12150, -2917)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 3, 8, 12), PackedInt32Array(13, 9, 12, 14, 15, 0), PackedInt32Array(16, 13, 0), PackedInt32Array(17, 16, 0, 2, 18)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1261, -1533, -1204, 326, 5487, 383, 7671, 434, 7544, -833, 7104, -1215, 7493, -1763, 8651, -2068, 10908, -1940, 12162, -2914, 11685, -4601, 9170, -4486, 6973, -4149, 6159, -2926, 5777, -1812, 4459, -883, 1772, -1216, 702, -1331)])
+vertices = PackedVector2Array(5487, 373, -1194, 316, -1250, -1521, 701, -1321, 1771, -1206, 4462, -873, 5777, -1800, 7534, -826, 7659, 423)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 0, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1261, -1533, -1204, 326, 5487, 383, 7671, 434, 7544, -833, 5777, -1812, 4459, -883, 1772, -1216, 702, -1331)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_b4ura"]
+vertices = PackedVector2Array(16431, 73, 13656, 73, 13695, -152, 16245, -162)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(13687, -162, 13644, 83, 16452, 83, 16250, -173)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node" type="Node2D"]
-script = ExtResource("1_ulyes")
+script = ExtResource("1_y4lmc")
 metadata/_edit_horizontal_guides_ = [-678.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -434,11 +440,11 @@ position = Vector2(787, -29)
 zoom = Vector2(0.23, 0.23)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-script = ExtResource("4_35vp1")
+script = ExtResource("2_dpr0h")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(787, -29)
-script = ExtResource("19_0iomu")
+script = ExtResource("3_2plas")
 priority = 5
 follow_mode = 1
 follow_target = NodePath("../CharacterBody2D")
@@ -447,7 +453,7 @@ tween_resource = SubResource("Resource_pfmpj")
 follow_damping = true
 follow_damping_value = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
 position = Vector2(787, -29)
 
 [node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
@@ -455,13 +461,13 @@ position = Vector2(-11.1875, -38.6875)
 scale = Vector2(0.0625, 0.0625)
 volume_db = -11.142
 
-[node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
+[node name="Rope" parent="." instance=ExtResource("6_gdj0r")]
 position = Vector2(2269, -544)
 rope_length = 3000.0
 
 [node name="RopeHandle" type="Marker2D" parent="."]
 position = Vector2(7, 10)
-script = ExtResource("3_ye5vl")
+script = ExtResource("7_2xvto")
 rope_path = NodePath("../Rope")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -480,7 +486,7 @@ follow_viewport_scale = 0.6
 [node name="Images" type="Sprite2D" parent="WorldDetails/-4"]
 position = Vector2(9661.67, 495)
 scale = Vector2(366.417, 227.019)
-texture = ExtResource("1_rt5h8")
+texture = ExtResource("9_tyh5t")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-4"]
 position = Vector2(-5, 0)
@@ -494,12 +500,12 @@ follow_viewport_scale = 0.7
 [node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview" type="Sprite2D" parent="WorldDetails/-3"]
 position = Vector2(-2421.43, -2231.43)
 scale = Vector2(7.59391, 6.98087)
-texture = ExtResource("4_1g41i")
+texture = ExtResource("10_yobc3")
 
 [node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="WorldDetails/-3"]
 position = Vector2(720, 691.429)
 scale = Vector2(7.24436, 10.4806)
-texture = ExtResource("2_nrq5j")
+texture = ExtResource("11_vsgey")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-3"]
 texture_filter = 2
@@ -528,7 +534,7 @@ rotation = 6.29689
 scale = Vector2(111.104, 51.792)
 amount = 600
 process_material = SubResource("ParticleProcessMaterial_32q86")
-texture = ExtResource("8_3lvq2")
+texture = ExtResource("12_aa53t")
 lifetime = 0.9
 fixed_fps = 0
 draw_order = 0
@@ -553,34 +559,34 @@ visible = false
 position = Vector2(31483.1, 4081.54)
 rotation = 1.5708
 scale = Vector2(9.859, 428.654)
-texture = ExtResource("7_xg385")
+texture = ExtResource("13_mqdor")
 
 [node name="Sprite2D" type="Sprite2D" parent="WorldDetails/3"]
 visible = false
 position = Vector2(595.385, -978.462)
 scale = Vector2(6.33541, 5.65435)
-texture = ExtResource("13_7q2be")
+texture = ExtResource("14_lo1lq")
 
 [node name="Images" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-5033.85, 2901.54)
 scale = Vector2(9.85913, 65.0092)
-texture = ExtResource("7_xg385")
+texture = ExtResource("13_mqdor")
 
 [node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-213.333, 607.5)
 scale = Vector2(2.56689, 2.906)
-texture = ExtResource("2_nrq5j")
+texture = ExtResource("11_vsgey")
 
 [node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(2067.69, 706.923)
 scale = Vector2(3.50398, 3.66538)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-930, 851.538)
 rotation = 0.00550431
 scale = Vector2(5.67555, 6.99632)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/3"]
 position = Vector2(-5, 0)
@@ -590,53 +596,53 @@ color = Color(0.160269, 0.160269, 0.160269, 1)
 position = Vector2(-756.864, -1879.93)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview4" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(2057.69, -1769.23)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview5" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(610.769, -1840.77)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview6" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-1817.69, -1082.31)
 rotation = 1.71078
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview7" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-1828.46, 90)
 rotation = 1.46336
 scale = Vector2(1.26547, 3.27396)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview8" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(3340.77, -1864.62)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À01_10_58-removebg-preview9" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(4433.08, -2022.31)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
-texture = ExtResource("7_0d5gh")
+texture = ExtResource("15_igt8y")
 
 [node name="StatusLife" type="Node2D" parent="WorldDetails/3"]
-script = ExtResource("15_dpxxg")
+script = ExtResource("16_g81p7")
 
 [node name="StatusLife1" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
 z_index = 3
 z_as_relative = false
 position = Vector2(223, -190.5)
 scale = Vector2(5.00833, 4.96574)
-texture = ExtResource("3_nxi73")
+texture = ExtResource("17_rc2w3")
 
 [node name="StatusLife2" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
 modulate = Color(1, 1, 1, 0)
@@ -644,7 +650,7 @@ z_index = 3
 z_as_relative = false
 position = Vector2(223, -190.5)
 scale = Vector2(5.00833, 4.96574)
-texture = ExtResource("15_usgjh")
+texture = ExtResource("18_3vnds")
 
 [node name="StatusLife3" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
 modulate = Color(1, 1, 1, 0)
@@ -652,7 +658,7 @@ z_index = 3
 z_as_relative = false
 position = Vector2(223, -190.5)
 scale = Vector2(5.00833, 4.96574)
-texture = ExtResource("16_hxg1i")
+texture = ExtResource("19_hqfx2")
 
 [node name="StatusAnimationTree" type="AnimationTree" parent="WorldDetails/3/StatusLife"]
 root_node = NodePath("../..")
@@ -672,7 +678,7 @@ libraries = {
 [node name="4" type="CanvasLayer" parent="WorldDetails"]
 layer = 3
 
-[node name="TextureRect" parent="WorldDetails/4" instance=ExtResource("9_hti77")]
+[node name="TextureRect" parent="WorldDetails/4" instance=ExtResource("20_ig61o")]
 visible = false
 offset_left = -7993.08
 offset_top = -18669.2
@@ -690,7 +696,7 @@ energy = 1.5
 [node name="VoidWalkerNode" type="Node2D" parent="."]
 position = Vector2(10982, 72)
 scale = Vector2(15, 15)
-script = ExtResource("21_ulbr5")
+script = ExtResource("21_v5m3l")
 
 [node name="PatrolPointA" type="Node2D" parent="VoidWalkerNode"]
 position = Vector2(-125.867, 28.2)
@@ -698,7 +704,7 @@ position = Vector2(-125.867, 28.2)
 [node name="PatrolPointB" type="Node2D" parent="VoidWalkerNode"]
 position = Vector2(118.067, 29.3333)
 
-[node name="VoidWalker" parent="VoidWalkerNode" instance=ExtResource("21_2ttnj")]
+[node name="VoidWalker" parent="VoidWalkerNode" instance=ExtResource("22_pwq0k")]
 patrol_point_a = NodePath("../PatrolPointA")
 patrol_point_b = NodePath("../PatrolPointB")
 
@@ -706,25 +712,29 @@ patrol_point_b = NodePath("../PatrolPointB")
 position = Vector2(14793, -309)
 scale = Vector2(20, 20)
 
-[node name="PatrolPointA" type="Node2D" parent="ChainEnnemiNode"]
-position = Vector2(-55.9, 15)
+[node name="InitialPoint" type="Node2D" parent="ChainEnnemiNode"]
+position = Vector2(-11.6, 15)
 
-[node name="PatrolPointB" type="Node2D" parent="ChainEnnemiNode"]
-position = Vector2(78.85, 15.6)
-
-[node name="ChainEnnemi" parent="ChainEnnemiNode" node_paths=PackedStringArray("player") instance=ExtResource("23_g0gdn")]
+[node name="ChainEnnemi" parent="ChainEnnemiNode" node_paths=PackedStringArray("player", "initialPostion") instance=ExtResource("23_b02lv")]
 position = Vector2(30.85, 3.4)
-patrol_point_a = NodePath("../PatrolPointA")
-patrol_point_b = NodePath("../PatrolPointB")
 player = NodePath("../../CharacterBody2D")
+initialPostion = NodePath("../InitialPoint")
 
 [node name="dragonExplosive" type="Node2D" parent="."]
 
-[node name="ExplosiveDragon" parent="dragonExplosive" node_paths=PackedStringArray("target_player") instance=ExtResource("24_44466")]
+[node name="ExplosiveDragon" parent="dragonExplosive" node_paths=PackedStringArray("target_player") instance=ExtResource("24_pgl6g")]
 position = Vector2(6839, -1862)
 scale = Vector2(6, 6)
 target_player = NodePath("../../CharacterBody2D")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="NavigationsRegion" type="Node2D" parent="."]
 position = Vector2(-5, 0)
+
+[node name="DragonExplosiveRegion" type="NavigationRegion2D" parent="NavigationsRegion"]
 navigation_polygon = SubResource("NavigationPolygon_a2x6c")
+
+[node name="ChainEnnemiRegion" type="NavigationRegion2D" parent="NavigationsRegion"]
+navigation_polygon = SubResource("NavigationPolygon_b4ura")
+navigation_layers = 2
+
+[node name="NightBorn" type="Node2D" parent="."]
