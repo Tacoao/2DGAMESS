@@ -52,7 +52,8 @@ public partial class Perso : CharacterBody2D
 
 	private string idleLink = "parameters/conditions/idle";
 	private string runLink = "parameters/conditions/is_moving";
-	private string isTurningLink = "parameters/conditions/is_turning";
+	private string isJump = "parameters/conditions/is_jump";
+	private GpuParticles2D gpuparticle ;
 	public override void _Ready()
 	{
 		GD.Print("Script Loaded");
@@ -61,6 +62,8 @@ public partial class Perso : CharacterBody2D
 		canDashTimer = GetNode<Timer>("canDashTimer");
 		animatedSprite2D = GetNode<AnimatedSprite2D>("Sprite2D");
 		animationTree = GetNode<AnimationTree>("AnimationTree");
+		gpuparticle = GetNode<GpuParticles2D>("GPUParticles2D");
+		gpuparticle.Emitting = false;
 		animationTree.Active = true;
 		wallDetect.Enabled = true;
 		jumpVelocity = ((2.0f * jumpHeight) / jumpTimeToPeak) * -1.0f;
@@ -187,16 +190,6 @@ public partial class Perso : CharacterBody2D
 
 		// Get direction from input: -1 for left, 1 for right, 0 for no input
 		float direction = Input.GetActionStrength(right) - Input.GetActionStrength(left);
-		if (Mathf.Sign(direction) != Mathf.Sign(previousDirection) && direction != 0)
-		{
-			// La direction a changé, déclenchez l'animation "turn around"
-			animationTree.Set(isTurningLink, true);
-		}
-		else
-		{
-			// La direction n'a pas changé, désactivez l'animation "turn around"
-			animationTree.Set(isTurningLink, false);
-		}
 
 		// Mettez à jour la direction précédente
 		previousDirection = direction;
@@ -214,26 +207,14 @@ public partial class Perso : CharacterBody2D
 			animatedSprite2D.FlipH = direction < 0;
 			if (dashing)
 			{
-				//dashParticle.Emitting = true;
-				//animatedSprite2D.Visible=false;
+				gpuparticle.Emitting = true;
+				animatedSprite2D.Visible=false;
 				motion.X = direction * DASH_SPEED;
 
 			}
 			else
 			{
-
 				motion.X = acceleration * direction;
-				float temp = direction;
-				if (temp != direction)
-				{
-					animationTree.Set(isTurningLink, true);
-				}
-				else
-				{
-					animationTree.Set(isTurningLink, false);
-				}
-
-
 			}
 
 			wallDetect.RotationDegrees = direction > 0 ? 0.0f : 180.0f;
@@ -249,6 +230,10 @@ public partial class Perso : CharacterBody2D
 	public void Jump()
 	{
 		motion.Y = jumpVelocity * jumpForce;
+		animationTree.Set(runLink,false);
+		animationTree.Set(idleLink,false);
+		animationTree.Set(isJump,true);
+		animationTree.Set(idleLink,true);
 	}
 
 	//Gravity Handler
@@ -329,7 +314,7 @@ public partial class Perso : CharacterBody2D
 	private void _on_dash_timer_timeout()
 	{
 		dashing = false;
-		//dashParticle.Emitting = false;
+		gpuparticle.Emitting = false;
 		animatedSprite2D.Visible = true;
 	}
 
@@ -353,14 +338,16 @@ public partial class Perso : CharacterBody2D
 
 	public void UpdateAnimationParameters()
 	{
+	
 		if (Velocity == Godot.Vector2.Zero)
 		{
+			animationTree.Set(isJump,false);
 			animationTree.Set(idleLink, true);
 			animationTree.Set(runLink, false);
-
 		}
 		else
 		{
+			animationTree.Set(isJump,false);
 			animationTree.Set(idleLink, false);
 			animationTree.Set(runLink, true);
 

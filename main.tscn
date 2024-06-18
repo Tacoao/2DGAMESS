@@ -1,9 +1,7 @@
-
 [gd_scene load_steps=49 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="1_rt5h8"]
 [ext_resource type="Script" path="res://main.gd" id="1_ulyes"]
-
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="2_nrq5j"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://character_body_2d.tscn" id="2_oyqtt"]
 [ext_resource type="Texture2D" uid="uid://s2fx4xvjfy52" path="res://Assets/MainCHar/ScreenStateLife/State1.png" id="3_nxi73"]
@@ -444,12 +442,10 @@ follow_damping_value = Vector2(0.5, 0.5)
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_oyqtt")]
 position = Vector2(787, -29)
 
-
 [node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 position = Vector2(-11.1875, -38.6875)
 scale = Vector2(0.0625, 0.0625)
 volume_db = -11.142
-
 
 [node name="Rope" parent="." instance=ExtResource("3_pr2jr")]
 position = Vector2(2269, -544)
@@ -459,7 +455,6 @@ rope_length = 3000.0
 position = Vector2(7, 10)
 script = ExtResource("3_ye5vl")
 rope_path = NodePath("../Rope")
-
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1344, 30)
@@ -479,7 +474,6 @@ follow_viewport_scale = 0.6
 position = Vector2(9661.67, 495)
 scale = Vector2(366.417, 227.019)
 texture = ExtResource("1_rt5h8")
-
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-4"]
 position = Vector2(-5, 0)
@@ -519,7 +513,6 @@ follow_viewport_scale = 0.9
 [node name="0" type="CanvasLayer" parent="WorldDetails"]
 layer = 0
 follow_viewport_enabled = true
-
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="WorldDetails/0"]
 texture_filter = 2
@@ -627,7 +620,6 @@ position = Vector2(4433.08, -2022.31)
 rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("7_0d5gh")
-
 
 [node name="StatusLife" type="Node2D" parent="WorldDetails/3"]
 script = ExtResource("15_dpxxg")

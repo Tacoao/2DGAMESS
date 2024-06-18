@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://biic1783ehm6s"]
+[gd_scene load_steps=144 format=3 uid="uid://biic1783ehm6s"]
 
 [ext_resource type="Script" path="res://Perso.cs" id="1_gjhdq"]
 [ext_resource type="Texture2D" uid="uid://br6va5ydjyk7d" path="res://Assets/MainCHar/Attack/Heavy/0.png" id="2_2ucgm"]
@@ -107,6 +107,7 @@
 [ext_resource type="Texture2D" uid="uid://dc87ecsr3x4jc" path="res://Assets/MainCHar/Run/TurnAround/3.png" id="105_xmkls"]
 [ext_resource type="Texture2D" uid="uid://dcdvjwah44gkq" path="res://Assets/MainCHar/Run/TurnAround/4.png" id="106_0ob3l"]
 [ext_resource type="Script" path="res://CharacterLight.gd" id="107_isq8v"]
+[ext_resource type="Texture2D" uid="uid://duxx5jqftgykv" path="res://Assets/smoke2.png" id="108_sjx33"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
 height = 28.0
@@ -419,7 +420,6 @@ animations = [{
 "texture": ExtResource("94_gsa7d")
 }],
 "loop": true,
-
 "name": &"Run",
 "speed": 40.0
 }, {
@@ -487,7 +487,6 @@ fill_to = Vector2(0.818965, 0.219828)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x6ev3"]
 blend_mode = 1
 light_mode = 2
-
 
 [sub_resource type="Gradient" id="Gradient_splfw"]
 offsets = PackedFloat32Array(0.00595238, 1)
@@ -822,43 +821,76 @@ _data = {
 "Turn_Around": SubResource("Animation_d6jyq")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e011s"]
+animation = &"Fall"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_li05i"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oict5"]
+animation = &"Jump_Rise"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nq1w2"]
+animation = &"Landing"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gj2l8"]
 animation = &"Run"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_un7cn"]
-animation = &"Turn_Around"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b4h08"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lfbn5"]
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgr1j"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j3ct4"]
-advance_mode = 2
-advance_condition = &"is_turning"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_misq4"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mqpee"]
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l2jm0"]
+advance_mode = 2
+advance_condition = &"is_landed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sv82t"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o2guw"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6bkbm"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_avixf"]
+advance_mode = 2
+advance_condition = &"is_jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jwann"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_koim3"]
+advance_mode = 2
+advance_condition = &"is_jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_05cx1"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ugkx7"]
+states/Fall/node = SubResource("AnimationNodeAnimation_e011s")
+states/Fall/position = Vector2(500, 2)
 states/Idle/node = SubResource("AnimationNodeAnimation_li05i")
-states/Idle/position = Vector2(268, 149)
+states/Idle/position = Vector2(125, 61)
+states/Jump_Rise/node = SubResource("AnimationNodeAnimation_oict5")
+states/Jump_Rise/position = Vector2(370, -21)
+states/Landing/node = SubResource("AnimationNodeAnimation_nq1w2")
+states/Landing/position = Vector2(340, 94)
 states/Run/node = SubResource("AnimationNodeAnimation_gj2l8")
-states/Run/position = Vector2(430, 149)
-states/Start/position = Vector2(81, 149)
-states/Turn_Around/node = SubResource("AnimationNodeAnimation_un7cn")
-states/Turn_Around/position = Vector2(628, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b4h08"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_lfbn5"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_xgr1j"), "Run", "Turn_Around", SubResource("AnimationNodeStateMachineTransition_j3ct4"), "Turn_Around", "Run", SubResource("AnimationNodeStateMachineTransition_misq4")]
+states/Run/position = Vector2(104, -100)
+states/Start/position = Vector2(-39, 61)
+transitions = ["Jump_Rise", "Fall", SubResource("AnimationNodeStateMachineTransition_mqpee"), "Fall", "Landing", SubResource("AnimationNodeStateMachineTransition_l2jm0"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sv82t"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_o2guw"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6bkbm"), "Idle", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_avixf"), "Landing", "Idle", SubResource("AnimationNodeStateMachineTransition_jwann"), "Run", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_koim3"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_05cx1")]
+graph_offset = Vector2(-156.702, -129.702)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e60t"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(16, 16)
@@ -878,8 +910,7 @@ shape = SubResource("CapsuleShape2D_mx5ke")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
-
-animation = &"Idle"
+animation = &"Jump_Rise"
 autoplay = "Idle"
 frame = 1
 speed_scale = 0.5
@@ -904,7 +935,6 @@ wait_time = 0.2
 
 [node name="canDashTimer" type="Timer" parent="."]
 
-
 [node name="wallDetect" type="RayCast2D" parent="."]
 target_position = Vector2(12.6875, 0.0625)
 
@@ -917,8 +947,17 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_ugkx7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
+parameters/conditions/is_jump = false
+parameters/conditions/is_landed = false
 parameters/conditions/is_moving = false
-parameters/conditions/is_turning = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.180392, 0, 0, 1)
+self_modulate = Color(0.388235, 1, 1, 1)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_3e60t")
+texture = ExtResource("108_sjx33")
+lifetime = 0.5
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
