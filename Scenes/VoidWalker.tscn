@@ -713,7 +713,6 @@ texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
 animation = &"Idle"
-frame = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 18)

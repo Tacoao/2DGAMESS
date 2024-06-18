@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://ookhgd2rgrgv"]
+[gd_scene load_steps=83 format=3 uid="uid://ookhgd2rgrgv"]
 
 [ext_resource type="Texture2D" uid="uid://gf5v1piyho45" path="res://Assets/Ball and Chain Bot/attack.png" id="1_5v3ep"]
 [ext_resource type="Script" path="res://Script/ChainEnnemi.gd" id="1_rtvbr"]
@@ -356,7 +356,7 @@ states/run/position = Vector2(540.66, 59.56)
 states/transitioncharge/node = SubResource("AnimationNodeAnimation_pa6q3")
 states/transitioncharge/position = Vector2(390.66, 241.472)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yf6gs"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_5g8aj"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_1cgva"), "transitioncharge", "charge", SubResource("AnimationNodeStateMachineTransition_nuun4"), "charge", "attack", SubResource("AnimationNodeStateMachineTransition_yt0sf"), "idle", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_dg4fc"), "run", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_avgxv"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_64ubr"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ilbd8"), "attack", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_ab46r")]
-graph_offset = Vector2(61.62, -43.5651)
+graph_offset = Vector2(61.62, 68.3201)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsx32"]
 radius = 7.0
@@ -796,13 +796,19 @@ _data = {
 "walk": SubResource("Animation_t5xao")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_345si"]
+size = Vector2(49, 13)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_rtvbr")
+
+[node name="timerattack" type="Timer" parent="."]
+wait_time = 1.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0tnj8")
-animation = &"idle"
+animation = &"charge"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2ops1")
@@ -845,4 +851,13 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
 navigation_layers = 2
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(34.5, 5)
+shape = SubResource("RectangleShape2D_345si")
+
+[connection signal="timeout" from="timerattack" to="." method="_on_timerattack_timeout"]
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

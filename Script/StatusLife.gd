@@ -19,8 +19,10 @@ var life = 100.0;
 func _ready():
 	sprite1.modulate.a = 0.0
 	sprite2.modulate.a = 0.0
-	sprite3.modulate.a = 0.0# reduit l'opaciter a 0pourcent
-
+	sprite3.modulate.a = 0.0 # reduit l'opaciter a 0pourcent
+	
+func takedamage(damage):
+	life -= damage
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

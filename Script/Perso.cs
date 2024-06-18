@@ -74,7 +74,7 @@ public partial class Perso : CharacterBody2D
 	{
 		UpdateAnimationParameters();
 	}
-
+	 
 
 	public override void _PhysicsProcess(double delta)
 	{

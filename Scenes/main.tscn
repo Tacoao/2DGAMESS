@@ -716,10 +716,11 @@ scale = Vector2(20, 20)
 [node name="InitialPoint" type="Node2D" parent="ChainEnnemiNode"]
 position = Vector2(-11.6, 15)
 
-[node name="ChainEnnemi" parent="ChainEnnemiNode" node_paths=PackedStringArray("player", "initialPostion") instance=ExtResource("23_b02lv")]
+[node name="ChainEnnemi" parent="ChainEnnemiNode" node_paths=PackedStringArray("player", "initialPostion", "playerlife") instance=ExtResource("23_b02lv")]
 position = Vector2(30.85, 3.4)
 player = NodePath("../../CharacterBody2D")
 initialPostion = NodePath("../InitialPoint")
+playerlife = NodePath("../../WorldDetails/3/StatusLife")
 
 [node name="dragonExplosive" type="Node2D" parent="."]
 

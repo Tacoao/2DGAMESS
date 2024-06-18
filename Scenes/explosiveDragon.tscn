@@ -324,7 +324,7 @@ parameters/conditions/isRunning = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jx1bc")
 animation = &"idle"
-frame = 7
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

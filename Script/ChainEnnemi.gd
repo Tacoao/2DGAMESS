@@ -5,8 +5,11 @@ const ATTACK_RANGE = 1000.0  # Portée d'attaque du monstre
 @onready var sprite = $AnimatedSprite2D
 @onready var body = $AnimatedSprite2D
 @onready var animationTree = $AnimationTree
+@onready var animation_player = $AnimationPlayer
 @export var player: CharacterBody2D
 @export var initialPostion : Node2D
+@export var playerlife : Node2D 
+@onready var timer = $timerattack
 @onready var NavigationAgent = $Navigation/NavigationAgent2D
 var speed = 2000
 var acceleration = 50
@@ -15,7 +18,10 @@ var IsIn = false
 var atInitialePoint = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var patrol_direction = -1  
+var IsInZone = false
 
+
+	
 
 func UpdateAnimationParameters():
 	if velocity == Vector2.ZERO or atInitialePoint:
@@ -60,6 +66,8 @@ func attack_player(delta):
 	if direction.x >0:
 		body.flip_h = false
 	animationTree.set("parameters/conditions/isAttacking", true)
+	if timer.is_stopped():
+		timer.start(1.2)
 
 func _on_timer_timeout():
 	if global_position.distance_to(player.global_position) <= 1500:
@@ -68,4 +76,15 @@ func _on_timer_timeout():
 	else:
 		NavigationAgent.target_position = initialPostion.global_position
 		atInitialePoint = true
+		
+func _on_area_2d_body_entered(body):
+	IsInZone = true
 
+
+func _on_area_2d_body_exited(body):
+	IsInZone = false
+
+
+func _on_timerattack_timeout():
+	if IsInZone:
+		playerlife.takedamage(5)
