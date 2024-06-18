@@ -1,8 +1,113 @@
-[gd_scene load_steps=65 format=3 uid="uid://p6t13csbwpp4"]
+[gd_scene load_steps=103 format=3 uid="uid://p6t13csbwpp4"]
 
 [ext_resource type="Texture2D" uid="uid://bkjmepxqd52lq" path="res://Assets/NightBorn/NightBorne.png" id="1_4hihl"]
+[ext_resource type="Script" path="res://Scenes/night_born.gd" id="1_e8gjr"]
+[ext_resource type="Script" path="res://Script/CharacterLight.gd" id="3_5bw4b"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3wah"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_76mri"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gs8c0"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r34jx"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3scq"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5wljl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_46dyv"]
+advance_mode = 2
+advance_condition = &"isWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uugui"]
+advance_mode = 2
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qvbrg"]
+advance_mode = 2
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6yt3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q23o7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ip7rk"]
+advance_mode = 2
+advance_condition = &"isHit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1gevg"]
+advance_mode = 2
+advance_condition = &"isHit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fo45v"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1ro0"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_awq57"]
+advance_mode = 2
+advance_condition = &"isIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhu6b"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isHit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ed02q"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lb8t5"]
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2vqk"]
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0era"]
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hw2i3"]
+advance_mode = 2
+advance_condition = &"isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jr6pg"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3pxo4"]
+states/End/position = Vector2(625, 620)
+states/Idle/node = SubResource("AnimationNodeAnimation_j3wah")
+states/Idle/position = Vector2(368, 274)
+states/Start/position = Vector2(249, 250)
+states/attack/node = SubResource("AnimationNodeAnimation_76mri")
+states/attack/position = Vector2(668, 94)
+states/death/node = SubResource("AnimationNodeAnimation_gs8c0")
+states/death/position = Vector2(291, 521)
+states/hit/node = SubResource("AnimationNodeAnimation_r34jx")
+states/hit/position = Vector2(937, 527)
+states/run/node = SubResource("AnimationNodeAnimation_a3scq")
+states/run/position = Vector2(949, 256)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5wljl"), "Idle", "run", SubResource("AnimationNodeStateMachineTransition_46dyv"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_uugui"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qvbrg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_w6yt3"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_q23o7"), "Idle", "hit", SubResource("AnimationNodeStateMachineTransition_ip7rk"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_1gevg"), "hit", "Idle", SubResource("AnimationNodeStateMachineTransition_fo45v"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_g1ro0"), "run", "Idle", SubResource("AnimationNodeStateMachineTransition_awq57"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_jhu6b"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_ed02q"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_lb8t5"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_i2vqk"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_p0era"), "run", "death", SubResource("AnimationNodeStateMachineTransition_hw2i3"), "death", "End", SubResource("AnimationNodeStateMachineTransition_jr6pg")]
+graph_offset = Vector2(0, 48.5997)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b717y"]
 atlas = ExtResource("1_4hihl")
@@ -562,16 +667,258 @@ _data = {
 "run": SubResource("Animation_7cgqw")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4j0j"]
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_olvum"]
+offsets = PackedFloat32Array(0.0357143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fux71"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_olvum")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.668103, 0.288793)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7havv"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_2ldqn"]
+offsets = PackedFloat32Array(0.00595238, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x22v4"]
+gradient = SubResource("Gradient_2ldqn")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.633621, 0.431034)
+
+[sub_resource type="Animation" id="Animation_rroag"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_sjpga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Volumetric light:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [256]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volumetric light:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [256]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ens87"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["attack"]
+}
+
+[sub_resource type="Animation" id="Animation_7fgan"]
+resource_name = "light_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Volumetric light:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 200, 256]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volumetric light:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 256, 256]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_288pl"]
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["portalCast"]
+}
+
+[sub_resource type="Animation" id="Animation_t5xao"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["walk"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42hwr"]
+_data = {
+"Idle": SubResource("Animation_rroag"),
+"RESET": SubResource("Animation_sjpga"),
+"attack": SubResource("Animation_ens87"),
+"light_animation": SubResource("Animation_7fgan"),
+"portalCast": SubResource("Animation_288pl"),
+"walk": SubResource("Animation_t5xao")
+}
+
 [node name="NightBorn" type="CharacterBody2D"]
+script = ExtResource("1_e8gjr")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_3pxo4")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/isAttacking = false
+parameters/conditions/isDead = false
+parameters/conditions/isHit = false
+parameters/conditions/isIdle = false
+parameters/conditions/isWalking = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
-animation = &"attack"
+animation = &"Idle"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -579,3 +926,20 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 5)
+shape = SubResource("CapsuleShape2D_m4j0j")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, 4)
+texture = SubResource("GradientTexture2D_fux71")
+script = ExtResource("3_5bw4b")
+
+[node name="Volumetric light" type="Sprite2D" parent="PointLight2D"]
+modulate = Color(0.201255, 0.113238, 0.280777, 1)
+material = SubResource("CanvasItemMaterial_7havv")
+texture = SubResource("GradientTexture2D_x22v4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D"]
+libraries = {
+"": SubResource("AnimationLibrary_42hwr")
+}

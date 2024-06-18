@@ -134,8 +134,7 @@ theme = SubResource("Theme_lu5ao")
 text = "NEW GAME"
 
 [node name="LightPlay" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-position = Vector2(125, 107)
+position = Vector2(125, 326)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 
@@ -147,8 +146,7 @@ theme = SubResource("Theme_lu5ao")
 text = "CONTINUE"
 
 [node name="LightContinue" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-position = Vector2(125, 199)
+position = Vector2(126, 415)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 
@@ -160,8 +158,7 @@ theme = SubResource("Theme_lu5ao")
 text = "SETTINGS"
 
 [node name="LightOptions" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-position = Vector2(125, 291)
+position = Vector2(126, 501)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 
@@ -173,8 +170,7 @@ theme = SubResource("Theme_lu5ao")
 text = "EXIT"
 
 [node name="LightQuit" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-position = Vector2(124, 382)
+position = Vector2(127, 598)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 

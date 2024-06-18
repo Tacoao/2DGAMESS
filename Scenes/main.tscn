@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dpr0h"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bfw38n2y4gciw" path="res://Scenes/VoidWalker.tscn" id="22_pwq0k"]
 [ext_resource type="PackedScene" uid="uid://ookhgd2rgrgv" path="res://Scenes/ChainEnnemi.tscn" id="23_b02lv"]
 [ext_resource type="PackedScene" uid="uid://bii0pbqbfaih0" path="res://Scenes/explosiveDragon.tscn" id="24_pgl6g"]
+[ext_resource type="PackedScene" uid="uid://p6t13csbwpp4" path="res://Scenes/night_born.tscn" id="25_gf5a6"]
 
 [sub_resource type="Resource" id="Resource_pfmpj"]
 script = ExtResource("4_74e8m")
@@ -738,3 +739,15 @@ navigation_polygon = SubResource("NavigationPolygon_b4ura")
 navigation_layers = 2
 
 [node name="NightBorn" type="Node2D" parent="."]
+
+[node name="NightBorn" parent="NightBorn" instance=ExtResource("25_gf5a6")]
+position = Vector2(18453, -4077)
+scale = Vector2(20, 20)
+patrol_point_a = NodePath("../pointA")
+patrol_point_b = NodePath("../pointB")
+
+[node name="pointA" type="Node2D" parent="NightBorn"]
+position = Vector2(17235, -3659)
+
+[node name="pointB" type="Node2D" parent="NightBorn"]
+position = Vector2(20531, -3740)
