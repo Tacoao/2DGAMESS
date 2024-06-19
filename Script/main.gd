@@ -20,6 +20,7 @@ func _input(event):
 	if Input.is_action_just_released("hook"):
 		action = false
 func _process(delta):
+	
 	if action:
 		if player.GetHooked():
 			Handle.global_position = player.global_position + Vector2(-20, -FRAME_HEIGHT / 2)

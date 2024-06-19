@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=53 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dpr0h"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://r1u7bhpg0nhc" path="res://Assets/MainCHar/ScreenStateLife/State2.png" id="18_3vnds"]
 [ext_resource type="Texture2D" uid="uid://b56y1q0b7p8ew" path="res://Assets/MainCHar/ScreenStateLife/State3.png" id="19_hqfx2"]
 [ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://Scenes/texture_rect.tscn" id="20_ig61o"]
-[ext_resource type="Script" path="res://Script/enemy_place.gd" id="21_v5m3l"]
 [ext_resource type="PackedScene" uid="uid://bfw38n2y4gciw" path="res://Scenes/VoidWalker.tscn" id="22_pwq0k"]
 [ext_resource type="PackedScene" uid="uid://ookhgd2rgrgv" path="res://Scenes/ChainEnnemi.tscn" id="23_b02lv"]
 [ext_resource type="PackedScene" uid="uid://bii0pbqbfaih0" path="res://Scenes/explosiveDragon.tscn" id="24_pgl6g"]
@@ -469,6 +468,7 @@ rope_length = 3000.0
 [node name="RopeHandle" type="Marker2D" parent="."]
 position = Vector2(7, 10)
 script = ExtResource("7_2xvto")
+enable = false
 rope_path = NodePath("../Rope")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -697,7 +697,6 @@ energy = 1.5
 [node name="VoidWalkerNode" type="Node2D" parent="."]
 position = Vector2(10982, 72)
 scale = Vector2(15, 15)
-script = ExtResource("21_v5m3l")
 
 [node name="PatrolPointA" type="Node2D" parent="VoidWalkerNode"]
 position = Vector2(-125.867, 28.2)

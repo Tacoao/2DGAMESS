@@ -16,14 +16,12 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var patrol_b = get_node(patrol_point_b)
 @onready var animationTree = $AnimationTree
 @onready var player = $"../../CharacterBody2D"
-
-
-var is_spelling = false
-var IsIn = false
+@onready var playerlife = $"../../WorldDetails/3/StatusLife"
+@onready var takendamage = $takenDamage
+var IsInDamage = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cast_time = 0.0
 var spell_time = 0.0
-var is_casting = false
 var patrol_direction = -1  # 1 = vers B, -1 = vers A
 
 
@@ -43,8 +41,9 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isAttacking", true)
 	else:
 		animationTree.set("parameters/conditions/isAttacking", false)
-
+	
 func _physics_process(delta):
+	print(playerlife.life)
 	if player_in_range() and is_within_patrol_area(player.global_position):
 		attack_player(delta)
 	else:
@@ -52,7 +51,7 @@ func _physics_process(delta):
 	UpdateAnimationParameters()
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	move_and_slide()  # Assurez-vous que move_and_slide() est appelé avec le vecteur velocity
+	move_and_slide() 
 
 func player_in_range() -> bool:
 	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
@@ -67,7 +66,8 @@ func attack_player(delta):
 		body.flip_h = false
 	if global_position.distance_to(player.global_position) <= 500.0:
 		animationTree.set("parameters/conditions/isAttacking", true)
-
+		if takendamage.is_stopped():
+			takendamage.start()
 func patrol(delta):
 	if patrol_direction == 1 and abs(global_position.x - patrol_b.global_position.x) <= 10:
 		patrol_direction = -1
@@ -83,3 +83,20 @@ func patrol(delta):
 
 func is_within_patrol_area(position: Vector2) -> bool:
 	return position.x >= min(patrol_a.global_position.x, patrol_b.global_position.x) and position.x <= max(patrol_a.global_position.x, patrol_b.global_position.x)
+
+
+func _on_area_2d_body_exited(body):
+	if body == player:
+		IsInDamage = false
+		print(IsInDamage)
+
+func _on_area_2d_body_entered(body):
+	if body == player:
+		IsInDamage = true
+		print(IsInDamage)
+
+
+func _on_taken_damage_timeout():
+	if IsInDamage : 
+		playerlife.takedamage(5)
+		

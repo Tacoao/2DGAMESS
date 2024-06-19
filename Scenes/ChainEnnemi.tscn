@@ -354,7 +354,7 @@ states/idle/position = Vector2(347.16, 61.6225)
 states/run/node = SubResource("AnimationNodeAnimation_3lbyf")
 states/run/position = Vector2(540.66, 59.56)
 states/transitioncharge/node = SubResource("AnimationNodeAnimation_pa6q3")
-states/transitioncharge/position = Vector2(390.66, 241.472)
+states/transitioncharge/position = Vector2(390.66, 241.713)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yf6gs"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_5g8aj"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_1cgva"), "transitioncharge", "charge", SubResource("AnimationNodeStateMachineTransition_nuun4"), "charge", "attack", SubResource("AnimationNodeStateMachineTransition_yt0sf"), "idle", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_dg4fc"), "run", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_avgxv"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_64ubr"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ilbd8"), "attack", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_ab46r")]
 graph_offset = Vector2(61.62, 68.3201)
 
@@ -808,7 +808,8 @@ wait_time = 1.2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0tnj8")
-animation = &"charge"
+animation = &"idle"
+frame = 3
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2ops1")

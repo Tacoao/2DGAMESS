@@ -78,11 +78,13 @@ func _on_timer_timeout():
 		atInitialePoint = true
 		
 func _on_area_2d_body_entered(body):
-	IsInZone = true
+	if body == player:
+		IsInZone = true
 
 
 func _on_area_2d_body_exited(body):
-	IsInZone = false
+	if body == player:
+		IsInZone = false
 
 
 func _on_timerattack_timeout():

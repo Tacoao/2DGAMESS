@@ -630,8 +630,8 @@ _data = {
 "walk": SubResource("Animation_wquh0")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7qgpm"]
-radius = 100.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m5qy"]
+size = Vector2(44, 50)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f4goi"]
 animation = &"Idle"
@@ -712,7 +712,7 @@ script = ExtResource("1_4ru61")
 texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
-animation = &"Idle"
+animation = &"attack"
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 18)
@@ -742,7 +742,8 @@ libraries = {
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-shape = SubResource("CircleShape2D_7qgpm")
+position = Vector2(-30, -9)
+shape = SubResource("RectangleShape2D_5m5qy")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_afx32")
@@ -751,3 +752,9 @@ parameters/conditions/isAttacking = false
 parameters/conditions/isCasting = false
 parameters/conditions/isIdle = false
 parameters/conditions/isWalking = false
+
+[node name="takeDamage" type="Timer" parent="."]
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="timeout" from="takeDamage" to="." method="_on_take_damage_timeout"]
