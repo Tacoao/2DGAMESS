@@ -5,10 +5,12 @@ const ATTACK_RANGE = 500.0
 @onready var animationTree = $AnimationTree
 @onready var sprite = $AnimatedSprite2D
 @onready var InContactTimer = $InContactTimer
+@onready var playerlife = $"../../WorldDetails/3/StatusLife"
 var speed = 2000
 var acceleration = 50
 var is_in_contact = false
-	
+var IsInDamage = false
+
 func player_in_range() -> bool:
 	return global_position.distance_to(target_player.global_position) <= ATTACK_RANGE
 
@@ -37,6 +39,7 @@ func UpdateAnimationParameters():
 		is_in_contact = false
 
 func _physics_process(delta):
+	print(playerlife.life)
 	var direction = Vector2.ZERO
 	direction = NavigationAgent.get_next_path_position() - global_position
 	direction = direction.normalized()
@@ -50,5 +53,16 @@ func _on_timer_timeout():
 	NavigationAgent.target_position = target_player.global_position
 
 func _on_in_contact_timer_timeout():
-	print("Timer expired, deleting enemy")
+
+	playerlife.takedamage(5)
 	queue_free()
+
+
+func _on_area_2d_body_exited(body):
+	if body == target_player:
+		IsInDamage = false
+
+
+func _on_area_2d_body_entered(body):
+	if body == target_player:
+		IsInDamage = true

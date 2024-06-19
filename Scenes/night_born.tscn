@@ -921,7 +921,7 @@ parameters/conditions/isWalking = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
 animation = &"Idle"
-frame = 1
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
