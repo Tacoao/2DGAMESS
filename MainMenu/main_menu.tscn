@@ -48,12 +48,12 @@ Button/styles/hover = SubResource("StyleBoxTexture_ebinp")
 Button/styles/normal = SubResource("StyleBoxTexture_gbwon")
 Button/styles/pressed = SubResource("StyleBoxTexture_gbwon")
 
-[sub_resource type="Gradient" id="Gradient_aw3fl"]
+[sub_resource type="Gradient" id="Gradient_naolv"]
 offsets = PackedFloat32Array(0, 0.784431, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bry8u"]
-gradient = SubResource("Gradient_aw3fl")
+gradient = SubResource("Gradient_naolv")
 fill = 1
 fill_from = Vector2(0.495726, 0.517094)
 
@@ -134,7 +134,8 @@ theme = SubResource("Theme_lu5ao")
 text = "NEW GAME"
 
 [node name="LightPlay" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(125, 326)
+visible = false
+position = Vector2(125, 362)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 
@@ -143,22 +144,11 @@ texture_filter = 2
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 theme = SubResource("Theme_lu5ao")
-text = "CONTINUE"
+text = "HALL OF FAME"
 
 [node name="LightContinue" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(126, 415)
-energy = 1.15
-texture = SubResource("GradientTexture2D_bry8u")
-
-[node name="Option" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-texture_filter = 2
-custom_minimum_size = Vector2(150, 75)
-layout_mode = 2
-theme = SubResource("Theme_lu5ao")
-text = "SETTINGS"
-
-[node name="LightOptions" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(126, 501)
+visible = false
+position = Vector2(126, 455)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 
@@ -170,7 +160,8 @@ theme = SubResource("Theme_lu5ao")
 text = "EXIT"
 
 [node name="LightQuit" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(127, 598)
+visible = false
+position = Vector2(127, 543)
 energy = 1.15
 texture = SubResource("GradientTexture2D_bry8u")
 

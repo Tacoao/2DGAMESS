@@ -108,7 +108,6 @@
 [ext_resource type="Texture2D" uid="uid://dcdvjwah44gkq" path="res://Assets/MainCHar/Run/TurnAround/4.png" id="106_0ob3l"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="107_isq8v"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
 height = 28.0
 

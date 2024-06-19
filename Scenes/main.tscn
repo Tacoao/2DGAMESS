@@ -1,6 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
+[ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dpr0h"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2plas"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_74e8m"]
@@ -439,6 +440,8 @@ color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 position = Vector2(787, -29)
 zoom = Vector2(0.23, 0.23)
 
+[node name="CanvasLayer" parent="Camera2D" instance=ExtResource("2_6ksq7")]
+
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_dpr0h")
 
@@ -462,13 +465,9 @@ scale = Vector2(0.0625, 0.0625)
 volume_db = -11.142
 
 [node name="Rope" parent="." instance=ExtResource("6_gdj0r")]
-position = Vector2(2269, -544)
-rope_length = 3000.0
 
 [node name="RopeHandle" type="Marker2D" parent="."]
-position = Vector2(7, 10)
 script = ExtResource("7_2xvto")
-enable = false
 rope_path = NodePath("../Rope")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -515,6 +514,7 @@ color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
 [node name="-2" type="CanvasLayer" parent="WorldDetails"]
 layer = -2
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
@@ -526,9 +526,11 @@ follow_viewport_scale = 0.9
 
 [node name="0" type="CanvasLayer" parent="WorldDetails"]
 layer = 0
+visible = false
 follow_viewport_enabled = true
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="WorldDetails/0"]
+visible = false
 texture_filter = 2
 position = Vector2(-290, 946)
 rotation = 6.29689
@@ -541,6 +543,7 @@ fixed_fps = 0
 draw_order = 0
 
 [node name="1" type="CanvasLayer" parent="WorldDetails"]
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
 
@@ -552,6 +555,7 @@ follow_viewport_scale = 1.2
 
 [node name="3" type="CanvasLayer" parent="WorldDetails"]
 layer = 3
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
