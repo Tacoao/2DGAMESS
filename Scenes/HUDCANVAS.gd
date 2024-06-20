@@ -72,7 +72,7 @@ func _on_Timer_timeout():
 		eyes_closed = true
 	
 	texture_rect.texture = textures[current_texture_index]
-	print("switch")
+
 	
 	# Relancer le timer avec un temps approprié
 	start_random_timer()

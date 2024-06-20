@@ -8,21 +8,18 @@ func _ready():
 	rope.visible = false
 var action = false
 func _input(event):
-	if Input.is_action_just_pressed("decrease"):
-		life.life -= 10
-		print(life.life)
-	if Input.is_action_just_pressed("increase"):
-		life.life += 10
-		print(life.life)
-	if Input.is_action_just_pressed("hook"):
+	if Input.is_action_just_pressed("RightClick"):
+		print(player.bowMod)
+		if player.bowMod:
 			action = true
-			rope.global_position = player.GetHookPosition()
-	if Input.is_action_just_released("hook"):
-		action = false
+			rope.global_position = player.get_hook_position()
+	if Input.is_action_just_released("RightClick"):
+		if player.bowMod:
+			action = false
 func _process(delta):
 	
 	if action:
-		if player.GetHooked():
+		if player.get_hook_position():
 			Handle.global_position = player.global_position + Vector2(-20, -FRAME_HEIGHT / 2)
 			rope.rope_length = (Handle.global_position - player.global_position).length() +200
 			Handle.global_position.y -= 15

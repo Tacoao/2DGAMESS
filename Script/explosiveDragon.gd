@@ -39,7 +39,6 @@ func UpdateAnimationParameters():
 		is_in_contact = false
 
 func _physics_process(delta):
-	print(playerlife.life)
 	var direction = Vector2.ZERO
 	direction = NavigationAgent.get_next_path_position() - global_position
 	direction = direction.normalized()

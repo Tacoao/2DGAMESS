@@ -437,7 +437,7 @@ position = Vector2(-5, 0)
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(787, -29)
+position = Vector2(1.4013e-45, -1.4013e-45)
 zoom = Vector2(0.23, 0.23)
 
 [node name="CanvasLayer" parent="Camera2D" instance=ExtResource("2_6ksq7")]
@@ -445,8 +445,12 @@ zoom = Vector2(0.23, 0.23)
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_dpr0h")
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
+
+[node name="Murmure" type="AudioStreamPlayer" parent="CharacterBody2D"]
+
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(787, -29)
+position = Vector2(1.4013e-45, -1.4013e-45)
 script = ExtResource("3_2plas")
 priority = 5
 follow_mode = 1
@@ -455,14 +459,6 @@ zoom = Vector2(0.23, 0.23)
 tween_resource = SubResource("Resource_pfmpj")
 follow_damping = true
 follow_damping_value = Vector2(0.5, 0.5)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
-position = Vector2(787, -29)
-
-[node name="Murmure" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
-position = Vector2(-11.1875, -38.6875)
-scale = Vector2(0.0625, 0.0625)
-volume_db = -11.142
 
 [node name="Rope" parent="." instance=ExtResource("6_gdj0r")]
 
@@ -514,13 +510,11 @@ color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
 [node name="-2" type="CanvasLayer" parent="WorldDetails"]
 layer = -2
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.8
 
 [node name="-1" type="CanvasLayer" parent="WorldDetails"]
 layer = -1
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
 
@@ -639,8 +633,9 @@ rotation = 3.10769
 scale = Vector2(2.62941, 2.93823)
 texture = ExtResource("15_igt8y")
 
-[node name="StatusLife" type="Node2D" parent="WorldDetails/3"]
+[node name="StatusLife" type="Node2D" parent="WorldDetails/3" node_paths=PackedStringArray("perso")]
 script = ExtResource("16_g81p7")
+perso = NodePath("../../../CharacterBody2D")
 
 [node name="StatusLife1" type="Sprite2D" parent="WorldDetails/3/StatusLife"]
 z_index = 3

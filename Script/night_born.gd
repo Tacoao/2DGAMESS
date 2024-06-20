@@ -43,7 +43,6 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isAttacking", false)
 	
 func _physics_process(delta):
-	print(playerlife.life)
 	if player_in_range() and is_within_patrol_area(player.global_position):
 		attack_player(delta)
 	else:
@@ -88,12 +87,12 @@ func is_within_patrol_area(position: Vector2) -> bool:
 func _on_area_2d_body_exited(body):
 	if body == player:
 		IsInDamage = false
-		print(IsInDamage)
+
 
 func _on_area_2d_body_entered(body):
 	if body == player:
 		IsInDamage = true
-		print(IsInDamage)
+
 
 
 func _on_taken_damage_timeout():

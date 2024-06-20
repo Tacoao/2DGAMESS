@@ -16,7 +16,6 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var body = $Sprite2D
 @onready var patrol_a = get_node(patrol_point_a)
 @onready var patrol_b = get_node(patrol_point_b)
-@onready var portal = $PortalSkill/Sprite2D
 @onready var area2D = $PlayerDetection
 @onready var animationTree = $AnimationTree
 @onready var player = $"../../CharacterBody2D"
@@ -157,6 +156,5 @@ func _on_player_detection_body_exited(body):
 
 func _on_take_damage_timeout():
 	if IsInDamage:
-		print(playerlife.life)
 		playerlife.takedamage(5)
 		

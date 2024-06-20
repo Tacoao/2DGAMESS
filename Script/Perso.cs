@@ -9,7 +9,12 @@ public partial class Perso : CharacterBody2D
 {
 	//Mouvement Variable
 	//Run Variable
+	public double maxlife = 100.0;
+	public double life = 100.0;
+
 	private float acceleration = 5000.0f; // acceleration du personnage
+	private int AttackHCounter = 0;
+	private int AttackLCounter = 0;
 	private Boolean dashing = false;
 	private Boolean canDash = true;//peut dash 
 	private const float DASH_SPEED = 10000.0f;// vitesse du dash
@@ -47,12 +52,106 @@ public partial class Perso : CharacterBody2D
 	public bool hooked = false;
 
 	private float previousDirection = 0.0f;
-
+	private Timer damageTimer;
 	//Animation Link
 
 	private string idleLink = "parameters/conditions/idle";
 	private string runLink = "parameters/conditions/is_moving";
-	private string isTurningLink = "parameters/conditions/is_turning";
+	private string isJump = "parameters/conditions/is_jump";
+	private string isLanding = "parameters/conditions/is_landed";
+	private string isFalling =  "parameters/conditions/isFalling";
+
+	private string AttackH1 = "parameters/conditions/isAttackH1";
+	private string AttackH2 = "parameters/conditions/isAttackH2";
+	private string AttackH3 = "parameters/conditions/isAttackH3";
+	private string AttackL1 = "parameters/conditions/isAttackL1";
+	private string AttackL2 = "parameters/conditions/isAttackL2";
+	private string AttackL3 = "parameters/conditions/isAttackL3";
+
+	private string isHit = "parameters/conditions/isHurt";
+	public void Takedamage(int damage){
+		this.life -= damage;
+		ChangeColorToRed();
+		damageTimer.Start(0.5f);
+    }
+
+    private void ChangeColorToRed()
+    {
+        animatedSprite2D.Modulate = new Color(1, 0, 0); 
+    }
+
+    private void OnDamageTimerTimeout()
+    {
+        animatedSprite2D.Modulate = new Color(1, 1, 1); 
+    }
+	
+	public void AnimationHandler(){
+		
+		if (IsOnFloor() && (bool)animationTree.Get(isFalling))
+		{
+			animationTree.Set(isFalling ,false);
+			animationTree.Set(isLanding ,true);
+		}
+		if (!IsOnFloor())
+		{
+			animationTree.Set(isFalling ,true);
+			animationTree.Set(idleLink, false);
+			animationTree.Set(runLink, false);
+			animationTree.Set(isLanding ,false);
+		}
+		if (Velocity == Godot.Vector2.Zero && IsOnFloor())
+		{
+			animationTree.Set(isHit ,false);
+			animationTree.Set(isFalling ,false);
+			animationTree.Set(isJump,false);
+			animationTree.Set(idleLink, true);
+			animationTree.Set(AttackL1,false);
+			animationTree.Set(AttackL2,false);
+			animationTree.Set(AttackL3,false);
+			animationTree.Set(AttackH1,false);
+			animationTree.Set(AttackH2,false);
+			animationTree.Set(AttackH3,false);
+			animationTree.Set(runLink, false);
+		}
+		else if (IsOnFloor())
+		{
+			animationTree.Set(isFalling ,false);
+			animationTree.Set(isJump,false);
+			animationTree.Set(idleLink, false);
+			animationTree.Set(AttackL1,false);
+			animationTree.Set(AttackL2,false);
+			animationTree.Set(AttackL3,false);
+			animationTree.Set(AttackH1,false);
+			animationTree.Set(AttackH2,false);
+			animationTree.Set(AttackH3,false);
+			animationTree.Set(runLink, true);
+
+		}
+		if (Input.IsActionJustPressed("LeftClick"))
+		{
+			LightattackHandler();
+		}
+		if (Input.IsActionJustPressed("RightClick"))
+		{
+			HeavyattackHandler();
+		}
+		 if (Input.IsActionJustPressed("Jump_Only"))
+		{
+			jumpBufferCounter = jumpBufferTime;
+		}
+		if (jumpBufferCounter > 0)
+		{
+			jumpBufferCounter -= 1;
+		}
+		if (jumpBufferCounter > 0 && cayotteCounter > 0)
+		{
+			jumpBufferCounter = 0;
+			cayotteCounter = 0;
+			Jump();
+		}
+		
+	}
+	private GpuParticles2D gpuparticle ;
 	public override void _Ready()
 	{
 		GD.Print("Script Loaded");
@@ -61,6 +160,8 @@ public partial class Perso : CharacterBody2D
 		canDashTimer = GetNode<Timer>("canDashTimer");
 		animatedSprite2D = GetNode<AnimatedSprite2D>("Sprite2D");
 		animationTree = GetNode<AnimationTree>("AnimationTree");
+		gpuparticle = GetNode<GpuParticles2D>("GPUParticles2D");
+		gpuparticle.Emitting = false;
 		animationTree.Active = true;
 		wallDetect.Enabled = true;
 		jumpVelocity = ((2.0f * jumpHeight) / jumpTimeToPeak) * -1.0f;
@@ -68,13 +169,13 @@ public partial class Perso : CharacterBody2D
 		fallGravity = ((-2.0f * jumpHeight) / (jumpTimeToFall * jumpTimeToFall)) * -1.0f;
 		motion = Velocity;
 		this.CurrentRopeLenght = RopeLenght;
+		damageTimer = GetNode<Timer>("DamageTimer");
+
+        // Connectez le signal timeout du Timer à une méthode pour réinitialiser la couleur
 	}
 
-	public override void _Process(double delta)
-	{
-		UpdateAnimationParameters();
-	}
-	 
+	
+
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -142,26 +243,13 @@ public partial class Perso : CharacterBody2D
 			}
 		}
 
-		if (Input.IsActionJustPressed("Jump_Only"))
-		{
-			jumpBufferCounter = jumpBufferTime;
-		}
-		if (jumpBufferCounter > 0)
-		{
-			jumpBufferCounter -= 1;
-		}
-		if (jumpBufferCounter > 0 && cayotteCounter > 0)
-		{
-			jumpBufferCounter = 0;
-			cayotteCounter = 0;
-			Jump();
-		}
+		
 
 
 
-
+		AnimationHandler();
 		HandleMovementInput(delta);
-
+		
 		//Crochet Systeme
 		if (BowMod())
 		{
@@ -179,6 +267,90 @@ public partial class Perso : CharacterBody2D
 		MoveAndSlide();
 	}
 
+	private void LightattackHandler(){
+		if (!bowMod)
+		{
+				AttackLCounter += 1 ;
+				if (AttackLCounter >3)
+				{
+					AttackLCounter = 1;
+				}
+				switch (AttackLCounter)
+					{
+						case 1:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackL1,true);
+							animationTree.Set(AttackL3,false);
+							animationTree.Set(AttackH1,false);
+							animationTree.Set(AttackH2,false);
+							animationTree.Set(AttackH3,false);
+							break;
+						case 2:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackL2,true);
+							animationTree.Set(AttackL1,false);
+							animationTree.Set(AttackH1,false);
+							animationTree.Set(AttackH2,false);
+							animationTree.Set(AttackH3,false);
+							break;
+						case 3:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackL3,true);
+							animationTree.Set(AttackL2,false);
+							animationTree.Set(AttackH1,false);
+							animationTree.Set(AttackH2,false);
+							animationTree.Set(AttackH3,false);
+							break;
+						default:
+							break;
+					}
+		}
+	}
+	private void HeavyattackHandler(){
+		if (!bowMod)
+		{
+				AttackHCounter += 1 ;
+				if (AttackHCounter >3)
+				{
+					AttackHCounter = 1;
+				}
+				switch (AttackHCounter)
+					{
+						case 1:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackH1,true);
+							animationTree.Set(AttackH3,false);
+							animationTree.Set(AttackL1,false);
+							animationTree.Set(AttackL2,false);
+							animationTree.Set(AttackL3,false);
+							break;
+						case 2:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackH2,true);
+							animationTree.Set(AttackH1,false);
+							animationTree.Set(AttackL1,false);
+							animationTree.Set(AttackL2,false);
+							animationTree.Set(AttackL3,false);
+							break;
+						case 3:
+							animationTree.Set(idleLink , false);
+							animationTree.Set(runLink,false );
+							animationTree.Set(AttackH3,true);
+							animationTree.Set(AttackH2,false);
+							animationTree.Set(AttackL1,false);
+							animationTree.Set(AttackL2,false);
+							animationTree.Set(AttackL3,false);
+							break;
+						default:
+							break;
+					}
+		}
+	}
 	//Mouvement Handler
 	private void HandleMovementInput(double delta)
 	{
@@ -187,16 +359,6 @@ public partial class Perso : CharacterBody2D
 
 		// Get direction from input: -1 for left, 1 for right, 0 for no input
 		float direction = Input.GetActionStrength(right) - Input.GetActionStrength(left);
-		if (Mathf.Sign(direction) != Mathf.Sign(previousDirection) && direction != 0)
-		{
-			// La direction a changé, déclenchez l'animation "turn around"
-			animationTree.Set(isTurningLink, true);
-		}
-		else
-		{
-			// La direction n'a pas changé, désactivez l'animation "turn around"
-			animationTree.Set(isTurningLink, false);
-		}
 
 		// Mettez à jour la direction précédente
 		previousDirection = direction;
@@ -214,26 +376,14 @@ public partial class Perso : CharacterBody2D
 			animatedSprite2D.FlipH = direction < 0;
 			if (dashing)
 			{
-				//dashParticle.Emitting = true;
-				//animatedSprite2D.Visible=false;
+				gpuparticle.Emitting = true;
+				animatedSprite2D.Visible=false;
 				motion.X = direction * DASH_SPEED;
 
 			}
 			else
 			{
-
 				motion.X = acceleration * direction;
-				float temp = direction;
-				if (temp != direction)
-				{
-					animationTree.Set(isTurningLink, true);
-				}
-				else
-				{
-					animationTree.Set(isTurningLink, false);
-				}
-
-
 			}
 
 			wallDetect.RotationDegrees = direction > 0 ? 0.0f : 180.0f;
@@ -249,6 +399,10 @@ public partial class Perso : CharacterBody2D
 	public void Jump()
 	{
 		motion.Y = jumpVelocity * jumpForce;
+		animationTree.Set(runLink,false);
+		animationTree.Set(idleLink,false);
+		animationTree.Set(isJump,true);
+		animationTree.Set(idleLink,true);
 	}
 
 	//Gravity Handler
@@ -277,7 +431,7 @@ public partial class Perso : CharacterBody2D
 	public void hook()
 	{
 		GetNode<Node2D>("RayCast/RayCast2D").LookAt(GetGlobalMousePosition());
-		if (Input.IsActionJustPressed("hook"))
+		if (Input.IsActionJustPressed("RightClick"))
 		{
 			HookPosition = GetHookPosition();
 			if (HookPosition != Godot.Vector2.Zero)
@@ -286,7 +440,7 @@ public partial class Perso : CharacterBody2D
 				CurrentRopeLenght = GlobalPosition.DistanceTo(HookPosition);
 			}
 		}
-		if (Input.IsActionJustReleased("hook") && hooked)
+		if (Input.IsActionJustReleased("RightClick") && hooked)
 		{
 			hooked = false;
 
@@ -329,7 +483,7 @@ public partial class Perso : CharacterBody2D
 	private void _on_dash_timer_timeout()
 	{
 		dashing = false;
-		//dashParticle.Emitting = false;
+		gpuparticle.Emitting = false;
 		animatedSprite2D.Visible = true;
 	}
 
@@ -351,22 +505,8 @@ public partial class Perso : CharacterBody2D
 		return bowMod;
 	}
 
-	public void UpdateAnimationParameters()
-	{
-		if (Velocity == Godot.Vector2.Zero)
-		{
-			animationTree.Set(idleLink, true);
-			animationTree.Set(runLink, false);
-
-		}
-		else
-		{
-			animationTree.Set(idleLink, false);
-			animationTree.Set(runLink, true);
-
-		}
-
-	}
+	
+	
 }
 
 
