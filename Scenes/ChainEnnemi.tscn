@@ -210,9 +210,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bsa2f")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -221,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_unfcc")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 20.0
 }, {
@@ -356,7 +356,7 @@ states/run/position = Vector2(540.66, 59.56)
 states/transitioncharge/node = SubResource("AnimationNodeAnimation_pa6q3")
 states/transitioncharge/position = Vector2(390.66, 241.713)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yf6gs"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_5g8aj"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_1cgva"), "transitioncharge", "charge", SubResource("AnimationNodeStateMachineTransition_nuun4"), "charge", "attack", SubResource("AnimationNodeStateMachineTransition_yt0sf"), "idle", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_dg4fc"), "run", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_avgxv"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_64ubr"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ilbd8"), "attack", "transitioncharge", SubResource("AnimationNodeStateMachineTransition_ab46r")]
-graph_offset = Vector2(61.62, 68.3201)
+graph_offset = Vector2(78.375, -40.2499)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsx32"]
 radius = 7.0
@@ -808,8 +808,9 @@ wait_time = 1.2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0tnj8")
-animation = &"idle"
-frame = 3
+animation = &"hit"
+frame = 1
+frame_progress = 1.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2ops1")
@@ -853,6 +854,7 @@ autostart = true
 navigation_layers = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(34.5, 5)

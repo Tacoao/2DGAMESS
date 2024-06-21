@@ -5,7 +5,7 @@ const CAST_DURATION = 0.5
 const SPELL_DURATION = 1  # Durée en secondes avant de rendre le portail invisible
 const ATTACK_RANGE = 2000.0  # Portée d'attaque du monstre
 const SPELL_RANGE = 2500.0
-@onready var takeDamage = $takeDamage
+@onready var givedamage = $givedamage
 
 # Définissez le chemin de la scène du portail ici
 const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
@@ -16,7 +16,7 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var body = $Sprite2D
 @onready var patrol_a = get_node(patrol_point_a)
 @onready var patrol_b = get_node(patrol_point_b)
-@onready var area2D = $PlayerDetection
+@onready var area2D = $Sprite2D/PlayerDetection
 @onready var animationTree = $AnimationTree
 @onready var player = $"../../CharacterBody2D"
 @onready var portal_Animationplayer = $AnimationPlayer
@@ -48,7 +48,7 @@ func UpdateAnimationParameters():
 	else:
 		animationTree.set("parameters/conditions/isCasting", false)
 		animationTree.set("parameters/conditions/isIdle", true)
-	if player_in_range():
+	if player_in_range() and player.is_dead == false:
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
 		animationTree.set("parameters/conditions/isAttacking", true)
@@ -56,12 +56,13 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isAttacking", false)
 
 func _physics_process(delta):
-	if player_in_range() and is_within_patrol_area(player.global_position):
+	print(player.is_dead)
+	if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
 		attack_player(delta)
 	else:
 		patrol(delta)
 
-	if player_in_skill_range():
+	if player_in_skill_range() and player.is_dead == false:
 		IsIn = true
 		cast_time = 0.0
 		spell_time = 0.0
@@ -103,11 +104,13 @@ func attack_player(delta):
 	velocity.x = direction.x * SPEED
 	if direction.x < 0:
 		body.flip_h = false
+		area2D.position.x = 0
 	if direction.x > 0:
 		body.flip_h = true
+		area2D.position.x = 60
 	animationTree.set("parameters/conditions/isAttacking", true)
-	if takeDamage.is_stopped():
-		takeDamage.start(0.6)
+	if givedamage.is_stopped():
+		givedamage.start(0.6)
 
 func patrol(delta):
 	if patrol_direction == 1 and abs(global_position.x - patrol_b.global_position.x) <= 10:

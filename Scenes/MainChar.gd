@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Mouvement Variable
 # Run Variable
+@export var deathParticle : PackedScene
 var maxlife = 100.0
 var life = 100.0
 
@@ -31,7 +32,7 @@ var cayotteCounter = 0 # nombre d'erreur
 var bowMod = false
 
 var animationTree # animation Tree
-
+@onready var collision = $CollisionShape2D
 var animatedSprite2D # Texture du personnage
 
 var wallDetect # detecteur de wall
@@ -48,7 +49,7 @@ var hooked = false
 var previousDirection = 0.0
 var damageTimer
 # Animation Link
-
+var is_dead = false
 var idleLink = "parameters/conditions/idle"
 var runLink = "parameters/conditions/is_moving"
 var isJump = "parameters/conditions/is_jump"
@@ -61,7 +62,7 @@ var AttackH3 = "parameters/conditions/isAttackH3"
 var AttackL1 = "parameters/conditions/isAttackL1"
 var AttackL2 = "parameters/conditions/isAttackL2"
 var AttackL3 = "parameters/conditions/isAttackL3"
-
+@onready var sprite = $Sprite2D
 var isHit = "parameters/conditions/isHurt"
 var gpuparticle
 func _ready():
@@ -82,7 +83,18 @@ func _ready():
 	CurrentRopeLenght = RopeLenght
 	damageTimer = get_node("DamageTimer")
 
-
+func death():
+	var _particle = deathParticle.instantiate()
+	_particle.position = global_position
+	_particle.rotation = global_rotation
+	_particle.emitting = true
+	_particle.scale.x = 10
+	_particle.scale.y = 10
+	get_tree().current_scene.add_child(_particle)
+	sprite.visible = false
+	collision.queue_free()
+	is_dead = true
+	
 func take_damage(damage):
 	life -= damage
 	change_color_to_red()
@@ -149,47 +161,50 @@ func animation_handler():
 		jump()
 
 func _physics_process(delta):
-	motion.y += get_gravity() * delta
-	if wallDetect.is_colliding():
-		var collider = wallDetect.get_collider()
-		if collider.name == "TileMap":
-			maxfallGravity = 1000
-	else:
-		maxfallGravity = 5000
-	if motion.y > maxfallGravity:
-		motion.y = maxfallGravity
-	if is_on_floor():
-		cayotteCounter = cayotteTime
-		jumpCounter = 0
-	if not is_on_floor():
-		if cayotteCounter > cayotteTime:
-			cayotteCounter -= 1
-		if jumpBufferCounter > 0:
-			if wallDetect.is_colliding():
-				var collider = wallDetect.get_collider()
-				if collider.name == "TileMap":
+	if is_dead == false:
+		if life < 0 :
+			death()
+		motion.y += get_gravity() * delta
+		if wallDetect.is_colliding():
+			var collider = wallDetect.get_collider()
+			if collider.name == "TileMap":
+				maxfallGravity = 1000
+		else:
+			maxfallGravity = 5000
+		if motion.y > maxfallGravity:
+			motion.y = maxfallGravity
+		if is_on_floor():
+			cayotteCounter = cayotteTime
+			jumpCounter = 0
+		if not is_on_floor():
+			if cayotteCounter > cayotteTime:
+				cayotteCounter -= 1
+			if jumpBufferCounter > 0:
+				if wallDetect.is_colliding():
+					var collider = wallDetect.get_collider()
+					if collider.name == "TileMap":
+						cayotteCounter = 1
+						if animatedSprite2D.flip_h:
+							print("push")
+							motion.x += 5000
+						else:
+							motion.x -= 5000
+				elif jumpCounter < 1:
 					cayotteCounter = 1
-					if animatedSprite2D.flip_h:
-						print("push")
-						motion.x += 5000
-					else:
-						motion.x -= 5000
-			elif jumpCounter < 1:
-				cayotteCounter = 1
-				jumpCounter += 1
+					jumpCounter += 1
 
-	animation_handler()
-	handle_movement_input(delta)
+		animation_handler()
+		handle_movement_input(delta)
 
-	if bow_mod():
-		hook()
-		queue_redraw()
-		if hooked:
-			swing(delta)
-			motion += Vector2(0.975, 0.975)
+		if bow_mod():
+			hook()
+			queue_redraw()
+			if hooked:
+				swing(delta)
+				motion += Vector2(0.975, 0.975)
 
-	velocity = motion
-	move_and_slide()
+		velocity = motion
+		move_and_slide()
 
 func light_attack_handler():
 	if not bowMod:

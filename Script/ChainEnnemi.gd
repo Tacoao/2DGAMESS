@@ -11,6 +11,7 @@ const ATTACK_RANGE = 1000.0  # Portée d'attaque du monstre
 @export var playerlife : Node2D 
 @onready var timer = $timerattack
 @onready var NavigationAgent = $Navigation/NavigationAgent2D
+@onready var area2D = $Area2D
 var speed = 2000
 var acceleration = 50
 var is_spelling = false
@@ -31,7 +32,7 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isRunning", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 
-	if player_in_range():
+	if player_in_range() and player.is_dead == false:
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isRunning", false)
 		animationTree.set("parameters/conditions/isAttacking", true)
@@ -42,7 +43,7 @@ func update_direction():
 		sprite.flip_h = velocity.x < 0
 		
 func _physics_process(delta):
-	if player_in_range():
+	if player_in_range() and player.is_dead == false :
 		attack_player(delta)
 	var direction = Vector2.ZERO
 	direction = NavigationAgent.get_next_path_position() - global_position
@@ -63,8 +64,10 @@ func attack_player(delta):
 	velocity.x = direction.x * speed
 	if direction.x <0:
 		body.flip_h = true
+		area2D.position.x = -65
 	if direction.x >0:
 		body.flip_h = false
+		area2D.position.x = 0
 	animationTree.set("parameters/conditions/isAttacking", true)
 	if timer.is_stopped():
 		timer.start(1.2)

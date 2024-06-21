@@ -18,6 +18,7 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var player = $"../../CharacterBody2D"
 @onready var playerlife = $"../../WorldDetails/3/StatusLife"
 @onready var takendamage = $takenDamage
+@onready var area2D = $Area2D
 var IsInDamage = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cast_time = 0.0
@@ -35,7 +36,7 @@ func UpdateAnimationParameters():
 	else:
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
-	if player_in_range():
+	if player_in_range() and player.is_dead == false:
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
 		animationTree.set("parameters/conditions/isAttacking", true)
@@ -43,7 +44,7 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isAttacking", false)
 	
 func _physics_process(delta):
-	if player_in_range() and is_within_patrol_area(player.global_position):
+	if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
 		attack_player(delta)
 	else:
 		patrol(delta)
@@ -61,8 +62,10 @@ func attack_player(delta):
 	velocity.x = direction.x * SPEED
 	if direction.x < 0:
 		body.flip_h = true
+		area2D.position.x = -40
 	if direction.x > 0:
 		body.flip_h = false
+		area2D.position.x = 0
 	if global_position.distance_to(player.global_position) <= 500.0:
 		animationTree.set("parameters/conditions/isAttacking", true)
 		if takendamage.is_stopped():
@@ -76,8 +79,10 @@ func patrol(delta):
 	var direction = (target - global_position).normalized()
 	if direction.x < 0:
 		body.flip_h = true
+		area2D.position.x = -40
 	if direction.x > 0:
 		body.flip_h = false
+		area2D.position.x = 0
 	velocity.x = direction.x * SPEED
 
 func is_within_patrol_area(position: Vector2) -> bool:

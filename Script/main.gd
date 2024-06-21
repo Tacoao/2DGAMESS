@@ -9,7 +9,6 @@ func _ready():
 var action = false
 func _input(event):
 	if Input.is_action_just_pressed("RightClick"):
-		print(player.bowMod)
 		if player.bowMod:
 			action = true
 			rope.global_position = player.get_hook_position()

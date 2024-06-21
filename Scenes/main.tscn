@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=55 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2plas"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_74e8m"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://Scenes/character_body_2d.tscn" id="5_7ujc7"]
+[ext_resource type="PackedScene" uid="uid://bo4nkp5v3e7di" path="res://Scenes/deathMainChar.tscn" id="5_opfcr"]
 [ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://Scenes/rope.tscn" id="6_gdj0r"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="7_2xvto"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="8_or0cy"]
@@ -446,6 +447,7 @@ zoom = Vector2(0.23, 0.23)
 script = ExtResource("2_dpr0h")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
+deathParticle = ExtResource("5_opfcr")
 
 [node name="Murmure" type="AudioStreamPlayer" parent="CharacterBody2D"]
 
@@ -520,11 +522,9 @@ follow_viewport_scale = 0.9
 
 [node name="0" type="CanvasLayer" parent="WorldDetails"]
 layer = 0
-visible = false
 follow_viewport_enabled = true
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="WorldDetails/0"]
-visible = false
 texture_filter = 2
 position = Vector2(-290, 946)
 rotation = 6.29689
@@ -537,24 +537,20 @@ fixed_fps = 0
 draw_order = 0
 
 [node name="1" type="CanvasLayer" parent="WorldDetails"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
 
 [node name="2" type="CanvasLayer" parent="WorldDetails"]
 layer = 2
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
 [node name="3" type="CanvasLayer" parent="WorldDetails"]
 layer = 3
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
 [node name="Images2" type="Sprite2D" parent="WorldDetails/3"]
-visible = false
 position = Vector2(31483.1, 4081.54)
 rotation = 1.5708
 scale = Vector2(9.859, 428.654)
@@ -588,6 +584,7 @@ scale = Vector2(5.67555, 6.99632)
 texture = ExtResource("15_igt8y")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/3"]
+visible = false
 position = Vector2(-5, 0)
 color = Color(0.160269, 0.160269, 0.160269, 1)
 

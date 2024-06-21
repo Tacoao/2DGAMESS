@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bfw38n2y4gciw"]
+[gd_scene load_steps=92 format=3 uid="uid://bfw38n2y4gciw"]
 
 [ext_resource type="Script" path="res://Script/VoidWalker.gd" id="1_4ru61"]
 [ext_resource type="Texture2D" uid="uid://cj3m8kxje8jnf" path="res://Assets/VoidWalker/Bringer-of-Death-SpritSheet.png" id="2_yvhsp"]
@@ -71,6 +71,66 @@ region = Rect2(980, 186, 140, 93)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp5v5"]
 atlas = ExtResource("2_yvhsp")
 region = Rect2(0, 279, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yahqt"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(770, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4oq6"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(910, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n6ts"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(1050, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8opl"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(70, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqdf7"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(210, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh55f"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(350, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qp6a"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(490, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g0b6"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(630, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40q53"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(770, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kocl"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(910, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ralf"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(980, 372, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrjit"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(210, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk7yk"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(350, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3bt4"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(490, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpjtp"]
+atlas = ExtResource("2_yvhsp")
+region = Rect2(630, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hllq"]
 atlas = ExtResource("2_yvhsp")
@@ -205,6 +265,61 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yahqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4oq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n6ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8opl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqdf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh55f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qp6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g0b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40q53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kocl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ralf")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrjit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk7yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3bt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpjtp")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3hllq")
 }, {
 "duration": 1.0,
@@ -264,6 +379,9 @@ animations = [{
 "name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m5qy"]
+size = Vector2(44, 50)
 
 [sub_resource type="Gradient" id="Gradient_g0n1k"]
 offsets = PackedFloat32Array(0.0357143, 1)
@@ -630,9 +748,6 @@ _data = {
 "walk": SubResource("Animation_wquh0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m5qy"]
-size = Vector2(44, 50)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f4goi"]
 animation = &"Idle"
 
@@ -693,7 +808,7 @@ advance_mode = 2
 advance_condition = &"isCasting"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_afx32"]
-states/End/position = Vector2(901, 100)
+states/End/position = Vector2(901.5, 100.062)
 states/Idle/node = SubResource("AnimationNodeAnimation_f4goi")
 states/Idle/position = Vector2(317, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_5elka")
@@ -703,7 +818,7 @@ states/portalCast/position = Vector2(378.5, 275)
 states/walk/node = SubResource("AnimationNodeAnimation_k7bhd")
 states/walk/position = Vector2(435, 100)
 transitions = ["Idle", "walk", SubResource("AnimationNodeStateMachineTransition_0ocqk"), "walk", "portalCast", SubResource("AnimationNodeStateMachineTransition_gtr1l"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_mcy5d"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nw1c8"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_h5h25"), "portalCast", "walk", SubResource("AnimationNodeStateMachineTransition_bufn1"), "Idle", "portalCast", SubResource("AnimationNodeStateMachineTransition_sdnes"), "portalCast", "Idle", SubResource("AnimationNodeStateMachineTransition_78faj"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tkdla"), "portalCast", "attack", SubResource("AnimationNodeStateMachineTransition_s5mqy"), "attack", "portalCast", SubResource("AnimationNodeStateMachineTransition_8a20a")]
-graph_offset = Vector2(53.7626, 66.8199)
+graph_offset = Vector2(-30.0124, -66.4251)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4ru61")
@@ -712,8 +827,15 @@ script = ExtResource("1_4ru61")
 texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
-animation = &"Idle"
-frame = 4
+animation = &"death"
+
+[node name="PlayerDetection" type="Area2D" parent="Sprite2D"]
+position = Vector2(2.08165e-12, 22)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/PlayerDetection"]
+position = Vector2(-30, -9)
+shape = SubResource("RectangleShape2D_5m5qy")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 18)
@@ -739,13 +861,6 @@ libraries = {
 "": SubResource("AnimationLibrary_rmmml")
 }
 
-[node name="PlayerDetection" type="Area2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(-30, -9)
-shape = SubResource("RectangleShape2D_5m5qy")
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_afx32")
 anim_player = NodePath("../AnimationPlayer")
@@ -754,8 +869,8 @@ parameters/conditions/isCasting = false
 parameters/conditions/isIdle = false
 parameters/conditions/isWalking = false
 
-[node name="takeDamage" type="Timer" parent="."]
+[node name="givedamage" type="Timer" parent="."]
 
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
-[connection signal="timeout" from="takeDamage" to="." method="_on_take_damage_timeout"]
+[connection signal="body_entered" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="timeout" from="givedamage" to="." method="_on_take_damage_timeout"]
