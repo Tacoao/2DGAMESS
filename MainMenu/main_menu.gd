@@ -16,14 +16,15 @@ extends Control
 @onready var Logo = $Logo
 @onready var margin = $MarginContainer
 @onready var Audio = $AudioStreamPlayer
-
+@onready var PanelContainerEsc = $PanelContainer
+@onready var boolescape = false
 
 @onready var start_level = preload("res://Scenes/main.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)
 	continue_button.button_down.connect(on_continue_button_pressed)
-	quit_button.button_down.connect(on_exit_button_pressed)	
+	quit_button.button_down.connect(on_exit_button_pressed) 
 
 	start_button.mouse_entered.connect(on_start_button_hover)
 	continue_button.mouse_entered.connect(on_continue_button_hover)
@@ -33,10 +34,9 @@ func _ready():
 	start_button.mouse_exited.connect(on_start_button_exited)
 	continue_button.mouse_exited.connect(on_continue_button_exited)
 	quit_button.mouse_exited.connect(on_quit_button_exited)
+	PanelContainerEsc.hide()
 
-
-
-func on_start_button_pressed() -> void :
+func on_start_button_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	Video.play()
@@ -44,19 +44,24 @@ func on_start_button_pressed() -> void :
 	Fog.hide()
 	Logo.hide()
 	margin.hide()
-	Audio.stop()
-	await Video.finished
-	get_tree().change_scene_to_packed(start_level)
-	
+	PanelContainerEsc.show()
+	boolescape = true
 
-func on_continue_button_pressed() -> void :
+	Audio.stop()
+	
+	if boolescape:
+		await Video.finished
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
+		get_tree().change_scene_to_packed(start_level)
+
+func on_continue_button_pressed() -> void:
 	get_tree().change_scene("res://ContinueMenu.tscn")
 	$ClickSound.play()
 
-func on_exit_button_pressed() -> void :
+func on_exit_button_pressed() -> void:
 	get_tree().quit()
 	$ClickSound.play()
-
 
 func on_start_button_hover() -> void:
 	LightPlay.show()
@@ -82,9 +87,12 @@ func on_start_button_exited() -> void:
 func on_continue_button_exited() -> void:
 	LightContinue.hide()
 
-
 func on_quit_button_exited() -> void:
 	LightQuit.hide()
 
-
-
+func _input(event):
+	if event.is_action_pressed("echap") and boolescape:
+		Video.stop()
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
+		get_tree().change_scene_to_packed(start_level)

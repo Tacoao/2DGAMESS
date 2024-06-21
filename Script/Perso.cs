@@ -73,17 +73,17 @@ public partial class Perso : CharacterBody2D
 		this.life -= damage;
 		ChangeColorToRed();
 		damageTimer.Start(0.5f);
-    }
+	}
 
-    private void ChangeColorToRed()
-    {
-        animatedSprite2D.Modulate = new Color(1, 0, 0); 
-    }
+	private void ChangeColorToRed()
+	{
+		animatedSprite2D.Modulate = new Color(1, 0, 0); 
+	}
 
-    private void OnDamageTimerTimeout()
-    {
-        animatedSprite2D.Modulate = new Color(1, 1, 1); 
-    }
+	private void OnDamageTimerTimeout()
+	{
+		animatedSprite2D.Modulate = new Color(1, 1, 1); 
+	}
 	
 	public void AnimationHandler(){
 		
@@ -171,7 +171,7 @@ public partial class Perso : CharacterBody2D
 		this.CurrentRopeLenght = RopeLenght;
 		damageTimer = GetNode<Timer>("DamageTimer");
 
-        // Connectez le signal timeout du Timer à une méthode pour réinitialiser la couleur
+		// Connectez le signal timeout du Timer à une méthode pour réinitialiser la couleur
 	}
 
 	

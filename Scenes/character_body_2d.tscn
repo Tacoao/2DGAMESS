@@ -1422,7 +1422,6 @@ sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Fall"
 autoplay = "Idle"
 frame = 2
-
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
