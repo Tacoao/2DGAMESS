@@ -136,126 +136,6 @@
 [ext_resource type="Texture2D" uid="uid://dpwtt11himeuv" path="res://Assets/MainCHar/wallclimb/2.png" id="134_5wbff"]
 [ext_resource type="Texture2D" uid="uid://dgxea0khltc7x" path="res://Assets/MainCHar/wallclimb/3.png" id="135_vr8bn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
-radius = 4.0625
-height = 26.25
-
-[sub_resource type="Gradient" id="Gradient_3dlkt"]
-offsets = PackedFloat32Array(0.0357143, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2vuo3"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_3dlkt")
-width = 256
-height = 256
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.818965, 0.219828)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x6ev3"]
-blend_mode = 1
-light_mode = 2
-
-[sub_resource type="Gradient" id="Gradient_splfw"]
-offsets = PackedFloat32Array(0.00595238, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ltks1"]
-gradient = SubResource("Gradient_splfw")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.727273, 0.331169)
-
-[sub_resource type="Animation" id="Animation_sjpga"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Volumetric light:texture:width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [256]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Volumetric light:texture:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [256]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_7fgan"]
-resource_name = "light_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Volumetric light:texture:width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [256, 200, 256]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Volumetric light:texture:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [256, 256, 256]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.0, 0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_42hwr"]
-_data = {
-"RESET": SubResource("Animation_sjpga"),
-"light_animation": SubResource("Animation_7fgan")
-}
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbmsm"]
 animations = [{
 "frames": [{
@@ -742,6 +622,129 @@ animations = [{
 "name": &"wallslide",
 "speed": 20.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7anlg"]
+size = Vector2(66.0625, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx5ke"]
+radius = 4.0625
+height = 26.25
+
+[sub_resource type="Gradient" id="Gradient_3dlkt"]
+offsets = PackedFloat32Array(0.0357143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2vuo3"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_3dlkt")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.818965, 0.219828)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x6ev3"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_splfw"]
+offsets = PackedFloat32Array(0.00595238, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ltks1"]
+gradient = SubResource("Gradient_splfw")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.727273, 0.331169)
+
+[sub_resource type="Animation" id="Animation_sjpga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Volumetric light:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [256]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volumetric light:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [256]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7fgan"]
+resource_name = "light_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Volumetric light:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 200, 256]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volumetric light:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 256, 256]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42hwr"]
+_data = {
+"RESET": SubResource("Animation_sjpga"),
+"light_animation": SubResource("Animation_7fgan")
+}
 
 [sub_resource type="Animation" id="Animation_pw18s"]
 length = 0.75
@@ -1401,12 +1404,24 @@ graph_offset = Vector2(246.849, 116.535)
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7anlg"]
-size = Vector2(30.9375, 20)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(16, 16)
 script = ExtResource("1_6n700")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xbmsm")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 14
+speed_scale = 0.5
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-20.375, -1.3125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(22.5938, 1.625)
+shape = SubResource("RectangleShape2D_7anlg")
 
 [node name="RayCast" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -16)
@@ -1433,14 +1448,6 @@ libraries = {
 "": SubResource("AnimationLibrary_42hwr")
 }
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_xbmsm")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 3
-speed_scale = 0.5
-
 [node name="dashTimer" type="Timer" parent="."]
 wait_time = 0.2
 
@@ -1448,6 +1455,7 @@ wait_time = 0.2
 
 [node name="wallDetect" type="RayCast2D" parent="."]
 target_position = Vector2(12.6875, 0.0625)
+collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1478,14 +1486,18 @@ process_material = SubResource("ParticleProcessMaterial_3e60t")
 lifetime = 0.5
 
 [node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="givedegatlourd" type="Timer" parent="."]
+one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(20, 1.625)
-shape = SubResource("RectangleShape2D_7anlg")
+[node name="givedegatlight" type="Timer" parent="."]
+one_shot = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="givedegatlourd" to="." method="_on_givedegatlourd_timeout"]
+[connection signal="timeout" from="givedegatlight" to="." method="_on_givedegatlight_timeout"]

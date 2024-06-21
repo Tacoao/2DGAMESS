@@ -67,6 +67,9 @@ var isHit = "parameters/conditions/isHurt"
 var gpuparticle
 var ennemi
 var ennemi_in_zone = false
+@onready var Area =$Area2D
+@onready var givedegalight = $givedegatlight
+@onready var givedegalourd =$givedegatlourd 
 func _ready():
 	print("Script Loaded")
 	wallDetect = get_node("wallDetect")
@@ -169,7 +172,7 @@ func _physics_process(delta):
 		motion.y += get_gravity() * delta
 		if wallDetect.is_colliding():
 			var collider = wallDetect.get_collider()
-			if collider.name == "TileMap":
+			if collider.name == "TileMap" and collider:
 				maxfallGravity = 1000
 		else:
 			maxfallGravity = 5000
@@ -224,7 +227,10 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-				giveDamage(5)
+
+				if givedegalight.is_stopped():
+					givedegalight.start(0.35)
+				
 				
 			2:
 				animationTree.set(idleLink, false)
@@ -234,7 +240,9 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-				giveDamage(5)
+
+				if givedegalight.is_stopped():
+					givedegalight.start(0.3)
 			3:
 				animationTree.set(idleLink, false)
 				animationTree.set(runLink, false)
@@ -243,7 +251,9 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-				giveDamage(5)
+
+				if givedegalight.is_stopped():
+					givedegalight.start(0.6)
 
 func heavy_attack_handler():
 	if not bowMod:
@@ -259,6 +269,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if givedegalourd.is_stopped():
+					givedegalourd.start(0.75)
 			2:
 				animationTree.set(idleLink, false)
 				animationTree.set(runLink, false)
@@ -267,6 +279,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if givedegalourd.is_stopped():
+					givedegalourd.start(0.6)
 			3:
 				animationTree.set(idleLink, false)
 				animationTree.set(runLink, false)
@@ -275,6 +289,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if givedegalourd.is_stopped():
+					givedegalourd.start(0.85)
 
 # Mouvement Handler
 func handle_movement_input(delta):
@@ -377,6 +393,26 @@ func bow_mod() -> bool:
 
 
 func _on_area_2d_body_entered(body):
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and body != self:
+
 		ennemi_in_zone = true
 		ennemi = body
+
+
+func _on_area_2d_body_exited(body):
+	if body is CharacterBody2D and body != self:
+
+		ennemi_in_zone = false
+
+
+
+
+
+func _on_givedegatlourd_timeout():
+	
+	giveDamage(10)
+
+
+func _on_givedegatlight_timeout():
+	
+	giveDamage(5)

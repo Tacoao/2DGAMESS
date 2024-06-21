@@ -65,7 +65,6 @@ advance_mode = 2
 advance_condition = &"isIdle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhu6b"]
-switch_mode = 2
 advance_mode = 2
 advance_condition = &"isHit"
 
@@ -90,7 +89,8 @@ advance_condition = &"isDead"
 advance_mode = 2
 advance_condition = &"isDead"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jr6pg"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_amovd"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3pxo4"]
@@ -101,13 +101,13 @@ states/Start/position = Vector2(249, 250)
 states/attack/node = SubResource("AnimationNodeAnimation_76mri")
 states/attack/position = Vector2(668, 94)
 states/death/node = SubResource("AnimationNodeAnimation_gs8c0")
-states/death/position = Vector2(291, 521)
+states/death/position = Vector2(288, 520)
 states/hit/node = SubResource("AnimationNodeAnimation_r34jx")
 states/hit/position = Vector2(937, 527)
 states/run/node = SubResource("AnimationNodeAnimation_a3scq")
 states/run/position = Vector2(949, 256)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5wljl"), "Idle", "run", SubResource("AnimationNodeStateMachineTransition_46dyv"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_uugui"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qvbrg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_w6yt3"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_q23o7"), "Idle", "hit", SubResource("AnimationNodeStateMachineTransition_ip7rk"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_1gevg"), "hit", "Idle", SubResource("AnimationNodeStateMachineTransition_fo45v"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_g1ro0"), "run", "Idle", SubResource("AnimationNodeStateMachineTransition_awq57"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_jhu6b"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_ed02q"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_lb8t5"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_i2vqk"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_p0era"), "run", "death", SubResource("AnimationNodeStateMachineTransition_hw2i3"), "death", "End", SubResource("AnimationNodeStateMachineTransition_jr6pg")]
-graph_offset = Vector2(-16.7551, 432.685)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5wljl"), "Idle", "run", SubResource("AnimationNodeStateMachineTransition_46dyv"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_uugui"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qvbrg"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_w6yt3"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_q23o7"), "Idle", "hit", SubResource("AnimationNodeStateMachineTransition_ip7rk"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_1gevg"), "hit", "Idle", SubResource("AnimationNodeStateMachineTransition_fo45v"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_g1ro0"), "run", "Idle", SubResource("AnimationNodeStateMachineTransition_awq57"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_jhu6b"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_ed02q"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_lb8t5"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_i2vqk"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_p0era"), "run", "death", SubResource("AnimationNodeStateMachineTransition_hw2i3"), "death", "End", SubResource("AnimationNodeStateMachineTransition_amovd")]
+graph_offset = Vector2(-16.7551, 139.921)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b717y"]
 atlas = ExtResource("1_4hihl")
@@ -920,8 +920,7 @@ parameters/conditions/isWalking = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
-animation = &"Idle"
-frame = 7
+animation = &"death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -956,7 +955,13 @@ shape = SubResource("RectangleShape2D_6m0jt")
 
 [node name="takenDamage" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="removeAfterDeath" type="Timer" parent="."]
+wait_time = 1.533
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="takenDamage" to="." method="_on_taken_damage_timeout"]
+[connection signal="timeout" from="removeAfterDeath" to="." method="_on_remove_after_death_timeout"]

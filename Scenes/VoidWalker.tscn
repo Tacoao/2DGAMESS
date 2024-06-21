@@ -413,6 +413,34 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.633621, 0.431034)
 
+[sub_resource type="Animation" id="Animation_rroag"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
 [sub_resource type="Animation" id="Animation_sjpga"]
 length = 0.001
 tracks/0/type = "value"
@@ -450,75 +478,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_7fgan"]
-resource_name = "light_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Volumetric light:texture:width")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [256, 200, 256]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Volumetric light:texture:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [256, 256, 256]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.0, 0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_rroag"]
-length = 1.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Idle"]
 }
 
 [sub_resource type="Animation" id="Animation_ens87"]
@@ -604,6 +563,47 @@ tracks/1/keys = {
 "values": ["hit"]
 }
 
+[sub_resource type="Animation" id="Animation_7fgan"]
+resource_name = "light_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Volumetric light:texture:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 200, 256]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volumetric light:texture:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [256, 256, 256]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
 [sub_resource type="Animation" id="Animation_288pl"]
 length = 1.8
 loop_mode = 1
@@ -676,16 +676,6 @@ _data = {
 radius = 7.0
 height = 54.0
 
-[sub_resource type="Animation" id="Animation_bsow8"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_btuo2"]
-resource_name = "idle"
-length = 1.4
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_w4i8w"]
-
 [sub_resource type="Animation" id="Animation_arqbp"]
 length = 1.6
 loop_mode = 1
@@ -714,9 +704,11 @@ tracks/1/keys = {
 "values": ["Idle"]
 }
 
+[sub_resource type="Animation" id="Animation_bsow8"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_xq4a5"]
 length = 1.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -744,7 +736,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_p7oul"]
 length = 1.1
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -797,9 +788,13 @@ tracks/1/keys = {
 "values": ["hit"]
 }
 
+[sub_resource type="Animation" id="Animation_btuo2"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 1
+
 [sub_resource type="Animation" id="Animation_jkujd"]
 length = 1.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -824,6 +819,8 @@ tracks/1/keys = {
 "update": 1,
 "values": ["portalCast"]
 }
+
+[sub_resource type="Animation" id="Animation_w4i8w"]
 
 [sub_resource type="Animation" id="Animation_wquh0"]
 length = 1.6
@@ -1007,7 +1004,7 @@ states/portalCast/position = Vector2(305, 478)
 states/walk/node = SubResource("AnimationNodeAnimation_k7bhd")
 states/walk/position = Vector2(335, 198.5)
 transitions = ["Idle", "walk", SubResource("AnimationNodeStateMachineTransition_0ocqk"), "walk", "portalCast", SubResource("AnimationNodeStateMachineTransition_gtr1l"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_mcy5d"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nw1c8"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_h5h25"), "portalCast", "walk", SubResource("AnimationNodeStateMachineTransition_bufn1"), "Idle", "portalCast", SubResource("AnimationNodeStateMachineTransition_sdnes"), "portalCast", "Idle", SubResource("AnimationNodeStateMachineTransition_78faj"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tkdla"), "portalCast", "attack", SubResource("AnimationNodeStateMachineTransition_s5mqy"), "attack", "portalCast", SubResource("AnimationNodeStateMachineTransition_8a20a"), "Idle", "hit", SubResource("AnimationNodeStateMachineTransition_otjee"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_spel5"), "portalCast", "hit", SubResource("AnimationNodeStateMachineTransition_ypxk8"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_h6itq"), "hit", "Idle", SubResource("AnimationNodeStateMachineTransition_auu2s"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_c2bu5"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_oxsam"), "hit", "portalCast", SubResource("AnimationNodeStateMachineTransition_mkm0x"), "death", "End", SubResource("AnimationNodeStateMachineTransition_86tl1"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_7f3uv"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_nhdon"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_m5e3w"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_f35kn"), "portalCast", "death", SubResource("AnimationNodeStateMachineTransition_tt5ia")]
-graph_offset = Vector2(20.2528, 21.865)
+graph_offset = Vector2(20.2528, 13.0371)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4ru61")
@@ -1016,8 +1013,8 @@ script = ExtResource("1_4ru61")
 texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
-animation = &"death"
-frame = 8
+animation = &"Idle"
+frame = 4
 
 [node name="PlayerDetection" type="Area2D" parent="Sprite2D"]
 position = Vector2(2.08165e-12, 22)
@@ -1062,7 +1059,13 @@ parameters/conditions/isIdle = false
 parameters/conditions/isWalking = false
 
 [node name="givedamage" type="Timer" parent="."]
+one_shot = true
+
+[node name="removeAfterDeath" type="Timer" parent="."]
+wait_time = 1.1
+one_shot = true
 
 [connection signal="body_entered" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="timeout" from="givedamage" to="." method="_on_take_damage_timeout"]
+[connection signal="timeout" from="removeAfterDeath" to="." method="_on_remove_after_death_timeout"]

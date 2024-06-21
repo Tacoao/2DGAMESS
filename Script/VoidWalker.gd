@@ -20,7 +20,8 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var animationTree = $AnimationTree
 @onready var player = $"../../CharacterBody2D"
 @onready var portal_Animationplayer = $AnimationPlayer
-
+@onready var remove_after_death = $removeAfterDeath
+@onready var collision = $CollisionShape2D
 var is_spelling = false
 var IsInDamage = false
 var IsIn = false
@@ -29,9 +30,10 @@ var cast_time = 0.0
 var spell_time = 0.0
 var is_casting = false
 var patrol_direction = -1  # 1 = vers B, -1 = vers A
-var life = 100
+var life = 70
 var isHit =false
 var ImDead = false
+var canAttack = true
 func _ready():
 	pass
 
@@ -45,29 +47,31 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
-
 	if IsIn:
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
+		animationTree.set("parameters/conditions/isWalking",false)
 		animationTree.set("parameters/conditions/isCasting", true)
 	else:
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isCasting", false)
 		animationTree.set("parameters/conditions/isIdle", true)
-	if player_in_range() and player.is_dead == false:
+	if player_in_range() and player.is_dead == false :
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
+
 		animationTree.set("parameters/conditions/isAttacking", true)
 	else:
 		animationTree.set("parameters/conditions/isAttacking", false)
 
+
 func _physics_process(delta):
-	if life < 100:
-		print("Imdead")
+	if life <= 0:
 		Death()
 	if not ImDead:
-		if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
+		if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false:
+			canAttack = false
 			attack_player(delta)
 		else:
 			patrol(delta)
@@ -89,7 +93,7 @@ func _physics_process(delta):
 
 		if is_spelling and spell_time >= SPELL_DURATION:
 			is_spelling = false
-
+		apply_gravity(delta)
 		if is_casting:
 			cast_time += delta
 		if is_spelling:
@@ -103,7 +107,9 @@ func _physics_process(delta):
 
 		if not is_spelling:
 			move_and_slide()
-
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
 func player_in_range() -> bool:
 	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
 
@@ -175,6 +181,7 @@ func _on_take_damage_timeout():
 func take_damage(damage):
 	isHit =true
 	life -= damage
+	print(life)
 	animationTree.set("parameters/conditions/isHit",true)
 	animationTree.set("parameters/conditions/isAttacking",false)
 	animationTree.set("parameters/conditions/isCasting",false)
@@ -190,3 +197,13 @@ func Death():
 	animationTree.set("parameters/conditions/isIdle",false)
 	animationTree.set("parameters/conditions/isDead",true)
 	
+	if remove_after_death.is_stopped():
+		remove_after_death.start()
+	
+
+
+func _on_remove_after_death_timeout():
+	queue_free()
+
+
+

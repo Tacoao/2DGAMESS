@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="10_yobc3"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="11_vsgey"]
 [ext_resource type="Texture2D" uid="uid://pcsh7w3n0o4f" path="res://particle.png" id="12_aa53t"]
-[ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="13_mqdor"]
 [ext_resource type="Texture2D" uid="uid://dxcafp5f72mgy" path="res://forground element.png" id="14_lo1lq"]
 [ext_resource type="Texture2D" uid="uid://bvh8xupaxvea7" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.58-removebg-preview.png" id="15_igt8y"]
 [ext_resource type="Script" path="res://Script/StatusLife.gd" id="16_g81p7"]
@@ -216,7 +215,8 @@ texture_region_size = Vector2i(512, 512)
 
 [sub_resource type="TileSet" id="TileSet_abaen"]
 tile_size = Vector2i(512, 512)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_rckr5")
 
 [sub_resource type="Curve" id="Curve_xf81f"]
@@ -550,22 +550,11 @@ layer = 3
 follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
-[node name="Images2" type="Sprite2D" parent="WorldDetails/3"]
-position = Vector2(31483.1, 4081.54)
-rotation = 1.5708
-scale = Vector2(9.859, 428.654)
-texture = ExtResource("13_mqdor")
-
 [node name="Sprite2D" type="Sprite2D" parent="WorldDetails/3"]
 visible = false
 position = Vector2(595.385, -978.462)
 scale = Vector2(6.33541, 5.65435)
 texture = ExtResource("14_lo1lq")
-
-[node name="Images" type="Sprite2D" parent="WorldDetails/3"]
-position = Vector2(-5033.85, 2901.54)
-scale = Vector2(9.85913, 65.0092)
-texture = ExtResource("13_mqdor")
 
 [node name="CaptureDÉcran2024-04-27À01_10_47-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-213.333, 607.5)

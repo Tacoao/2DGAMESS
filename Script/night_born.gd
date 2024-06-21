@@ -18,40 +18,66 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var player = $"../../CharacterBody2D"
 @onready var playerlife = $"../../WorldDetails/3/StatusLife"
 @onready var takendamage = $takenDamage
+@onready var remove_after_death = $removeAfterDeath
 @onready var area2D = $Area2D
 var IsInDamage = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cast_time = 0.0
 var spell_time = 0.0
 var patrol_direction = -1  # 1 = vers B, -1 = vers A
+var isHit = false
+var life = 40
+var ImDead = false
 
-
-func _ready():
-	pass
+func take_damage(damage):
+	isHit =true
+	life -= damage
+	animationTree.set("parameters/conditions/isHit",true)
+	animationTree.set("parameters/conditions/isAttacking",false)
+	animationTree.set("parameters/conditions/isWalking",false)
+	animationTree.set("parameters/conditions/isIdle",false)
 
 func UpdateAnimationParameters():
 	if velocity == Vector2.ZERO:
 		animationTree.set("parameters/conditions/isIdle", true)
 		animationTree.set("parameters/conditions/isWalking", false)
+		animationTree.set("parameters/conditions/isHit",false)
 	else:
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
+		animationTree.set("parameters/conditions/isHit",false)
 	if player_in_range() and player.is_dead == false:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
 		animationTree.set("parameters/conditions/isAttacking", true)
 	else:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isAttacking", false)
-	
+func Death():
+	ImDead = true
+	animationTree.set("parameters/conditions/isHit",false)
+	animationTree.set("parameters/conditions/isAttacking",false)
+	animationTree.set("parameters/conditions/isWalking",false)
+	animationTree.set("parameters/conditions/isIdle",false)
+	animationTree.set("parameters/conditions/isDead",true)
+	if remove_after_death.is_stopped():
+		remove_after_death.start()
 func _physics_process(delta):
-	if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
-		attack_player(delta)
-	else:
-		patrol(delta)
-	UpdateAnimationParameters()
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	move_and_slide() 
+	if life <= 0:
+		Death()
+	if not ImDead:
+		if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
+			attack_player(delta)
+		else:
+			patrol(delta)
+		if not isHit:
+			UpdateAnimationParameters()
+		else:
+			isHit = false
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		move_and_slide() 
 
 func player_in_range() -> bool:
 	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
@@ -101,6 +127,8 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_taken_damage_timeout():
-	if IsInDamage : 
+	if IsInDamage and not ImDead: 
 		playerlife.takedamage(5)
 		
+func _on_remove_after_death_timeout():
+	queue_free()
