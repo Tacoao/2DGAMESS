@@ -9,6 +9,13 @@ extends Control
 @onready var LightContinue = $MarginContainer/HBoxContainer/VBoxContainer/LightContinue as Light2D
 @onready var LightQuit = $MarginContainer/HBoxContainer/VBoxContainer/LightQuit as Light2D
 
+@onready var Video = $Video
+
+@onready var bg = $Background
+@onready var Fog = $Fog
+@onready var Logo = $Logo
+@onready var margin = $MarginContainer
+@onready var Audio = $AudioStreamPlayer
 
 
 @onready var start_level = preload("res://Scenes/main.tscn") as PackedScene
@@ -32,6 +39,13 @@ func _ready():
 func on_start_button_pressed() -> void :
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
+	Video.play()
+	bg.hide()
+	Fog.hide()
+	Logo.hide()
+	margin.hide()
+	Audio.stop()
+	await Video.finished
 	get_tree().change_scene_to_packed(start_level)
 	
 

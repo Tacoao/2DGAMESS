@@ -1422,6 +1422,7 @@ sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Fall"
 autoplay = "Idle"
 frame = 2
+
 speed_scale = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
@@ -1429,7 +1430,7 @@ position = Vector2(1.625, 0)
 texture = SubResource("GradientTexture2D_2vuo3")
 
 [node name="Volumetric light" type="Sprite2D" parent="Sprite2D/PointLight2D"]
-modulate = Color(0.0676971, 0.158524, 0.057095, 1)
+modulate = Color(0.116116, 0.0632987, 0.0226608, 1)
 material = SubResource("CanvasItemMaterial_x6ev3")
 texture = SubResource("GradientTexture2D_ltks1")
 
