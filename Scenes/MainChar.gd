@@ -65,6 +65,8 @@ var AttackL3 = "parameters/conditions/isAttackL3"
 @onready var sprite = $Sprite2D
 var isHit = "parameters/conditions/isHurt"
 var gpuparticle
+var ennemi
+var ennemi_in_zone = false
 func _ready():
 	print("Script Loaded")
 	wallDetect = get_node("wallDetect")
@@ -109,7 +111,7 @@ func _on_damage_timer_timeout():
 func animation_handler():
 	
 	if is_on_wall_only():
-		print("onWall")
+	
 		animationTree.set("parameters/conditions/isWallGrab", true)
 		animationTree.set(isFalling, false)
 	else:
@@ -205,7 +207,9 @@ func _physics_process(delta):
 
 		velocity = motion
 		move_and_slide()
-
+func giveDamage(damage):
+	if ennemi_in_zone:
+		ennemi.take_damage(damage)
 func light_attack_handler():
 	if not bowMod:
 		AttackLCounter += 1
@@ -220,6 +224,8 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
+				giveDamage(5)
+				
 			2:
 				animationTree.set(idleLink, false)
 				animationTree.set(runLink, false)
@@ -228,6 +234,7 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
+				giveDamage(5)
 			3:
 				animationTree.set(idleLink, false)
 				animationTree.set(runLink, false)
@@ -236,6 +243,7 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
+				giveDamage(5)
 
 func heavy_attack_handler():
 	if not bowMod:
@@ -366,3 +374,9 @@ func bow_mod() -> bool:
 		bowMod = false
 	return bowMod
 
+
+
+func _on_area_2d_body_entered(body):
+	if body is CharacterBody2D:
+		ennemi_in_zone = true
+		ennemi = body

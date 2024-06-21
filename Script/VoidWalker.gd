@@ -29,26 +29,33 @@ var cast_time = 0.0
 var spell_time = 0.0
 var is_casting = false
 var patrol_direction = -1  # 1 = vers B, -1 = vers A
-
-
+var life = 100
+var isHit =false
+var ImDead = false
 func _ready():
 	pass
 
+
 func UpdateAnimationParameters():
 	if velocity == Vector2.ZERO:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", true)
 		animationTree.set("parameters/conditions/isWalking", false)
 	else:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 
 	if IsIn:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isCasting", true)
 	else:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isCasting", false)
 		animationTree.set("parameters/conditions/isIdle", true)
 	if player_in_range() and player.is_dead == false:
+		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
 		animationTree.set("parameters/conditions/isAttacking", true)
@@ -56,42 +63,46 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isAttacking", false)
 
 func _physics_process(delta):
-	print(player.is_dead)
-	if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
-		attack_player(delta)
-	else:
-		patrol(delta)
+	if life < 100:
+		print("Imdead")
+		Death()
+	if not ImDead:
+		if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
+			attack_player(delta)
+		else:
+			patrol(delta)
 
-	if player_in_skill_range() and player.is_dead == false:
-		IsIn = true
-		cast_time = 0.0
-		spell_time = 0.0
-		is_spelling = false
-		is_casting = true  # Reset the cast time when casting
-	else:
-		IsIn = false
+		if player_in_skill_range() and player.is_dead == false:
+			IsIn = true
+			cast_time = 0.0
+			spell_time = 0.0
+			is_spelling = false
+			is_casting = true  # Reset the cast time when casting
+		else:
+			IsIn = false
 
-	if is_casting and cast_time >= CAST_DURATION:
-		is_casting = false
-		is_spelling = true
-		spawn_portal()
-		portal_Animationplayer.play("portalSkill")
+		if is_casting and cast_time >= CAST_DURATION:
+			is_casting = false
+			is_spelling = true
+			spawn_portal()
+			portal_Animationplayer.play("portalSkill")
 
-	if is_spelling and spell_time >= SPELL_DURATION:
-		is_spelling = false
+		if is_spelling and spell_time >= SPELL_DURATION:
+			is_spelling = false
 
-	if is_casting:
-		cast_time += delta
-	if is_spelling:
-		spell_time += delta
+		if is_casting:
+			cast_time += delta
+		if is_spelling:
+			spell_time += delta
+		if not isHit:
+			UpdateAnimationParameters()
+		else:
+			isHit=false
+		if not is_on_floor():
+			velocity.y += gravity * delta
 
-	UpdateAnimationParameters()
-
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	if not is_spelling:
-		move_and_slide()
+		if not is_spelling:
+			move_and_slide()
 
 func player_in_range() -> bool:
 	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
@@ -161,3 +172,21 @@ func _on_take_damage_timeout():
 	if IsInDamage:
 		playerlife.takedamage(5)
 		
+func take_damage(damage):
+	isHit =true
+	life -= damage
+	animationTree.set("parameters/conditions/isHit",true)
+	animationTree.set("parameters/conditions/isAttacking",false)
+	animationTree.set("parameters/conditions/isCasting",false)
+	animationTree.set("parameters/conditions/isWalking",false)
+	animationTree.set("parameters/conditions/isIdle",false)
+	
+func Death():
+	ImDead = true
+	animationTree.set("parameters/conditions/isHit",false)
+	animationTree.set("parameters/conditions/isAttacking",false)
+	animationTree.set("parameters/conditions/isCasting",false)
+	animationTree.set("parameters/conditions/isWalking",false)
+	animationTree.set("parameters/conditions/isIdle",false)
+	animationTree.set("parameters/conditions/isDead",true)
+	

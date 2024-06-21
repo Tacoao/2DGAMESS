@@ -496,7 +496,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -921,7 +921,7 @@ parameters/conditions/isWalking = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
 animation = &"Idle"
-frame = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
