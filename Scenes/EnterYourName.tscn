@@ -1,0 +1,203 @@
+[gd_scene load_steps=26 format=3 uid="uid://chu30euynk6i0"]
+
+[ext_resource type="Script" path="res://Script/EnterYourName.gd" id="1_1s761"]
+[ext_resource type="Texture2D" uid="uid://ct8pr7xi56dfw" path="res://Assets/Main Menu/WelcomescreenUpscaled.png" id="1_tmpsa"]
+[ext_resource type="FontFile" uid="uid://cwmr1vgr4yc82" path="res://Assets/Fonts/Lora-VariableFont_wght.ttf" id="2_b81u5"]
+[ext_resource type="Texture2D" uid="uid://dde1w303jokd8" path="res://Assets/Main Menu/Btn/DALL_E-2024-04-28-02.39_2_-removebg-preview_3__1_-removebg-preview.png" id="3_tbwbg"]
+[ext_resource type="VideoStream" path="res://Assets/Video/V3-mise-en-contexte.ogv" id="4_fwr65"]
+[ext_resource type="AudioStream" uid="uid://2twfwxp0kkoa" path="res://Assets/Main Menu/click-button-131479.mp3" id="5_qbyy8"]
+[ext_resource type="FontFile" uid="uid://67hfwlcnoqy8" path="res://Assets/Fonts/CinzelDecorative-Regular.ttf" id="5_xehyp"]
+[ext_resource type="Texture2D" uid="uid://dquukvq51p3mu" path="res://Assets/Main Menu/escape_dark.png" id="6_hwxnu"]
+[ext_resource type="Shader" path="res://main.gdshader" id="9_xomug"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lo17t"]
+shader = ExtResource("9_xomug")
+shader_parameter/base_color = Color(0.811765, 0.996078, 0.929412, 0.427451)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2wlkf"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h3k7l"]
+seamless = true
+noise = SubResource("FastNoiseLite_2wlkf")
+
+[sub_resource type="Gradient" id="Gradient_58gll"]
+offsets = PackedFloat32Array(0, 0.784431, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c32bd"]
+gradient = SubResource("Gradient_58gll")
+fill = 1
+fill_from = Vector2(0.495726, 0.517094)
+
+[sub_resource type="SystemFont" id="SystemFont_fwhh3"]
+font_names = PackedStringArray("Cinzel Decorative")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vtpb"]
+texture = ExtResource("3_tbwbg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwxdd"]
+texture = ExtResource("3_tbwbg")
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_ph1ri"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = SubResource("SystemFont_fwhh3")
+Button/styles/disabled = SubResource("StyleBoxTexture_7vtpb")
+Button/styles/focus = SubResource("StyleBoxTexture_7vtpb")
+Button/styles/hover = SubResource("StyleBoxTexture_rwxdd")
+Button/styles/normal = SubResource("StyleBoxTexture_7vtpb")
+Button/styles/pressed = SubResource("StyleBoxTexture_7vtpb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45tji"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vun6g"]
+
+[sub_resource type="Theme" id="Theme_nn4h5"]
+LineEdit/constants/outline_size = 0
+LineEdit/font_sizes/font_size = 41
+LineEdit/fonts/font = ExtResource("2_b81u5")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_45tji")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_vun6g")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhnub"]
+
+[sub_resource type="Theme" id="Theme_fqhpi"]
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_jhnub")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jdks"]
+font = ExtResource("5_xehyp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3pl4h"]
+font = ExtResource("5_xehyp")
+
+[node name="EnterYourName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1s761")
+
+[node name="Bg" type="TextureRect" parent="."]
+texture_filter = 2
+offset_right = 6807.0
+offset_bottom = 6777.0
+scale = Vector2(0.281783, 0.158912)
+texture = ExtResource("1_tmpsa")
+
+[node name="Fog" type="TextureRect" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_lo17t")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_h3k7l")
+
+[node name="LightTop" type="PointLight2D" parent="."]
+position = Vector2(954, 195)
+scale = Vector2(17.0108, 11.0558)
+energy = 1.15
+texture = SubResource("GradientTexture2D_c32bd")
+
+[node name="Hoversound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qbyy8")
+pitch_scale = 0.82
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 763
+theme_override_constants/margin_right = 37
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_constants/separation = 78
+alignment = 1
+
+[node name="Confirm" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+theme = SubResource("Theme_ph1ri")
+theme_override_font_sizes/font_size = 25
+text = "Confirm"
+
+[node name="LightConfirm" type="PointLight2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(544.618, 382.062)
+scale = Vector2(1, 0.461959)
+energy = 1.15
+texture = SubResource("GradientTexture2D_c32bd")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+offset_left = 761.0
+offset_top = 765.0
+offset_right = 1195.0
+offset_bottom = 819.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_nn4h5")
+placeholder_text = "Enter your name..."
+alignment = 1
+caret_blink = true
+
+[node name="Video" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("4_fwr65")
+
+[node name="PanelContainerEsc" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.884375
+anchor_top = 0.956481
+anchor_right = 0.997917
+anchor_bottom = 0.99537
+offset_left = 65.0
+offset_top = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_fqhpi")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainerEsc"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainerEsc/HBoxContainer"]
+layout_mode = 2
+text = "Press"
+label_settings = SubResource("LabelSettings_8jdks")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainerEsc/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_hwxnu")
+
+[node name="Label2" type="Label" parent="PanelContainerEsc/HBoxContainer"]
+layout_mode = 2
+text = "to pass"
+label_settings = SubResource("LabelSettings_3pl4h")

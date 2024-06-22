@@ -6,9 +6,11 @@ var current_texture_index = 0
 var texturesweapon = []
 var current_textureweapon_index = 0
 
+
+
 # Référence au TextureRect
 @onready var texture_rect = $PanelContainer/HBoxContainer/TextureRect
-
+@onready var playername = $PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/PlayerName
 # Timer pour changer les textures
 @onready var timer = $Timer
 
@@ -26,6 +28,7 @@ var is_bowmode = false
 
 func _ready():
 	# Charger les textures
+	playername.text = VariableGlobale.username 
 	textures.append(load("res://Assets/HUD/Group 8.png"))  # Yeux fermés
 	textures.append(load("res://Assets/HUD/Group 19.png")) # Yeux ouverts
 	

@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://p1jx2g2x172r"]
+
+[ext_resource type="Texture2D" uid="uid://bhyp0e8mm3y4v" path="res://Assets/Main Menu/DEAD SCREEN RETRY.png" id="1_in1y6"]
+[ext_resource type="Script" path="res://deadscreen.gd" id="1_kv4n1"]
+[ext_resource type="Shader" path="res://main.gdshader" id="2_4yekc"]
+[ext_resource type="AudioStream" uid="uid://cdpek43qk6f22" path="res://Assets/Sound/Dark Souls You Died Sound Effect.mp3" id="4_p3nhu"]
+[ext_resource type="AudioStream" uid="uid://ckbcjnjf2stbi" path="res://Assets/Sound/Dark Wind in the Night.mp3" id="5_bu2fj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yssbg"]
+shader = ExtResource("2_4yekc")
+shader_parameter/base_color = Color(0.811765, 0.996078, 0.929412, 0.427451)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8yp2i"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ib02p"]
+seamless = true
+noise = SubResource("FastNoiseLite_8yp2i")
+
+[sub_resource type="Gradient" id="Gradient_naolv"]
+offsets = PackedFloat32Array(0, 0.784431, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ebxjj"]
+gradient = SubResource("Gradient_naolv")
+fill = 1
+fill_from = Vector2(0.495726, 0.517094)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kv4n1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 3584.0
+offset_bottom = 2048.0
+scale = Vector2(0.538052, 0.538052)
+texture = ExtResource("1_in1y6")
+
+[node name="Fog" type="TextureRect" parent="TextureRect"]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_yssbg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ib02p")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[node name="LIGHT" type="PointLight2D" parent="CanvasModulate"]
+position = Vector2(958, 166)
+scale = Vector2(2.83028, 2.85661)
+energy = 1.15
+texture = SubResource("GradientTexture2D_ebxjj")
+texture_scale = 7.77
+
+[node name="deadsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p3nhu")
+
+[node name="deadmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bu2fj")

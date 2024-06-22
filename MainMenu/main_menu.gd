@@ -17,9 +17,9 @@ extends Control
 @onready var margin = $MarginContainer
 @onready var Audio = $AudioStreamPlayer
 @onready var PanelContainerEsc = $PanelContainer
-@onready var boolescape = false
 
-@onready var start_level = preload("res://Scenes/main.tscn") as PackedScene
+
+@onready var Username = preload("res://Scenes/EnterYourName.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)
@@ -34,26 +34,12 @@ func _ready():
 	start_button.mouse_exited.connect(on_start_button_exited)
 	continue_button.mouse_exited.connect(on_continue_button_exited)
 	quit_button.mouse_exited.connect(on_quit_button_exited)
-	PanelContainerEsc.hide()
+
 
 func on_start_button_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
-	Video.play()
-	bg.hide()
-	Fog.hide()
-	Logo.hide()
-	margin.hide()
-	PanelContainerEsc.show()
-	boolescape = true
-
-	Audio.stop()
-	
-	if boolescape:
-		await Video.finished
-		TransitionScreen.transition()
-		await TransitionScreen.on_transition_finished
-		get_tree().change_scene_to_packed(start_level)
+	get_tree().change_scene_to_packed(Username)
 
 func on_continue_button_pressed() -> void:
 	get_tree().change_scene("res://ContinueMenu.tscn")
@@ -90,9 +76,4 @@ func on_continue_button_exited() -> void:
 func on_quit_button_exited() -> void:
 	LightQuit.hide()
 
-func _input(event):
-	if event.is_action_pressed("echap") and boolescape:
-		Video.stop()
-		TransitionScreen.transition()
-		await TransitionScreen.on_transition_finished
-		get_tree().change_scene_to_packed(start_level)
+
