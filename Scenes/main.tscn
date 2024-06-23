@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=55 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
@@ -428,6 +428,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(13687, -162, 13644, 83, 16452, 83, 16250, -173)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsf6h"]
+
 [node name="Node" type="Node2D"]
 script = ExtResource("1_y4lmc")
 metadata/_edit_horizontal_guides_ = [-678.0]
@@ -736,3 +738,12 @@ position = Vector2(17235, -3659)
 
 [node name="pointB" type="Node2D" parent="NightBorn"]
 position = Vector2(20531, -3740)
+
+[node name="InstantFallDeath" type="Area2D" parent="."]
+position = Vector2(9413, 27633)
+scale = Vector2(2000, 2000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstantFallDeath"]
+shape = SubResource("RectangleShape2D_wsf6h")
+
+[connection signal="body_entered" from="InstantFallDeath" to="." method="_on_instant_fall_death_body_entered"]

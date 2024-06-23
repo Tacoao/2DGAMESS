@@ -52,8 +52,8 @@ func _on_timer_timeout():
 	NavigationAgent.target_position = target_player.global_position
 
 func _on_in_contact_timer_timeout():
-
-	playerlife.takedamage(5)
+	if IsInDamage :
+		playerlife.takedamage(5)
 	queue_free()
 
 

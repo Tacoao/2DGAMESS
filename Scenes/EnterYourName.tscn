@@ -15,18 +15,18 @@ shader = ExtResource("9_xomug")
 shader_parameter/base_color = Color(0.811765, 0.996078, 0.929412, 0.427451)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2wlkf"]
-frequency = 0.0063
+frequency = 0.02
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h3k7l"]
 seamless = true
 noise = SubResource("FastNoiseLite_2wlkf")
 
-[sub_resource type="Gradient" id="Gradient_58gll"]
+[sub_resource type="Gradient" id="Gradient_ytgwd"]
 offsets = PackedFloat32Array(0, 0.784431, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.424613, 0.318438, 1, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c32bd"]
-gradient = SubResource("Gradient_58gll")
+gradient = SubResource("Gradient_ytgwd")
 fill = 1
 fill_from = Vector2(0.495726, 0.517094)
 
@@ -86,6 +86,7 @@ script = ExtResource("1_1s761")
 
 [node name="Bg" type="TextureRect" parent="."]
 texture_filter = 2
+layout_mode = 0
 offset_right = 6807.0
 offset_bottom = 6777.0
 scale = Vector2(0.281783, 0.158912)
@@ -105,6 +106,18 @@ texture = SubResource("NoiseTexture2D_h3k7l")
 
 [node name="LightTop" type="PointLight2D" parent="."]
 position = Vector2(954, 195)
+scale = Vector2(17.0108, 11.0558)
+energy = 1.15
+texture = SubResource("GradientTexture2D_c32bd")
+
+[node name="LightTop2" type="PointLight2D" parent="."]
+position = Vector2(1884, 848)
+scale = Vector2(17.0108, 11.0558)
+energy = 1.15
+texture = SubResource("GradientTexture2D_c32bd")
+
+[node name="LightTop3" type="PointLight2D" parent="."]
+position = Vector2(58, 821)
 scale = Vector2(17.0108, 11.0558)
 energy = 1.15
 texture = SubResource("GradientTexture2D_c32bd")

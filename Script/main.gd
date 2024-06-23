@@ -25,3 +25,7 @@ func _process(delta):
 			rope.visible = true
 	else:
 		rope.visible = false
+
+
+func _on_instant_fall_death_body_entered(body):
+	player.death()

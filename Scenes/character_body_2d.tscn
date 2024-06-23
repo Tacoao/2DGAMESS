@@ -89,10 +89,10 @@
 [ext_resource type="Texture2D" uid="uid://b54s7kcjfl6wv" path="res://Assets/MainCHar/Attack/Light/21.png" id="64_a77ay"]
 [ext_resource type="Texture2D" uid="uid://dccn4lmt72g73" path="res://Assets/MainCHar/Attack/Light/22.png" id="65_g4nse"]
 [ext_resource type="Texture2D" uid="uid://cvuwsu1aitvc3" path="res://Assets/MainCHar/Attack/Light/23.png" id="66_dasl7"]
-[ext_resource type="Texture2D" uid="uid://dgk08lsniefwa" path="res://Assets/MainCHar/Jump/Landing/0.png" id="67_331c0"]
-[ext_resource type="Texture2D" uid="uid://b6oc1j4lkuty6" path="res://Assets/MainCHar/Jump/Landing/1.png" id="68_n81cp"]
-[ext_resource type="Texture2D" uid="uid://dg57n7jhfggoi" path="res://Assets/MainCHar/Jump/Landing/2.png" id="69_iu8ko"]
-[ext_resource type="Texture2D" uid="uid://ccl3wdi1daxja" path="res://Assets/MainCHar/Jump/Landing/3.png" id="70_fminl"]
+[ext_resource type="Texture2D" uid="uid://d35ntuvvgedgw" path="res://Assets/MainCHar/Jump/Landing/0.png" id="67_331c0"]
+[ext_resource type="Texture2D" uid="uid://dwdvjg3loj808" path="res://Assets/MainCHar/Jump/Landing/1.png" id="68_n81cp"]
+[ext_resource type="Texture2D" uid="uid://d2eq45ffb01pj" path="res://Assets/MainCHar/Jump/Landing/2.png" id="69_iu8ko"]
+[ext_resource type="Texture2D" uid="uid://djp5qssjo6ehp" path="res://Assets/MainCHar/Jump/Landing/3.png" id="70_fminl"]
 [ext_resource type="Texture2D" uid="uid://twlhd4feuvlc" path="res://Assets/MainCHar/Run/1.png" id="71_h2n3g"]
 [ext_resource type="Texture2D" uid="uid://dlflfwgbcscjn" path="res://Assets/MainCHar/Run/2.png" id="72_1x4x8"]
 [ext_resource type="Texture2D" uid="uid://dk8fjbdognjg2" path="res://Assets/MainCHar/Run/3.png" id="73_vd7xj"]
@@ -1372,13 +1372,13 @@ advance_condition = &"isFalling"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ugkx7"]
 states/AttackH1/node = SubResource("AnimationNodeAnimation_ln53t")
-states/AttackH1/position = Vector2(319.298, 368.355)
+states/AttackH1/position = Vector2(264.298, 404.355)
 states/AttackH2/node = SubResource("AnimationNodeAnimation_kj665")
-states/AttackH2/position = Vector2(96.298, 388.355)
+states/AttackH2/position = Vector2(85.298, 403.605)
 states/AttackH3/node = SubResource("AnimationNodeAnimation_fihuf")
-states/AttackH3/position = Vector2(-73, 351.355)
+states/AttackH3/position = Vector2(-85, 404.73)
 states/AttackL1/node = SubResource("AnimationNodeAnimation_q6iu2")
-states/AttackL1/position = Vector2(651.298, 334.355)
+states/AttackL1/position = Vector2(498.798, 404.543)
 states/AttackL2/node = SubResource("AnimationNodeAnimation_ivp7e")
 states/AttackL2/position = Vector2(1031.3, 146.355)
 states/AttackL3/node = SubResource("AnimationNodeAnimation_e553c")
@@ -1398,7 +1398,7 @@ states/Start/position = Vector2(-83, -11)
 states/wallslide/node = SubResource("AnimationNodeAnimation_q6sri")
 states/wallslide/position = Vector2(908.298, -226.839)
 transitions = ["Jump_Rise", "Fall", SubResource("AnimationNodeStateMachineTransition_mqpee"), "Fall", "Landing", SubResource("AnimationNodeStateMachineTransition_l2jm0"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sv82t"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_o2guw"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6bkbm"), "Idle", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_avixf"), "Landing", "Idle", SubResource("AnimationNodeStateMachineTransition_jwann"), "Run", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_koim3"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_05cx1"), "Idle", "AttackH3", SubResource("AnimationNodeStateMachineTransition_6m6yy"), "Idle", "AttackH2", SubResource("AnimationNodeStateMachineTransition_gds8l"), "Idle", "AttackH1", SubResource("AnimationNodeStateMachineTransition_rsvid"), "Run", "AttackH3", SubResource("AnimationNodeStateMachineTransition_fwlb3"), "Run", "AttackH2", SubResource("AnimationNodeStateMachineTransition_gpumx"), "Run", "AttackH1", SubResource("AnimationNodeStateMachineTransition_a67gi"), "Run", "AttackL1", SubResource("AnimationNodeStateMachineTransition_1jbju"), "Run", "AttackL2", SubResource("AnimationNodeStateMachineTransition_1u1dt"), "Run", "AttackL3", SubResource("AnimationNodeStateMachineTransition_0njwg"), "Idle", "AttackL1", SubResource("AnimationNodeStateMachineTransition_6kmph"), "Idle", "AttackL2", SubResource("AnimationNodeStateMachineTransition_mlyo7"), "Idle", "AttackL3", SubResource("AnimationNodeStateMachineTransition_c88rv"), "AttackL2", "Run", SubResource("AnimationNodeStateMachineTransition_x1n4l"), "AttackL3", "Run", SubResource("AnimationNodeStateMachineTransition_g4ehg"), "AttackL1", "Run", SubResource("AnimationNodeStateMachineTransition_asxgr"), "AttackL2", "Idle", SubResource("AnimationNodeStateMachineTransition_ptcff"), "AttackL3", "Idle", SubResource("AnimationNodeStateMachineTransition_2s2j2"), "AttackL1", "Idle", SubResource("AnimationNodeStateMachineTransition_87ope"), "AttackH1", "Run", SubResource("AnimationNodeStateMachineTransition_qfrim"), "AttackH2", "Run", SubResource("AnimationNodeStateMachineTransition_yjgov"), "AttackH3", "Run", SubResource("AnimationNodeStateMachineTransition_w2unv"), "AttackH3", "Idle", SubResource("AnimationNodeStateMachineTransition_lq2pc"), "AttackH2", "Idle", SubResource("AnimationNodeStateMachineTransition_wcxt0"), "AttackH1", "Idle", SubResource("AnimationNodeStateMachineTransition_roiv3"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_ieflc"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_5w76b"), "Fall", "wallslide", SubResource("AnimationNodeStateMachineTransition_544f7"), "wallslide", "Fall", SubResource("AnimationNodeStateMachineTransition_wqfsy")]
-graph_offset = Vector2(246.849, 116.535)
+graph_offset = Vector2(-300.005, 225.105)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e60t"]
 particle_flag_disable_z = true
@@ -1413,7 +1413,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 14
+frame = 2
 speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -1494,6 +1494,9 @@ one_shot = true
 [node name="givedegatlight" type="Timer" parent="."]
 one_shot = true
 
+[node name="DeadScreen" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
@@ -1501,3 +1504,4 @@ one_shot = true
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="givedegatlourd" to="." method="_on_givedegatlourd_timeout"]
 [connection signal="timeout" from="givedegatlight" to="." method="_on_givedegatlight_timeout"]
+[connection signal="timeout" from="DeadScreen" to="." method="_on_dead_screen_timeout"]

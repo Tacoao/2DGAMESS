@@ -70,6 +70,8 @@ var ennemi_in_zone = false
 @onready var Area =$Area2D
 @onready var givedegalight = $givedegatlight
 @onready var givedegalourd =$givedegatlourd 
+@onready var DeadScreen = preload("res://Scenes/deadscreen.tscn")
+@onready var DeadScreenTimer = $DeadScreen
 func _ready():
 	print("Script Loaded")
 	wallDetect = get_node("wallDetect")
@@ -98,6 +100,8 @@ func death():
 	get_tree().current_scene.add_child(_particle)
 	sprite.visible = false
 	collision.queue_free()
+	if DeadScreenTimer.is_stopped():
+		DeadScreenTimer.start(1)
 	is_dead = true
 	
 func take_damage(damage):
@@ -416,3 +420,7 @@ func _on_givedegatlourd_timeout():
 func _on_givedegatlight_timeout():
 	
 	giveDamage(5)
+
+
+func _on_dead_screen_timeout():
+	get_tree().change_scene_to_packed(DeadScreen)

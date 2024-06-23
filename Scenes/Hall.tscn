@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bgyh1lj1xg3bx"]
+[gd_scene load_steps=35 format=3 uid="uid://bgyh1lj1xg3bx"]
 
 [ext_resource type="Texture2D" uid="uid://dri6qmemt2he6" path="res://Assets/Props/Sans_titre-removebg-preview.png" id="1_2jemt"]
 [ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="1_b3k0o"]
@@ -1368,9 +1368,22 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="Gradient" id="Gradient_58gll"]
+offsets = PackedFloat32Array(0, 0.0778443, 0.784431, 1)
+colors = PackedColorArray(0.424613, 0.318438, 1, 1, 0.648375, 0.298594, 0.163476, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u72o8"]
+gradient = SubResource("Gradient_58gll")
+fill = 1
+fill_from = Vector2(0.495726, 0.517094)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticElements" type="Node2D" parent="."]
+
+[node name="CanvasModulate3" type="CanvasModulate" parent="StaticElements"]
+position = Vector2(-5, 0)
+color = Color(0.199731, 0.199732, 0.199732, 1)
 
 [node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview25" type="Sprite2D" parent="StaticElements"]
 modulate = Color(0.212305, 0.212305, 0.212305, 1)
@@ -1793,6 +1806,16 @@ position = Vector2(-2300, -1355.24)
 scale = Vector2(95.7803, 110.243)
 texture = ExtResource("13_wjn0k")
 
+[node name="LightTop2" type="PointLight2D" parent="WorldDetails/0"]
+position = Vector2(8580, 97)
+scale = Vector2(17.0108, 11.0558)
+energy = 1.15
+texture = SubResource("GradientTexture2D_u72o8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/0"]
+position = Vector2(-5, 0)
+color = Color(0.888425, 0.888425, 0.888425, 1)
+
 [node name="1" type="CanvasLayer" parent="WorldDetails"]
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
@@ -1817,7 +1840,7 @@ layer = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/4"]
 position = Vector2(-5, 0)
-color = Color(0.154876, 0.154876, 0.154876, 1)
+color = Color(0.888425, 0.888425, 0.888425, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -1862,3 +1885,8 @@ position = Vector2(7542, 1945)
 rotation = -1.15358
 scale = Vector2(2.47377, 3.01641)
 texture = ExtResource("13_ul2v6")
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
