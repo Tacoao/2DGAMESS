@@ -19,3 +19,5 @@ mono_crash.*.json
 *.ctex
 *.md5
 *.cfg
+Assets/Video/V3-mise-en-contexte.ogv
+addons/ropesim/bin/~libropesim.windows.template_debug.x86_64.dll

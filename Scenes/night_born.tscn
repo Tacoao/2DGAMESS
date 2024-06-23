@@ -670,13 +670,13 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4j0j"]
 radius = 5.0
 
-[sub_resource type="Gradient" id="Gradient_olvum"]
+[sub_resource type="Gradient" id="Gradient_prdgv"]
 offsets = PackedFloat32Array(0.0357143, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fux71"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_olvum")
+gradient = SubResource("Gradient_prdgv")
 width = 256
 height = 256
 use_hdr = true
@@ -688,12 +688,12 @@ fill_to = Vector2(0.668103, 0.288793)
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="Gradient" id="Gradient_2ldqn"]
+[sub_resource type="Gradient" id="Gradient_svj6j"]
 offsets = PackedFloat32Array(0.00595238, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x22v4"]
-gradient = SubResource("Gradient_2ldqn")
+gradient = SubResource("Gradient_svj6j")
 width = 256
 height = 256
 fill = 1
@@ -920,7 +920,8 @@ parameters/conditions/isWalking = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
-animation = &"death"
+animation = &"Idle"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
