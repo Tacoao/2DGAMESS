@@ -52,7 +52,12 @@ func _ready():
 	
 	# Vérifier l'état du bowMod
 	update_weapon_texture()
-
+func _process(delta):
+	VariableGlobale.CHRONOGLOBAL = chrono_time
+	
+	
+	
+	
 func start_random_timer():
 	if eyes_closed:
 		# Si les yeux sont fermés, rouvrir après une courte période

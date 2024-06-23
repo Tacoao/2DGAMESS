@@ -22,6 +22,8 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var portal_Animationplayer = $AnimationPlayer
 @onready var remove_after_death = $removeAfterDeath
 @onready var collision = $CollisionShape2D
+@onready var nodeHTTP = $Node2D
+
 var is_spelling = false
 var IsInDamage = false
 var IsIn = false
@@ -34,6 +36,8 @@ var life = 70
 var isHit =false
 var ImDead = false
 var canAttack = true
+@onready var HALLOFFAME = preload("res://Scenes/BOUTOU.tscn") as PackedScene
+
 func _ready():
 	pass
 
@@ -199,11 +203,17 @@ func Death():
 	
 	if remove_after_death.is_stopped():
 		remove_after_death.start()
-	
+		
 
 
 func _on_remove_after_death_timeout():
-	queue_free()
+	print("STOP")
+	print(VariableGlobale.CHRONOGLOBAL)
+	nodeHTTP.send_score(VariableGlobale.username,VariableGlobale.CHRONOGLOBAL)
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_packed(HALLOFFAME)
+
 
 
 

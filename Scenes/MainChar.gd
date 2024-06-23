@@ -122,13 +122,13 @@ func _on_damage_timer_timeout():
 	animatedSprite2D.modulate = Color(1, 1, 1)
 
 func _process(delta):
-	print("Velocity: ", velocity) # Debugging line
+
 	if velocity != Vector2.ZERO and is_on_floor():
 		if not bruitdepas.playing:
-			print("Playing sound") # Debugging line
+
 			bruitdepas.play()
 	else:
-		print("Stopping sound") # Debugging line
+
 		bruitdepas.stop()
 		
 func animation_handler():

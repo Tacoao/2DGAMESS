@@ -1,8 +1,9 @@
-[gd_scene load_steps=112 format=3 uid="uid://bfw38n2y4gciw"]
+[gd_scene load_steps=113 format=3 uid="uid://bfw38n2y4gciw"]
 
 [ext_resource type="Script" path="res://Script/VoidWalker.gd" id="1_4ru61"]
 [ext_resource type="Texture2D" uid="uid://cj3m8kxje8jnf" path="res://Assets/VoidWalker/Bringer-of-Death-SpritSheet.png" id="2_yvhsp"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="3_db5d3"]
+[ext_resource type="Script" path="res://Script/CALLAPIPUSH.gd" id="4_yrhoj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6se2"]
 atlas = ExtResource("2_yvhsp")
@@ -1014,7 +1015,7 @@ texture_filter = 1
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_ledxe")
 animation = &"Idle"
-frame = 4
+frame = 6
 
 [node name="PlayerDetection" type="Area2D" parent="Sprite2D"]
 position = Vector2(2.08165e-12, 22)
@@ -1064,6 +1065,11 @@ one_shot = true
 [node name="removeAfterDeath" type="Timer" parent="."]
 wait_time = 1.1
 one_shot = true
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("4_yrhoj")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Node2D"]
 
 [connection signal="body_entered" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="Sprite2D/PlayerDetection" to="." method="_on_player_detection_body_exited"]

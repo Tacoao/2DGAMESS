@@ -1419,7 +1419,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 15
+frame = 9
 speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
