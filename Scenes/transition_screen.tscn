@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Script/Transition_screen.gd" id="1_x2p6f"]
 [ext_resource type="AudioStream" uid="uid://cj2s1rmsx77wi" path="res://Assets/Main Menu/atmospheric-metallic-swipe-17-196791.mp3" id="2_tt4je"]
 
-
 [sub_resource type="Animation" id="Animation_gi7l1"]
 length = 0.001
 tracks/0/type = "value"

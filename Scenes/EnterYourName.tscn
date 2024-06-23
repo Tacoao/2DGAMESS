@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://chu30euynk6i0"]
+[gd_scene load_steps=25 format=3 uid="uid://chu30euynk6i0"]
 
 [ext_resource type="Script" path="res://Script/EnterYourName.gd" id="1_1s761"]
 [ext_resource type="Texture2D" uid="uid://ct8pr7xi56dfw" path="res://Assets/Main Menu/WelcomescreenUpscaled.png" id="1_tmpsa"]
 [ext_resource type="FontFile" uid="uid://cwmr1vgr4yc82" path="res://Assets/Fonts/Lora-VariableFont_wght.ttf" id="2_b81u5"]
 [ext_resource type="Texture2D" uid="uid://dde1w303jokd8" path="res://Assets/Main Menu/Btn/DALL_E-2024-04-28-02.39_2_-removebg-preview_3__1_-removebg-preview.png" id="3_tbwbg"]
-[ext_resource type="VideoStream" path="res://Assets/Video/V3-mise-en-contexte.ogv" id="4_fwr65"]
 [ext_resource type="AudioStream" uid="uid://2twfwxp0kkoa" path="res://Assets/Main Menu/click-button-131479.mp3" id="5_qbyy8"]
 [ext_resource type="FontFile" uid="uid://67hfwlcnoqy8" path="res://Assets/Fonts/CinzelDecorative-Regular.ttf" id="5_xehyp"]
 [ext_resource type="Texture2D" uid="uid://dquukvq51p3mu" path="res://Assets/Main Menu/escape_dark.png" id="6_hwxnu"]
@@ -182,7 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("4_fwr65")
+stream = null
 
 [node name="PanelContainerEsc" type="PanelContainer" parent="."]
 layout_mode = 1

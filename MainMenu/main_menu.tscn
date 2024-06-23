@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8wn87irqbodb"]
+[gd_scene load_steps=20 format=3 uid="uid://c8wn87irqbodb"]
 
 [ext_resource type="Shader" path="res://MainMenu/main_menu.gdshader" id="1_ui7s1"]
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_v2vwx"]
 [ext_resource type="Texture2D" uid="uid://bobmuju2pl7om" path="res://Assets/Main Menu/Bg final(1).png" id="2_hnchc"]
 [ext_resource type="Texture2D" uid="uid://cdsuf5patps5k" path="res://Assets/Main Menu/DALL_E-2024-04-28-02.39_1_-removebg-preview.png" id="3_b3l45"]
-[ext_resource type="VideoStream" path="res://Assets/Video/V3-mise-en-contexte.ogv" id="3_fhjr7"]
 [ext_resource type="Texture2D" uid="uid://dde1w303jokd8" path="res://Assets/Main Menu/Btn/DALL_E-2024-04-28-02.39_2_-removebg-preview_3__1_-removebg-preview.png" id="4_l5hj2"]
 [ext_resource type="Shader" path="res://main.gdshader" id="6_le3te"]
 [ext_resource type="AudioStream" uid="uid://ch1lb42x5jrd1" path="res://Assets/Main Menu/Enchanted-Forest-Music-Ambience.mp3" id="7_gh1s0"]
@@ -75,7 +74,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("3_fhjr7")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 2
