@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn7khruumhk84"]
+
+[ext_resource type="Texture2D" uid="uid://mfppo263v8to" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.00-removebg-preview.png" id="1_jp6e2"]
+[ext_resource type="Script" path="res://Spike.gd" id="2_fu3cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ehsu"]
+size = Vector2(396, 370)
+
+[node name="Spike" type="Sprite2D"]
+texture = ExtResource("1_jp6e2")
+script = ExtResource("2_fu3cu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_5ehsu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

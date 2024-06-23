@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=3 uid="uid://biic1783ehm6s"]
+[gd_scene load_steps=217 format=3 uid="uid://biic1783ehm6s"]
 
 [ext_resource type="Script" path="res://Scenes/MainChar.gd" id="1_6n700"]
 [ext_resource type="Texture2D" uid="uid://caw78fyullr46" path="res://Assets/MainCHar/Attack/Heavy/0.png" id="2_2ucgm"]
@@ -135,6 +135,8 @@
 [ext_resource type="Texture2D" uid="uid://cvpfb4ureswx7" path="res://Assets/MainCHar/wallclimb/1.png" id="133_wcg2y"]
 [ext_resource type="Texture2D" uid="uid://dpwtt11himeuv" path="res://Assets/MainCHar/wallclimb/2.png" id="134_5wbff"]
 [ext_resource type="Texture2D" uid="uid://dgxea0khltc7x" path="res://Assets/MainCHar/wallclimb/3.png" id="135_vr8bn"]
+[ext_resource type="AudioStream" uid="uid://3rsvki36547j" path="res://Assets/Sound/bruitdepas.mp3" id="136_6jfp7"]
+[ext_resource type="AudioStream" uid="uid://fbkx4ip52mh6" path="res://Assets/Sound/Jump Sound Effect (High Quality).mp3" id="136_mropt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbmsm"]
 animations = [{
@@ -1156,6 +1158,9 @@ tracks/1/keys = {
 "values": ["wallslide"]
 }
 
+[sub_resource type="Animation" id="Animation_ec7ht"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y4fjq"]
 _data = {
 "AttackH1": SubResource("Animation_pw18s"),
@@ -1168,6 +1173,7 @@ _data = {
 "Idle": SubResource("Animation_xmk5j"),
 "Jump_Rise": SubResource("Animation_sya5p"),
 "Landing": SubResource("Animation_brtsv"),
+"RESET": SubResource("Animation_ec7ht"),
 "Run": SubResource("Animation_vpwfq"),
 "Transition": SubResource("Animation_51hfx"),
 "Turn_Around": SubResource("Animation_d6jyq"),
@@ -1413,7 +1419,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 2
+frame = 15
 speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -1495,6 +1501,14 @@ one_shot = true
 one_shot = true
 
 [node name="DeadScreen" type="Timer" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("136_mropt")
+volume_db = -26.441
+
+[node name="BruitDePas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("136_6jfp7")
+volume_db = -26.159
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

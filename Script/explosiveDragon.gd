@@ -1,5 +1,5 @@
 extends CharacterBody2D
-const ATTACK_RANGE = 500.0
+@export var ATTACK_RANGE = 5000.0
 @onready var NavigationAgent = $Navigation/NavigationAgent2D
 @export var target_player : CharacterBody2D
 @onready var animationTree = $AnimationTree
@@ -10,9 +10,10 @@ var speed = 2000
 var acceleration = 50
 var is_in_contact = false
 var IsInDamage = false
-
-func player_in_range() -> bool:
-	return global_position.distance_to(target_player.global_position) <= ATTACK_RANGE
+var wasDetected = false
+func player_in_range():
+	if global_position.distance_to(target_player.global_position) <= ATTACK_RANGE:
+		wasDetected = true
 
 func update_direction():
 	if velocity.x != 0:
@@ -26,7 +27,7 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isRunning", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 
-	if player_in_range():
+	if IsInDamage:
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isRunning", false)
 		animationTree.set("parameters/conditions/InContact", true)
@@ -39,9 +40,11 @@ func UpdateAnimationParameters():
 		is_in_contact = false
 
 func _physics_process(delta):
+	player_in_range()
 	var direction = Vector2.ZERO
-	direction = NavigationAgent.get_next_path_position() - global_position
-	direction = direction.normalized()
+	if wasDetected:
+		direction = NavigationAgent.get_next_path_position() - global_position
+		direction = direction.normalized()
 
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 	update_direction()

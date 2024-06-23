@@ -632,13 +632,13 @@ _data = {
 "transitioncharge": SubResource("Animation_y0fih")
 }
 
-[sub_resource type="Gradient" id="Gradient_olvum"]
+[sub_resource type="Gradient" id="Gradient_s2hyr"]
 offsets = PackedFloat32Array(0.0357143, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pw4gq"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_olvum")
+gradient = SubResource("Gradient_s2hyr")
 width = 256
 height = 256
 use_hdr = true
@@ -650,12 +650,12 @@ fill_to = Vector2(0.668103, 0.288793)
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="Gradient" id="Gradient_2ldqn"]
+[sub_resource type="Gradient" id="Gradient_4ik6g"]
 offsets = PackedFloat32Array(0.00595238, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lgicy"]
-gradient = SubResource("Gradient_2ldqn")
+gradient = SubResource("Gradient_4ik6g")
 width = 256
 height = 256
 fill = 1
@@ -878,7 +878,7 @@ one_shot = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0tnj8")
 animation = &"idle"
-frame = 3
+frame = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2ops1")

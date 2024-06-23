@@ -33,6 +33,7 @@ var bowMod = false
 
 var animationTree # animation Tree
 @onready var collision = $CollisionShape2D
+@onready var JumpSound = $JumpSound
 var animatedSprite2D # Texture du personnage
 
 var wallDetect # detecteur de wall
@@ -45,7 +46,7 @@ var RopeLenght = 500.0
 var CurrentRopeLenght
 var rope
 var hooked = false
-
+@onready var bruitdepas = $BruitDePas
 var previousDirection = 0.0
 var damageTimer
 # Animation Link
@@ -113,11 +114,24 @@ func take_damage(damage):
 func change_color_to_red():
 	animatedSprite2D.modulate = Color(1, 0, 0)
 
+func playBruitdePas():
+	if is_on_floor() and  bruitdepas.playing == false:
+		bruitdepas.play()
+	
 func _on_damage_timer_timeout():
 	animatedSprite2D.modulate = Color(1, 1, 1)
 
+func _process(delta):
+	print("Velocity: ", velocity) # Debugging line
+	if velocity != Vector2.ZERO and is_on_floor():
+		if not bruitdepas.playing:
+			print("Playing sound") # Debugging line
+			bruitdepas.play()
+	else:
+		print("Stopping sound") # Debugging line
+		bruitdepas.stop()
+		
 func animation_handler():
-	
 	if is_on_wall_only():
 	
 		animationTree.set("parameters/conditions/isWallGrab", true)
@@ -134,6 +148,7 @@ func animation_handler():
 		animationTree.set(runLink, false)
 		animationTree.set(isLanding, false)
 	if velocity == Vector2.ZERO and is_on_floor():
+
 		animationTree.set(isHit, false)
 		animationTree.set(isFalling, false)
 		animationTree.set(isJump, false)
@@ -305,6 +320,7 @@ func handle_movement_input(delta):
 	# Get direction from input: -1 for left, 1 for right, 0 for no input
 	var direction = Input.get_action_strength(right) - Input.get_action_strength(left)
 
+
 	# Mettez à jour la direction précédente
 	previousDirection = direction
 	# Use Mathf.Sign to handle direction more robustly
@@ -334,11 +350,13 @@ func handle_movement_input(delta):
 
 # Fonction de Saut
 func jump():
+	JumpSound.play()
 	motion.y = jumpVelocity * jumpForce
 	animationTree.set(runLink, false)
 	animationTree.set(idleLink, false)
 	animationTree.set(isJump, true)
 	animationTree.set(idleLink, true)
+	
 
 # Gravity Handler
 func get_gravity() -> float:

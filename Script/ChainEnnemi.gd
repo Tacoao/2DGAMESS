@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const ATTACK_RANGE = 1000.0  # Portée d'attaque du monstre
+@export var  ATTACK_RANGE = 1000.0  # Portée d'attaque du monstre
 @onready var sprite = $AnimatedSprite2D
 @onready var body = $AnimatedSprite2D
 @onready var animationTree = $AnimationTree
@@ -12,6 +12,7 @@ const ATTACK_RANGE = 1000.0  # Portée d'attaque du monstre
 @onready var timer = $timerattack
 @onready var NavigationAgent = $Navigation/NavigationAgent2D
 @onready var area2D = $Area2D
+
 var speed = 2000
 var acceleration = 50
 var is_spelling = false
@@ -42,7 +43,7 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isRunning", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 
-	if player_in_range() and player.is_dead == false:
+	if IsInZone and player.is_dead == false:
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isRunning", false)
@@ -58,7 +59,7 @@ func _physics_process(delta):
 	if life <= 0:
 		Death()
 	if not ImDead:
-		if player_in_range() and player.is_dead == false and not isHit :
+		if IsInZone :
 			attack_player(delta)
 		var direction = Vector2.ZERO
 		direction = NavigationAgent.get_next_path_position() - global_position
@@ -74,7 +75,10 @@ func _physics_process(delta):
 		
 
 func player_in_range() -> bool:
-	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
+	if player != null:
+		return global_position.distance_to(player.global_position) <= ATTACK_RANGE
+	else:
+		return false
 
 
 func attack_player(delta):
@@ -91,7 +95,7 @@ func attack_player(delta):
 		timer.start(1.2)
 
 func _on_timer_timeout():
-	if global_position.distance_to(player.global_position) <= 1500:
+	if global_position.distance_to(player.global_position) <= ATTACK_RANGE:
 		NavigationAgent.target_position = player.global_position
 		atInitialePoint = false
 	else:

@@ -16,7 +16,6 @@ func _input(event):
 		if player.bowMod:
 			action = false
 func _process(delta):
-	
 	if action:
 		if player.get_hook_position():
 			Handle.global_position = player.global_position + Vector2(-20, -FRAME_HEIGHT / 2)

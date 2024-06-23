@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
-const CAST_DURATION = 0.5
-const SPELL_DURATION = 1  # Durée en secondes avant de rendre le portail invisible
-const ATTACK_RANGE = 1500.0  # Portée d'attaque du monstre
+const SPEED = 5200.0
+
+@export var ATTACK_RANGE = 1500.0  # Portée d'attaque du monstre
 
 # Définissez le chemin de la scène du portail ici
 const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
@@ -46,7 +45,7 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isHit",false)
-	if player_in_range() and player.is_dead == false:
+	if IsInDamage and player.is_dead == false:
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking", false)
@@ -64,13 +63,15 @@ func Death():
 	if remove_after_death.is_stopped():
 		remove_after_death.start()
 func _physics_process(delta):
+	
 	if life <= 0:
 		Death()
 	if not ImDead:
-		if player_in_range() and is_within_patrol_area(player.global_position) and player.is_dead == false :
+		if IsInDamage and player.is_dead == false :
 			attack_player(delta)
 		else:
-			patrol(delta)
+			patrol()
+			player_in_range()
 		if not isHit:
 			UpdateAnimationParameters()
 		else:
@@ -79,24 +80,25 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 		move_and_slide() 
 
-func player_in_range() -> bool:
-	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
-
+func player_in_range():
+	if global_position.distance_to(player.global_position) <= 10000 and is_within_patrol_area():
+		var direction = (player.global_position - global_position).normalized()
+		velocity.x = direction.x * SPEED
+		if direction.x < 0:
+			body.flip_h = true
+			area2D.position.x = -40
+		if direction.x > 0:
+			body.flip_h = false
+			area2D.position.x = 0
+	else :
+		patrol()
 
 func attack_player(delta):
-	var direction = (player.global_position - global_position).normalized()
-	velocity.x = direction.x * SPEED
-	if direction.x < 0:
-		body.flip_h = true
-		area2D.position.x = -40
-	if direction.x > 0:
-		body.flip_h = false
-		area2D.position.x = 0
-	if global_position.distance_to(player.global_position) <= 500.0:
+	if IsInDamage:
 		animationTree.set("parameters/conditions/isAttacking", true)
 		if takendamage.is_stopped():
 			takendamage.start()
-func patrol(delta):
+func patrol():
 	if patrol_direction == 1 and abs(global_position.x - patrol_b.global_position.x) <= 10:
 		patrol_direction = -1
 	elif patrol_direction == -1 and abs(global_position.x - patrol_a.global_position.x) <= 10:
@@ -111,7 +113,7 @@ func patrol(delta):
 		area2D.position.x = 0
 	velocity.x = direction.x * SPEED
 
-func is_within_patrol_area(position: Vector2) -> bool:
+func is_within_patrol_area() -> bool:
 	return position.x >= min(patrol_a.global_position.x, patrol_b.global_position.x) and position.x <= max(patrol_a.global_position.x, patrol_b.global_position.x)
 
 
