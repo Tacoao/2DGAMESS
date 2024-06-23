@@ -1,0 +1,551 @@
+[gd_scene load_steps=30 format=3 uid="uid://bgyh1lj1xg3bx"]
+
+[ext_resource type="Texture2D" uid="uid://dri6qmemt2he6" path="res://Assets/Props/Sans_titre-removebg-preview.png" id="1_2jemt"]
+[ext_resource type="Texture2D" uid="uid://b0c0s6yd2ln" path="res://Assets/Tile/Mossy/BackgroundElements/A_black_image.jpg" id="1_b3k0o"]
+[ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://Scenes/character_body_2d.tscn" id="2_i7ir4"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_laheq"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_x0v55"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_av3ai"]
+[ext_resource type="Texture2D" uid="uid://cig1oai2p3riw" path="res://Assets/Props/statue.png" id="7_qriu6"]
+[ext_resource type="Texture2D" uid="uid://c71q6puy3tlbp" path="res://Assets/Props/Banc.png" id="8_m50ws"]
+[ext_resource type="Texture2D" uid="uid://bjxmgv5dnnx83" path="res://Assets/Tile/Hall/rock_3.png" id="11_yfui8"]
+[ext_resource type="Texture2D" uid="uid://bpsbiu1jqtd1i" path="res://Assets/Tile/Hall/TREE 1_SANDY GREEN.png" id="12_nlb64"]
+[ext_resource type="Texture2D" uid="uid://dvrfbb3id321y" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.48-removebg-preview.png" id="12_t7khi"]
+[ext_resource type="Texture2D" uid="uid://bfhjcehf050q7" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.16.50-removebg-preview.png" id="13_ul2v6"]
+[ext_resource type="Texture2D" uid="uid://j3kuft260g0s" path="res://Assets/Tile/Hall/TREE 7_SANDY GREEN.png" id="13_wjn0k"]
+[ext_resource type="Texture2D" uid="uid://1l2jxfipa1le" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.17.03-removebg-preview.png" id="14_asdhe"]
+[ext_resource type="Texture2D" uid="uid://b1embjld52s3" path="res://Assets/Props/Castle.png" id="14_mpveg"]
+[ext_resource type="Texture2D" uid="uid://ye25r738ltxx" path="res://Assets/Tile/Hall/lamp.png" id="14_nb76s"]
+[ext_resource type="Texture2D" uid="uid://b4c6g8f0regf" path="res://Assets/Props/Wall.png" id="15_kes8t"]
+[ext_resource type="Texture2D" uid="uid://cnwp85pcgyw1u" path="res://Assets/Tile/Hall/doorclosed.png" id="15_qn2y8"]
+[ext_resource type="Texture2D" uid="uid://iwjhr66g260y" path="res://Assets/bg/1.png" id="15_tlowi"]
+[ext_resource type="Texture2D" uid="uid://gf6x7gxtlfpp" path="res://Assets/bg/4.png" id="16_17f4m"]
+[ext_resource type="Texture2D" uid="uid://cdakq7ymhqnkx" path="res://Assets/bg/3.png" id="17_a0yvk"]
+[ext_resource type="Texture2D" uid="uid://df6i1xkqm37uh" path="res://Assets/Props/ArbreForet.png" id="17_nwscv"]
+[ext_resource type="Texture2D" uid="uid://b1e1qbs6sbekp" path="res://Assets/Props/pilier.png" id="17_tuwgh"]
+[ext_resource type="PackedScene" uid="uid://b2q3q4eahdl6s" path="res://Scenes/texture_rect.tscn" id="20_rolvp"]
+[ext_resource type="Texture2D" uid="uid://bwpu756dqsu7p" path="res://Assets/bg/6.png" id="20_vlg7t"]
+[ext_resource type="Texture2D" uid="uid://dk7abjj25gri" path="res://Assets/Props/Panneautarget.png" id="25_gjkvo"]
+
+[sub_resource type="Resource" id="Resource_ptmkc"]
+script = ExtResource("5_av3ai")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Gradient" id="Gradient_58gll"]
+offsets = PackedFloat32Array(0, 0.0778443, 0.784431, 1)
+colors = PackedColorArray(0.424613, 0.318438, 1, 1, 0.648375, 0.298594, 0.163476, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u72o8"]
+gradient = SubResource("Gradient_58gll")
+fill = 1
+fill_from = Vector2(0.495726, 0.517094)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticElements" type="Node2D" parent="."]
+
+[node name="CanvasModulate3" type="CanvasModulate" parent="StaticElements"]
+position = Vector2(-5, 0)
+color = Color(0.199731, 0.199732, 0.199732, 1)
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview25" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-11137, -2498)
+scale = Vector2(11.4717, 32.552)
+texture = ExtResource("1_b3k0o")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview27" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(23388.7, -298)
+scale = Vector2(9.05214, 26.1402)
+texture = ExtResource("1_b3k0o")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview26" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(1071.48, 3850.8)
+scale = Vector2(67.3203, 12.8717)
+texture = ExtResource("1_b3k0o")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview11" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-6705, -265)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview20" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-5713, -265)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview21" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(1815, -265)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview24" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(5199, -265)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview12" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-7495, -586)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview22" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(3305, -586)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview23" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(4353, -586)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview19" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(6041, -610)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview13" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-4662.79, -265.104)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview14" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-3580.79, -586.104)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview15" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-2449.79, -248.104)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview16" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-1367.79, -569.104)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview17" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(-118.793, -375.104)
+scale = Vector2(9.1574, 10.5402)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview18" type="Sprite2D" parent="StaticElements"]
+modulate = Color(0.212305, 0.212305, 0.212305, 1)
+texture_filter = 1
+position = Vector2(851, -696)
+scale = Vector2(13.1974, 15.1902)
+texture = ExtResource("17_nwscv")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview2" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(-2300, -1355.24)
+scale = Vector2(95.7803, 110.243)
+texture = ExtResource("13_wjn0k")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview28" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(-4731, -1355.24)
+scale = Vector2(95.7803, 110.243)
+texture = ExtResource("13_wjn0k")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview29" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(-321, -1355.24)
+scale = Vector2(95.7803, 110.243)
+texture = ExtResource("13_wjn0k")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview5" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(7874, 219)
+scale = Vector2(20.9851, 24.1537)
+texture = ExtResource("15_kes8t")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview6" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(20595.6, -2950.75)
+scale = Vector2(49.5078, 31.6067)
+texture = ExtResource("14_mpveg")
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview8" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(16984, 15)
+scale = Vector2(27.6515, 27.6515)
+texture = ExtResource("15_qn2y8")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview3" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(1171, 380)
+scale = Vector2(10.8851, 12.5286)
+texture = ExtResource("1_2jemt")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview7" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(8638, 192)
+scale = Vector2(10.8851, 12.5286)
+texture = ExtResource("14_nb76s")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview9" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(10992, -147)
+scale = Vector2(16.6248, 19.135)
+texture = ExtResource("7_qriu6")
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview10" type="Sprite2D" parent="StaticElements"]
+texture_filter = 1
+position = Vector2(7749, 213)
+scale = Vector2(13.6368, 15.6959)
+texture = ExtResource("8_m50ws")
+flip_h = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(-10, 0)
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_i7ir4")]
+position = Vector2(-3880, -417)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3880, -417)
+offset = Vector2(0, -1500)
+zoom = Vector2(0.25, 0.25)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("3_laheq")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(-3880, -417)
+script = ExtResource("4_x0v55")
+priority = 5
+follow_mode = 1
+follow_target = NodePath("../CharacterBody2D")
+zoom = Vector2(0.25, 0.25)
+tween_resource = SubResource("Resource_ptmkc")
+follow_damping = true
+follow_damping_value = Vector2(0.5, 0.5)
+
+[node name="WorldDetails" type="Node2D" parent="."]
+
+[node name="-4" type="CanvasLayer" parent="WorldDetails"]
+layer = -4
+follow_viewport_enabled = true
+follow_viewport_scale = 0.6
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview14" type="Sprite2D" parent="WorldDetails/-4"]
+texture_filter = 1
+position = Vector2(-5123.33, -2273.33)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("15_tlowi")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview18" type="Sprite2D" parent="WorldDetails/-4"]
+texture_filter = 1
+position = Vector2(-20343.3, -2306.67)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("15_tlowi")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview15" type="Sprite2D" parent="WorldDetails/-4"]
+texture_filter = 1
+position = Vector2(10163.3, -2273.33)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("15_tlowi")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview16" type="Sprite2D" parent="WorldDetails/-4"]
+texture_filter = 1
+position = Vector2(25483.3, -2273.33)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("15_tlowi")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview17" type="Sprite2D" parent="WorldDetails/-4"]
+texture_filter = 1
+position = Vector2(40703.3, -2273.33)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("15_tlowi")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-4"]
+position = Vector2(-5, 0)
+color = Color(0.646029, 0.646029, 0.646029, 1)
+
+[node name="-3" type="CanvasLayer" parent="WorldDetails"]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview4" type="Sprite2D" parent="WorldDetails/-3"]
+texture_filter = 1
+position = Vector2(-3902.86, -2405.71)
+scale = Vector2(26.7565, 21.2168)
+texture = ExtResource("16_17f4m")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview5" type="Sprite2D" parent="WorldDetails/-3"]
+texture_filter = 1
+position = Vector2(11495.7, -1937.14)
+scale = Vector2(26.7565, 21.2168)
+texture = ExtResource("16_17f4m")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview6" type="Sprite2D" parent="WorldDetails/-3"]
+texture_filter = 1
+position = Vector2(26854.3, -2462.86)
+scale = Vector2(26.7565, 21.2168)
+texture = ExtResource("16_17f4m")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview17" type="Sprite2D" parent="WorldDetails/-3"]
+texture_filter = 1
+position = Vector2(-1985.71, -4467.14)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview18" type="Sprite2D" parent="WorldDetails/-3"]
+texture_filter = 1
+position = Vector2(14562.9, -5605.71)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview19" type="Sprite2D" parent="WorldDetails/-3"]
+visible = false
+texture_filter = 1
+position = Vector2(20618.6, -5081.43)
+scale = Vector2(26.6211, 33.0997)
+texture = ExtResource("17_a0yvk")
+
+[node name="-2" type="CanvasLayer" parent="WorldDetails"]
+layer = -2
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview3" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(-628.75, 291.25)
+scale = Vector2(70.0555, 94.7222)
+texture = ExtResource("11_yfui8")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview4" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(1591.25, -2303.75)
+scale = Vector2(10.4995, 14.1964)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview5" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(5207.5, -2405)
+scale = Vector2(10.4995, 14.1964)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview6" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(14305, -2431.25)
+scale = Vector2(10.4995, 14.1964)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview7" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(11142.5, -1587.5)
+scale = Vector2(10.4995, 14.1964)
+texture = ExtResource("17_a0yvk")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview8" type="Sprite2D" parent="WorldDetails/-2"]
+texture_filter = 1
+position = Vector2(7123.75, -2217.5)
+scale = Vector2(10.4995, 14.1964)
+texture = ExtResource("17_a0yvk")
+
+[node name="-1" type="CanvasLayer" parent="WorldDetails"]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview11" type="Sprite2D" parent="WorldDetails/-1"]
+texture_filter = 1
+position = Vector2(-6118.89, -157.778)
+scale = Vector2(15.217, 18.9203)
+texture = ExtResource("20_vlg7t")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview12" type="Sprite2D" parent="WorldDetails/-1"]
+texture_filter = 1
+position = Vector2(-1252.22, -157.778)
+scale = Vector2(15.217, 18.9203)
+texture = ExtResource("20_vlg7t")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview13" type="Sprite2D" parent="WorldDetails/-1"]
+texture_filter = 1
+position = Vector2(3614.44, -174.444)
+scale = Vector2(15.217, 18.9203)
+texture = ExtResource("20_vlg7t")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview14" type="Sprite2D" parent="WorldDetails/-1"]
+texture_filter = 1
+position = Vector2(6147.78, -257.778)
+scale = Vector2(15.217, 18.9203)
+texture = ExtResource("20_vlg7t")
+
+[node name="TextureRect" parent="WorldDetails/-1" instance=ExtResource("20_rolvp")]
+offset_left = -21171.1
+offset_top = -15881.1
+offset_right = 40158.9
+offset_bottom = 18566.9
+scale = Vector2(0.876444, 0.876444)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/-1"]
+texture_filter = 2
+position = Vector2(-5, 0)
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+
+[node name="0" type="CanvasLayer" parent="WorldDetails"]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview4" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(2859, -1355)
+scale = Vector2(95.7803, 110.243)
+texture = ExtResource("13_wjn0k")
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview11" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(6414, -1189)
+scale = Vector2(53.7256, 61.838)
+texture = ExtResource("12_nlb64")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview6" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(15541, -233.992)
+scale = Vector2(50.3732, 31.7422)
+texture = ExtResource("17_tuwgh")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview7" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(18357, -233.992)
+scale = Vector2(50.3732, 31.5999)
+texture = ExtResource("17_tuwgh")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview8" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(-310, 197)
+scale = Vector2(17.4844, 10.9683)
+texture = ExtResource("25_gjkvo")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview5" type="Sprite2D" parent="WorldDetails/0"]
+texture_filter = 1
+position = Vector2(-2300, -1355.24)
+scale = Vector2(95.7803, 110.243)
+texture = ExtResource("13_wjn0k")
+
+[node name="LightTop2" type="PointLight2D" parent="WorldDetails/0"]
+position = Vector2(8580, 97)
+scale = Vector2(17.0108, 11.0558)
+energy = 1.15
+texture = SubResource("GradientTexture2D_u72o8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/0"]
+position = Vector2(-5, 0)
+color = Color(0.888425, 0.888425, 0.888425, 1)
+
+[node name="1" type="CanvasLayer" parent="WorldDetails"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="2" type="CanvasLayer" parent="WorldDetails"]
+layer = 2
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="3" type="CanvasLayer" parent="WorldDetails"]
+layer = 3
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/3"]
+visible = false
+position = Vector2(-5, 0)
+color = Color(0.160269, 0.160269, 0.160269, 1)
+
+[node name="4" type="CanvasLayer" parent="WorldDetails"]
+layer = 3
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldDetails/4"]
+position = Vector2(-5, 0)
+color = Color(0.888425, 0.888425, 0.888425, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0, 0.145098, 0, 1)
+energy = 1.5
+
+[node name="CallAPIHallOFFame" type="Node2D" parent="."]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="CallAPIHallOFFame"]
+
+[node name="Liane" type="Node2D" parent="."]
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview11" type="Sprite2D" parent="Liane"]
+texture_filter = 1
+position = Vector2(7658, 1312.99)
+scale = Vector2(2.02731, 2.47201)
+texture = ExtResource("12_t7khi")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview13" type="Sprite2D" parent="Liane"]
+texture_filter = 1
+position = Vector2(7711, 459)
+scale = Vector2(2.47377, 3.01641)
+texture = ExtResource("13_ul2v6")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview12" type="Sprite2D" parent="Liane"]
+texture_filter = 1
+position = Vector2(7643, 2827)
+scale = Vector2(2.32984, 2.66987)
+texture = ExtResource("12_t7khi")
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview14" type="Sprite2D" parent="Liane"]
+texture_filter = 1
+position = Vector2(7818, 2018)
+rotation = 1.59597
+scale = Vector2(2.16833, 2.42016)
+texture = ExtResource("14_asdhe")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview15" type="Sprite2D" parent="Liane"]
+texture_filter = 1
+position = Vector2(7542, 1945)
+rotation = -1.15358
+scale = Vector2(2.47377, 3.01641)
+texture = ExtResource("13_ul2v6")
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="."]
+color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

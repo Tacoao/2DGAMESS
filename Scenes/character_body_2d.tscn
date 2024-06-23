@@ -135,8 +135,8 @@
 [ext_resource type="Texture2D" uid="uid://cvpfb4ureswx7" path="res://Assets/MainCHar/wallclimb/1.png" id="133_wcg2y"]
 [ext_resource type="Texture2D" uid="uid://dpwtt11himeuv" path="res://Assets/MainCHar/wallclimb/2.png" id="134_5wbff"]
 [ext_resource type="Texture2D" uid="uid://dgxea0khltc7x" path="res://Assets/MainCHar/wallclimb/3.png" id="135_vr8bn"]
-[ext_resource type="AudioStream" uid="uid://3rsvki36547j" path="res://Assets/Sound/bruitdepas.mp3" id="136_6jfp7"]
-[ext_resource type="AudioStream" uid="uid://fbkx4ip52mh6" path="res://Assets/Sound/Jump Sound Effect (High Quality).mp3" id="136_mropt"]
+[ext_resource type="AudioStream" uid="uid://dv4sb0cc45gu6" path="res://Assets/Sound/bruitdepas.mp3" id="136_6jfp7"]
+[ext_resource type="AudioStream" uid="uid://c3wemejrrsaxv" path="res://Assets/Sound/Jump Sound Effect (High Quality).mp3" id="136_mropt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbmsm"]
 animations = [{
@@ -1020,6 +1020,9 @@ tracks/1/keys = {
 "values": ["Landing"]
 }
 
+[sub_resource type="Animation" id="Animation_ec7ht"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_vpwfq"]
 length = 0.6
 loop_mode = 1
@@ -1157,9 +1160,6 @@ tracks/1/keys = {
 "update": 1,
 "values": ["wallslide"]
 }
-
-[sub_resource type="Animation" id="Animation_ec7ht"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y4fjq"]
 _data = {

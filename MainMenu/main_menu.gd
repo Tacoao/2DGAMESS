@@ -20,6 +20,7 @@ extends Control
 
 
 @onready var Username = preload("res://Scenes/EnterYourName.tscn") as PackedScene
+@onready var HallOfFame = preload("res://Scenes/BOUTOU.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_button_pressed)
@@ -42,8 +43,9 @@ func on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(Username)
 
 func on_continue_button_pressed() -> void:
-	get_tree().change_scene("res://ContinueMenu.tscn")
-	$ClickSound.play()
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_packed(HallOfFame)
 
 func on_exit_button_pressed() -> void:
 	get_tree().quit()

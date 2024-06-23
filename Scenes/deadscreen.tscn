@@ -17,12 +17,12 @@ frequency = 0.0063
 seamless = true
 noise = SubResource("FastNoiseLite_8yp2i")
 
-[sub_resource type="Gradient" id="Gradient_naolv"]
+[sub_resource type="Gradient" id="Gradient_qmm0k"]
 offsets = PackedFloat32Array(0, 0.784431, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.0273038, 0.0273038, 0.0273038, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ebxjj"]
-gradient = SubResource("Gradient_naolv")
+gradient = SubResource("Gradient_qmm0k")
 fill = 1
 fill_from = Vector2(0.495726, 0.517094)
 

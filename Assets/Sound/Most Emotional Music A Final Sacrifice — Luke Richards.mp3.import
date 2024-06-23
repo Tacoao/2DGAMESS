@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsfis0x2p1je7"
+path="res://.godot/imported/Most Emotional Music A Final Sacrifice — Luke Richards.mp3-b67ced566b88ad50996106d8aeab10fe.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Most Emotional Music A Final Sacrifice — Luke Richards.mp3"
+dest_files=["res://.godot/imported/Most Emotional Music A Final Sacrifice — Luke Richards.mp3-b67ced566b88ad50996106d8aeab10fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
