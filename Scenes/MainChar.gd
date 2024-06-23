@@ -73,6 +73,7 @@ var ennemi_in_zone = false
 @onready var DeadScreen = preload("res://Scenes/deadscreen.tscn")
 @onready var DeadScreenTimer = $DeadScreen
 func _ready():
+	
 	print("Script Loaded")
 	wallDetect = get_node("wallDetect")
 	dashTimer = get_node("dashTimer")

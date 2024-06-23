@@ -28,4 +28,5 @@ func _process(delta):
 
 
 func _on_instant_fall_death_body_entered(body):
-	player.death()
+	if body == player:
+		player.death()
