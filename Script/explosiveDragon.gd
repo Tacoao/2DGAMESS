@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var InContactTimer = $InContactTimer
 @onready var playerlife = $"../../WorldDetails/3/StatusLife"
+@onready var flyingsound = $flyingSound
 var speed = 2000
 var acceleration = 50
 var is_in_contact = false
@@ -24,6 +25,8 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isIdle", true)
 		animationTree.set("parameters/conditions/isRunning", false)
 	else:
+		if flyingsound.playing == false :
+			flyingsound.play()
 		animationTree.set("parameters/conditions/isRunning", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 

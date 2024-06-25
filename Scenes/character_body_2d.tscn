@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=3 uid="uid://biic1783ehm6s"]
+[gd_scene load_steps=218 format=3 uid="uid://biic1783ehm6s"]
 
 [ext_resource type="Script" path="res://Scenes/MainChar.gd" id="1_6n700"]
 [ext_resource type="Texture2D" uid="uid://caw78fyullr46" path="res://Assets/MainCHar/Attack/Heavy/0.png" id="2_2ucgm"]
@@ -135,8 +135,9 @@
 [ext_resource type="Texture2D" uid="uid://cvpfb4ureswx7" path="res://Assets/MainCHar/wallclimb/1.png" id="133_wcg2y"]
 [ext_resource type="Texture2D" uid="uid://dpwtt11himeuv" path="res://Assets/MainCHar/wallclimb/2.png" id="134_5wbff"]
 [ext_resource type="Texture2D" uid="uid://dgxea0khltc7x" path="res://Assets/MainCHar/wallclimb/3.png" id="135_vr8bn"]
-[ext_resource type="AudioStream" uid="uid://dv4sb0cc45gu6" path="res://Assets/Sound/bruitdepas.mp3" id="136_6jfp7"]
-[ext_resource type="AudioStream" uid="uid://c3wemejrrsaxv" path="res://Assets/Sound/Jump Sound Effect (High Quality).mp3" id="136_mropt"]
+[ext_resource type="AudioStream" uid="uid://3rsvki36547j" path="res://Assets/Sound/bruitdepas.mp3" id="136_6jfp7"]
+[ext_resource type="AudioStream" uid="uid://fbkx4ip52mh6" path="res://Assets/Sound/Jump Sound Effect (High Quality).mp3" id="136_mropt"]
+[ext_resource type="AudioStream" uid="uid://bsced37loruek" path="res://Assets/Sound/bruitd'attaque.ogg" id="138_by372"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbmsm"]
 animations = [{
@@ -1419,7 +1420,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 9
+frame = 8
 speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -1509,6 +1510,13 @@ volume_db = -26.441
 [node name="BruitDePas" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("136_6jfp7")
 volume_db = -26.159
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+scale = Vector2(0.0625, 0.0625)
+current = true
+
+[node name="BruitD\'attaque" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("138_by372")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

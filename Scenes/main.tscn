@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=174 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="7_2xvto"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="8_or0cy"]
 [ext_resource type="Texture2D" uid="uid://bmselxcr2gvm8" path="res://Assets/Tile/Mossy/BackgroundElements/images.png" id="9_tyh5t"]
-[ext_resource type="Texture2D" uid="uid://bo2f5qxcrosgb" path="res://Assets/Tile/Mossy/Mossy - TileSetViolet.png" id="10_hyua8"]
+[ext_resource type="Texture2D" uid="uid://bhkxbyyqtl41h" path="res://Assets/Tile/Mossy/Mossy - TileSetViolet.png" id="10_hyua8"]
 [ext_resource type="Texture2D" uid="uid://bl3oek1gcd4px" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.06.45-removebg-preview.png" id="10_yobc3"]
 [ext_resource type="Texture2D" uid="uid://be7hoy66qhy7e" path="res://Assets/Tile/Mossy/BackgroundElements/Capture_d_écran_2024-04-27_à_01.10.47-removebg-preview.png" id="11_vsgey"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="12_7di7m"]
@@ -120,6 +120,9 @@
 [ext_resource type="Texture2D" uid="uid://cth03ykirkl4h" path="res://Assets/Tile/Mossy/Plants/PlantJump/JumpPlant_00018.png" id="94_pnrof"]
 [ext_resource type="Texture2D" uid="uid://cw57w7h10osle" path="res://Assets/Tile/Mossy/Plants/PlantJump/JumpPlant_00019.png" id="95_dl75d"]
 [ext_resource type="Texture2D" uid="uid://pmdmo8t4sk0t" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.51.57-removebg-preview.png" id="100_51n2n"]
+[ext_resource type="Texture2D" uid="uid://b07o5lv67rgw1" path="res://Assets/Tile/Mossy/Environement/Capture_d_écran_2024-04-27_à_00.52.12-removebg-preview.png" id="115_d3img"]
+[ext_resource type="Texture2D" uid="uid://2pt5w1vqokgq" path="res://Assets/Tile/HALLSALLE/DECO/b0f6f1e22ec95d2b485dc255c88492a8-removebg-preview.png" id="116_k4cqp"]
+[ext_resource type="AudioStream" uid="uid://xvrprx70b7bu" path="res://Assets/Sound/sonD'ambiance.mp3" id="123_67ul5"]
 
 [sub_resource type="Resource" id="Resource_pfmpj"]
 script = ExtResource("4_74e8m")
@@ -748,6 +751,194 @@ _data = {
 "walk": SubResource("Animation_t5xao")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_43lg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_fxoq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_imtgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_if5mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ywc5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2ey18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1cve2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_hgqbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bps64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jovfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_775te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_jgewb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_b6i2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_mve0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qj8es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_w3haf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_7k0vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fc20r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ar0vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_allpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_3teer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ej3qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_xfj5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_okmhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_naywr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_84sbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_gu8hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ab1sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_6dsp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_byfyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vo8pd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_8dhih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_qt7ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_f84ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_qn2qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_enfo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ywo1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_tcadg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_owk1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_biqq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_dib7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ippdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_gvktj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_6o4de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_o83x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_onve6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_c2104")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_gl1nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_go3pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_yvyly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_fjp8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_6tfmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_xfxw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_hu8vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ganls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_gpms2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_fd8ko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_g1pcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_jgce7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_loomn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_gwdxo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gqsb8"]
 animations = [{
 "frames": [{
@@ -1234,7 +1425,7 @@ _data = {
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a2x6c"]
 vertices = PackedVector2Array(72701, -3395, 72724, -1449, 71814, -1522, 70466, -3562, 70444, -1535, 71766, 5810, 70514, 7397, 75588, 5978, 77638, 5954, 77615, 7491, 95211, 5098, 95443, 6997, 78545, 6997, 93846, 5191, 93319, 1280, 78233, 5312, 75117, 1422, 74950, 4999, 7529, -836, 7527, -836, 15634, -1064, 7519, -835, 19335, 5251, 12424, 5212, -1007, 4970, -1194, 314, -1250, -1521, 701, -1321, 1771, -1206, 4462, -873, 5777, -1800, 39504, -16057, 54026, -15651, 49487, -12361, 39497, -7296, 48869, -7229)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 8, 9, 6), PackedInt32Array(5, 7, 6), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 13, 12, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(18, 19, 20), PackedInt32Array(21, 18, 20, 22, 23, 24, 25), PackedInt32Array(25, 26, 27, 28, 29), PackedInt32Array(29, 30, 21), PackedInt32Array(29, 21, 25), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(34, 33, 35)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1261, -1533, -1204, 326, 5487, 383, 7671, 434, 7544, -833, 5777, -1812, 4459, -883, 1772, -1216, 702, -1331), PackedVector2Array(-1205, 311, -1017, 4980, 12424, 5222, 19353, 5262, 15640, -1075, 7527, -846), PackedVector2Array(39495, -16068, 54056, -15661, 49496, -12355, 48878, -7219, 39487, -7287), PackedVector2Array(72711, -3405, 72735, -1439, 71824, -1511, 71776, 5800, 75588, 5968, 77649, 5944, 77625, 7502, 70505, 7407, 70434, -1535, 70457, -3573), PackedVector2Array(75108, 1413, 74940, 5009, 78225, 5321, 78536, 7007, 95454, 7007, 95220, 5088, 93855, 5180, 93328, 1270)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1261, -1533, -1204, 326, 5487, 383, 7671, 434, 7544, -833, 5777, -1812, 4459, -883, 1772, -1216, 702, -1331), PackedVector2Array(-1205, 311, -1017, 4980, 12424, 5222, 19353, 5262, 15640, -1075, 7527, -846), PackedVector2Array(39495, -16068, 54056, -15661, 49496, -12355, 48878, -7219, 39487, -7287), PackedVector2Array(72711, -3405, 72735, -1439, 71824, -1511, 71776, 5800, 75588, 5968, 77649, 5944, 77625, 7502, 76294.6, 7484.25, 70505, 7407, 70434, -1535, 70457, -3573), PackedVector2Array(75108, 1413, 74940, 5009, 78225, 5321, 78536, 7007, 95454, 7007, 95220, 5088, 93855, 5180, 93328, 1270)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b4ura"]
@@ -1256,7 +1447,7 @@ position = Vector2(-5, 0)
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(125489, 484)
+position = Vector2(-1168, -9640)
 zoom = Vector2(0.23, 0.23)
 
 [node name="CanvasLayer" parent="Camera2D" instance=ExtResource("2_6ksq7")]
@@ -1266,13 +1457,13 @@ layer = 8
 script = ExtResource("2_dpr0h")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
-position = Vector2(125489, 484)
+position = Vector2(-1168, -9640)
 deathParticle = ExtResource("5_opfcr")
 
 [node name="Murmure" type="AudioStreamPlayer" parent="CharacterBody2D"]
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(125489, 484)
+position = Vector2(-1168, -9640)
 script = ExtResource("3_2plas")
 priority = 5
 follow_mode = 1
@@ -1490,6 +1681,218 @@ texture = ExtResource("10_yobc3")
 position = Vector2(75534.3, -17860)
 scale = Vector2(14.4119, 16.8832)
 texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview39" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(82508.6, -21807.1)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview40" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(83791.4, -15874.3)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview41" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(92654.3, -21105.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview42" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(87327.1, -14615.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview43" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(89651.4, -20718.6)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview44" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(92920, -15922.9)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview45" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(94954.3, -15195.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview46" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(97254.3, -13791.4)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview47" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(90812.9, -15317.1)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview48" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(95728.6, -15582.9)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview49" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(99392.9, -10961.4)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview50" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(98570, -14298.6)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview51" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(100356, -13535.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview52" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(103236, -11937.1)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview53" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(103690, -9921.43)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview54" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(103849, -13434.3)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview55" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(106729, -14355.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview56" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(105613, -11670)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview57" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(109990, -10467.1)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview58" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(111134, -13375.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("27_ugds1")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview59" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(115821, -11452.9)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("24_bhr61")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview60" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(117413, -12518.6)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview61" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(124907, -10265.7)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview62" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(116490, -9560)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview63" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(109996, -10510)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview64" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(104129, -10401.4)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview65" type="Sprite2D" parent="WorldDetails/-3"]
+position = Vector2(97620, -8248.57)
+scale = Vector2(14.4119, 16.8832)
+texture = ExtResource("10_yobc3")
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview66" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(100903, -1645.71)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.586013
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview67" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(104904, -2124.29)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.229847
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview68" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(109620, -1825.71)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview69" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(111604, -1634.29)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview70" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(106113, -1375.71)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview71" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(112609, -1348.57)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview72" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(115966, -1661.43)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview73" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(122340, -1675.71)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview74" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(119010, -1757.14)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
+
+[node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview75" type="AnimatedSprite2D" parent="WorldDetails/-3"]
+position = Vector2(119010, -1757.14)
+scale = Vector2(14.4119, 16.8832)
+sprite_frames = SubResource("SpriteFrames_43lg1")
+autoplay = "default"
+frame_progress = 0.0211568
+flip_h = true
 
 [node name="CaptureDÉcran2024-04-27À01_06_45-removebg-preview9" type="Sprite2D" parent="WorldDetails/-3"]
 position = Vector2(30112.9, 11834.3)
@@ -2077,6 +2480,12 @@ texture = ExtResource("15_igt8y")
 
 [node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview3" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-2484.62, -11813.8)
+rotation = 1.55919
+scale = Vector2(3.50398, 3.66538)
+texture = ExtResource("15_igt8y")
+
+[node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview16" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(-2314.62, -11179.2)
 rotation = 1.55919
 scale = Vector2(3.50398, 3.66538)
 texture = ExtResource("15_igt8y")
@@ -3101,11 +3510,451 @@ rotation = -3.15433
 scale = Vector2(5.81593, -6.59316)
 texture = ExtResource("10_yobc3")
 
+[node name="111" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(107212, -1462.31)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="112" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(108836, -1473.85)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="113" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(109530, 2487.69)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="114" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(110240, -1424.62)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="115" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(111861, -1350.77)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="116" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(110833, 2432.31)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="117" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(113520, -1435.89)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="118" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(112492, 2347.19)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="119" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(115117, -1595.12)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="120" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(114089, 2187.96)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="121" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(116238, -1533.58)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="122" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(115210, 2249.5)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="123" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(117703, -1491.27)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="124" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(116676, 2291.81)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="125" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(118893, -1498.96)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="126" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(117866, 2284.11)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="127" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(120475, -1409.73)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="128" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(119447, 2373.34)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="129" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(122172, -1452.04)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="130" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(121145, 2331.04)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="131" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(123638, -1475.12)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="132" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(122610, 2307.96)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="133" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(125134, -1428.96)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="134" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(124106, 2354.11)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
+[node name="110" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(107843, 2324.62)
+rotation = -3.15433
+scale = Vector2(5.81593, -6.59316)
+texture = ExtResource("10_yobc3")
+
 [node name="106" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(105318, 498.462)
 rotation = -2.63388
 scale = Vector2(5.83441, -7.7158)
 texture = ExtResource("26_ygepx")
+
+[node name="135" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(112870, 773.844)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("26_ygepx")
+
+[node name="136" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(113378, 882.302)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("26_ygepx")
+flip_h = true
+
+[node name="137" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(119434, 1041.53)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("26_ygepx")
+flip_h = true
+flip_v = true
+
+[node name="138" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(125109, 304.61)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("31_f5sw4")
+flip_h = true
+
+[node name="139" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(127350, 312.307)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("31_f5sw4")
+flip_h = true
+
+[node name="140" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(130377, 378.461)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("31_f5sw4")
+flip_v = true
+
+[node name="141" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(133242, 370.763)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("115_d3img")
+flip_v = true
+
+[node name="142" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(134556, -536.929)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="143" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(136208, -645.391)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="144" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(138049, -703.852)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="145" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(139786, -715.391)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="146" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(141651, -649.236)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="147" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(140798, -707.699)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="148" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(139182, -986.93)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="149" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(136673, -1134.61)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="150" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(137580, -820.77)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="151" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(142794, -735.396)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="152" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(143232, -684.622)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="153" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(144248, -665.384)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="154" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(144639, -568.462)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="155" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(146089, -711.538)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="156" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(146175, -544.622)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="157" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(147597, -793.083)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="158" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(147655, -719.236)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="159" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(133832, 2126.92)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+flip_v = true
+
+[node name="160" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(134029, 2433.08)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+
+[node name="161" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(134168, 2607.69)
+rotation = -2.63388
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+
+[node name="162" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(135432, 2200.76)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("27_ugds1")
+
+[node name="163" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(136654, 2681.54)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+
+[node name="164" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(137948, 2565.38)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_h = true
+
+[node name="165" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(139507, 2774.61)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_h = true
+
+[node name="166" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(141267, 2677.69)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_h = true
+
+[node name="167" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(142938, 2639.23)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_h = true
+
+[node name="168" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(145198, 2604.62)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_h = true
+
+[node name="169" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(144050, 2779.23)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_v = true
+
+[node name="170" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(146918, 2748.46)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_v = true
+
+[node name="171" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(148558, 2531.53)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("10_yobc3")
+flip_v = true
+
+[node name="172" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(150617, 163.08)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("116_k4cqp")
+flip_v = true
+
+[node name="173" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(153063, 240.769)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("116_k4cqp")
+flip_v = true
+
+[node name="174" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(155781, 46.9257)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("116_k4cqp")
+flip_v = true
+
+[node name="175" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(158386, -224.616)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("116_k4cqp")
+flip_v = true
+
+[node name="176" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(160739, 120.772)
+rotation = -3.53826
+scale = Vector2(5.83441, -7.7158)
+texture = ExtResource("116_k4cqp")
+flip_v = true
 
 [node name="90" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(99728.5, -1145.38)
@@ -3911,5 +4760,12 @@ scale = Vector2(2000, 2000)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InstantFallDeath"]
 position = Vector2(39.112, -0.362)
 shape = SubResource("RectangleShape2D_wsf6h")
+
+[node name="sound" type="Node2D" parent="."]
+
+[node name="AmbiantSound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("123_67ul5")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="InstantFallDeath" to="." method="_on_instant_fall_death_body_entered"]

@@ -233,6 +233,7 @@ func _physics_process(delta):
 func giveDamage(damage):
 	if ennemi_in_zone:
 		ennemi.take_damage(damage)
+@onready var bruit_attaque = $"BruitD'attaque"
 func light_attack_handler():
 	if not bowMod:
 		AttackLCounter += 1
@@ -247,7 +248,8 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalight.is_stopped():
 					givedegalight.start(0.35)
 				
@@ -260,7 +262,8 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalight.is_stopped():
 					givedegalight.start(0.3)
 			3:
@@ -271,7 +274,8 @@ func light_attack_handler():
 				animationTree.set(AttackH1, false)
 				animationTree.set(AttackH2, false)
 				animationTree.set(AttackH3, false)
-
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalight.is_stopped():
 					givedegalight.start(0.6)
 
@@ -289,6 +293,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalourd.is_stopped():
 					givedegalourd.start(0.75)
 			2:
@@ -299,6 +305,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalourd.is_stopped():
 					givedegalourd.start(0.6)
 			3:
@@ -309,6 +317,8 @@ func heavy_attack_handler():
 				animationTree.set(AttackL1, false)
 				animationTree.set(AttackL2, false)
 				animationTree.set(AttackL3, false)
+				if bruit_attaque.playing == false:
+					bruit_attaque.play()
 				if givedegalourd.is_stopped():
 					givedegalourd.start(0.85)
 

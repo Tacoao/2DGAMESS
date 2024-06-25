@@ -1,8 +1,9 @@
-[gd_scene load_steps=54 format=3 uid="uid://bii0pbqbfaih0"]
+[gd_scene load_steps=55 format=3 uid="uid://bii0pbqbfaih0"]
 
 [ext_resource type="Script" path="res://Script/explosiveDragon.gd" id="1_2c5wq"]
 [ext_resource type="Texture2D" uid="uid://bsosh8irhx7i3" path="res://Assets/explosiveDragon/Dragon_sprite_sheet_noback.png" id="1_31eyd"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="3_l4h0x"]
+[ext_resource type="AudioStream" uid="uid://d3bffjb7juuwg" path="res://Assets/Sound/flying.mp3" id="4_2ikah"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kf74j"]
 animation = &"explosion"
@@ -560,7 +561,7 @@ parameters/conditions/isRunning = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jx1bc")
 animation = &"idle"
-frame = 7
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -604,6 +605,11 @@ texture = SubResource("GradientTexture2D_174mi")
 libraries = {
 "": SubResource("AnimationLibrary_42hwr")
 }
+
+[node name="flyingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2ikah")
+volume_db = -0.155
+pitch_scale = 0.54
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="InContactTimer" to="." method="_on_in_contact_timer_timeout"]

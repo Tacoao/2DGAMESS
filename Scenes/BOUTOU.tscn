@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://bea0foi3syppw" path="res://Assets/Props/48.png" id="41_7btc4"]
 [ext_resource type="Texture2D" uid="uid://b4gg5e3fkd0v0" path="res://Assets/Props/49.png" id="42_rwhfn"]
 [ext_resource type="Texture2D" uid="uid://do0jlhgdpicc7" path="res://Assets/Tile/CAVEMAOOT/Square - Black.jpg" id="48_7m7ih"]
-[ext_resource type="AudioStream" uid="uid://ep002ks1avh" path="res://Assets/Sound/sf_jungle_03.mp3" id="49_3ubs2"]
+[ext_resource type="AudioStream" uid="uid://djuwoh1kbdmmd" path="res://Assets/Sound/sf_jungle_03.mp3" id="49_3ubs2"]
 [ext_resource type="AudioStream" uid="uid://3i0slswic14" path="res://Assets/Sound/Sad Piano - VHS Sunset.mp3" id="49_ufu62"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ohjf7"]

@@ -19,6 +19,8 @@ const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 @onready var takendamage = $takenDamage
 @onready var remove_after_death = $removeAfterDeath
 @onready var area2D = $Area2D
+@onready var runningSound = $runningSound
+@onready var attaque_sound = $Attaque
 var IsInDamage = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cast_time = 0.0
@@ -42,6 +44,8 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isWalking", false)
 		animationTree.set("parameters/conditions/isHit",false)
 	else:
+		if runningSound.playing == false :
+			runningSound.play()
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isHit",false)
@@ -95,6 +99,8 @@ func player_in_range():
 
 func attack_player(delta):
 	if IsInDamage:
+		if attaque_sound.playing == false :
+			attaque_sound.play()
 		animationTree.set("parameters/conditions/isAttacking", true)
 		if takendamage.is_stopped():
 			takendamage.start()

@@ -6,7 +6,6 @@ const SPELL_DURATION = 1  # Durée en secondes avant de rendre le portail invisi
 const ATTACK_RANGE = 2000.0  # Portée d'attaque du monstre
 const SPELL_RANGE = 2500.0
 @onready var givedamage = $givedamage
-
 # Définissez le chemin de la scène du portail ici
 const PORTAL_SCENE_PATH = "res://path/to/PortalSkill.tscn"
 
@@ -37,7 +36,9 @@ var isHit =false
 var ImDead = false
 var canAttack = true
 @onready var HALLOFFAME = preload("res://Scenes/BOUTOU.tscn") as PackedScene
-
+@onready var casting_Sound = $CastingSound
+@onready var attaqueSound = $AttaqueSound
+@onready var walkingSound = $walkingSound
 func _ready():
 	pass
 
@@ -48,6 +49,8 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isIdle", true)
 		animationTree.set("parameters/conditions/isWalking", false)
 	else:
+		if walkingSound.playing == false :
+			walkingSound.play()
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isWalking", true)
 		animationTree.set("parameters/conditions/isIdle", false)
@@ -56,6 +59,8 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isIdle", false)
 		animationTree.set("parameters/conditions/isWalking",false)
 		animationTree.set("parameters/conditions/isCasting", true)
+		if casting_Sound.playing ==false :
+			casting_Sound.play()
 	else:
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isCasting", false)
@@ -129,6 +134,8 @@ func attack_player(delta):
 	if direction.x > 0:
 		body.flip_h = true
 		area2D.position.x = 60
+	if attaqueSound.playing == false :
+		attaqueSound.play()
 	animationTree.set("parameters/conditions/isAttacking", true)
 	if givedamage.is_stopped():
 		givedamage.start(0.6)

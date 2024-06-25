@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://ookhgd2rgrgv"]
+[gd_scene load_steps=101 format=3 uid="uid://ookhgd2rgrgv"]
 
 [ext_resource type="Texture2D" uid="uid://gf5v1piyho45" path="res://Assets/Ball and Chain Bot/attack.png" id="1_5v3ep"]
 [ext_resource type="Script" path="res://Script/ChainEnnemi.gd" id="1_rtvbr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dv5c6iasrxtdv" path="res://Assets/Ball and Chain Bot/hit.png" id="4_w0kos"]
 [ext_resource type="Texture2D" uid="uid://bqb15vsg1v0jq" path="res://Assets/Ball and Chain Bot/transition to charge.png" id="5_2b5c5"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="8_ittmw"]
+[ext_resource type="AudioStream" uid="uid://tcgc7so7xax4" path="res://Assets/Sound/ennemirunning.mp3" id="10_6c34t"]
+[ext_resource type="AudioStream" uid="uid://dm76lwch5g66q" path="res://Assets/Sound/chainennemi_attaque.mp3" id="11_ebb7j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vs2g"]
 atlas = ExtResource("1_5v3ep")
@@ -878,7 +880,7 @@ one_shot = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0tnj8")
 animation = &"idle"
-frame = 2
+frame = 3
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_2ops1")
@@ -929,6 +931,15 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(34.5, 5)
 shape = SubResource("RectangleShape2D_345si")
+
+[node name="RunSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6c34t")
+volume_db = 10.0
+max_distance = 5000.0
+
+[node name="attaqueSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ebb7j")
+volume_db = -10.0
 
 [connection signal="timeout" from="timerattack" to="." method="_on_timerattack_timeout"]
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

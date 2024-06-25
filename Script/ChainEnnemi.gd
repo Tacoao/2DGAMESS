@@ -12,7 +12,8 @@ extends CharacterBody2D
 @onready var timer = $timerattack
 @onready var NavigationAgent = $Navigation/NavigationAgent2D
 @onready var area2D = $Area2D
-
+@onready var runningSound = $RunSound
+@onready var attqueSound = $attaqueSound
 var speed = 2000
 var acceleration = 50
 var is_spelling = false
@@ -39,6 +40,8 @@ func UpdateAnimationParameters():
 		animationTree.set("parameters/conditions/isIdle", true)
 		animationTree.set("parameters/conditions/isRunning", false)
 	else:
+		if runningSound.playing == false:
+			runningSound.play()
 		animationTree.set("parameters/conditions/isHit",false)
 		animationTree.set("parameters/conditions/isRunning", true)
 		animationTree.set("parameters/conditions/isIdle", false)
@@ -90,6 +93,8 @@ func attack_player(delta):
 	if direction.x >0:
 		body.flip_h = false
 		area2D.position.x = 0
+	if attqueSound.playing ==false :
+		attqueSound.play()
 	animationTree.set("parameters/conditions/isAttacking", true)
 	if timer.is_stopped():
 		timer.start(1.2)

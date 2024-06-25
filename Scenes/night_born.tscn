@@ -1,8 +1,10 @@
-[gd_scene load_steps=104 format=3 uid="uid://p6t13csbwpp4"]
+[gd_scene load_steps=106 format=3 uid="uid://p6t13csbwpp4"]
 
 [ext_resource type="Texture2D" uid="uid://bkjmepxqd52lq" path="res://Assets/NightBorn/NightBorne.png" id="1_4hihl"]
 [ext_resource type="Script" path="res://Script/night_born.gd" id="1_6vfwn"]
 [ext_resource type="Script" path="res://Script/CharacterLight.gd" id="3_5bw4b"]
+[ext_resource type="AudioStream" uid="uid://tcgc7so7xax4" path="res://Assets/Sound/ennemirunning.mp3" id="4_1oy5s"]
+[ext_resource type="AudioStream" uid="uid://b4w8sqba0ne1f" path="res://Assets/Sound/slash1-94367.mp3" id="5_2vq0n"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3wah"]
 animation = &"Idle"
@@ -921,7 +923,7 @@ parameters/conditions/isWalking = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_towm0")
 animation = &"Idle"
-frame = 2
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -961,6 +963,14 @@ one_shot = true
 [node name="removeAfterDeath" type="Timer" parent="."]
 wait_time = 1.533
 one_shot = true
+
+[node name="runningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1oy5s")
+volume_db = 10.0
+
+[node name="Attaque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2vq0n")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
