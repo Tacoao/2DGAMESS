@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt7lm42sv7nrw"]
+
+[ext_resource type="Script" path="res://Scenes/boss_cinematic.gd" id="1_7nlst"]
+[ext_resource type="VideoStream" path="res://Assets/Video/0624_1_.ogv" id="1_8dgox"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_7nlst")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -2.0
+offset_right = -3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_8dgox")
+expand = true
+buffering_msec = 1000

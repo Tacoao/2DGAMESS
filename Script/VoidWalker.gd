@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 1000.0
 const CAST_DURATION = 0.5
 const SPELL_DURATION = 1  # Durée en secondes avant de rendre le portail invisible
-const ATTACK_RANGE = 2000.0  # Portée d'attaque du monstre
+const ATTACK_RANGE = 2500.0  # Portée d'attaque du monstre
 const SPELL_RANGE = 2500.0
 @onready var givedamage = $givedamage
 # Définissez le chemin de la scène du portail ici

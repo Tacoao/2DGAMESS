@@ -29,3 +29,27 @@ func _process(delta):
 func _on_instant_fall_death_body_entered(body):
 	if body == player:
 		player.death()
+
+@onready var AmbiantSound = $sound/AmbiantSound
+@onready var cinematic = $Camera2D/CanvasLayer2
+@onready var endTimer = $EndTiming
+var cinematic_played = false
+func _on_in_cinematic_body_entered(body):
+	if body == player and not cinematic_played:
+		cinematic.visible = true
+		player.InCinematic = true
+		endTimer.start()
+		AmbiantSound.stop()
+		cinematic.play()
+
+
+func _on_end_timing_timeout():
+	cinematic.visible = false
+	player.InCinematic = false
+	AmbiantSound.play()
+
+
+
+func _on_in_cinematic_body_exited(body):
+	if body == player:
+		cinematic_played=true

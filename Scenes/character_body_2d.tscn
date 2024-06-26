@@ -1387,7 +1387,7 @@ states/AttackH3/position = Vector2(-85, 404.73)
 states/AttackL1/node = SubResource("AnimationNodeAnimation_q6iu2")
 states/AttackL1/position = Vector2(498.798, 404.543)
 states/AttackL2/node = SubResource("AnimationNodeAnimation_ivp7e")
-states/AttackL2/position = Vector2(1031.3, 146.355)
+states/AttackL2/position = Vector2(1008.3, 159.355)
 states/AttackL3/node = SubResource("AnimationNodeAnimation_e553c")
 states/AttackL3/position = Vector2(960.298, 316.355)
 states/End/position = Vector2(1073, 247.5)
@@ -1405,7 +1405,7 @@ states/Start/position = Vector2(-83, -11)
 states/wallslide/node = SubResource("AnimationNodeAnimation_q6sri")
 states/wallslide/position = Vector2(908.298, -226.839)
 transitions = ["Jump_Rise", "Fall", SubResource("AnimationNodeStateMachineTransition_mqpee"), "Fall", "Landing", SubResource("AnimationNodeStateMachineTransition_l2jm0"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_sv82t"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_o2guw"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6bkbm"), "Idle", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_avixf"), "Landing", "Idle", SubResource("AnimationNodeStateMachineTransition_jwann"), "Run", "Jump_Rise", SubResource("AnimationNodeStateMachineTransition_koim3"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_05cx1"), "Idle", "AttackH3", SubResource("AnimationNodeStateMachineTransition_6m6yy"), "Idle", "AttackH2", SubResource("AnimationNodeStateMachineTransition_gds8l"), "Idle", "AttackH1", SubResource("AnimationNodeStateMachineTransition_rsvid"), "Run", "AttackH3", SubResource("AnimationNodeStateMachineTransition_fwlb3"), "Run", "AttackH2", SubResource("AnimationNodeStateMachineTransition_gpumx"), "Run", "AttackH1", SubResource("AnimationNodeStateMachineTransition_a67gi"), "Run", "AttackL1", SubResource("AnimationNodeStateMachineTransition_1jbju"), "Run", "AttackL2", SubResource("AnimationNodeStateMachineTransition_1u1dt"), "Run", "AttackL3", SubResource("AnimationNodeStateMachineTransition_0njwg"), "Idle", "AttackL1", SubResource("AnimationNodeStateMachineTransition_6kmph"), "Idle", "AttackL2", SubResource("AnimationNodeStateMachineTransition_mlyo7"), "Idle", "AttackL3", SubResource("AnimationNodeStateMachineTransition_c88rv"), "AttackL2", "Run", SubResource("AnimationNodeStateMachineTransition_x1n4l"), "AttackL3", "Run", SubResource("AnimationNodeStateMachineTransition_g4ehg"), "AttackL1", "Run", SubResource("AnimationNodeStateMachineTransition_asxgr"), "AttackL2", "Idle", SubResource("AnimationNodeStateMachineTransition_ptcff"), "AttackL3", "Idle", SubResource("AnimationNodeStateMachineTransition_2s2j2"), "AttackL1", "Idle", SubResource("AnimationNodeStateMachineTransition_87ope"), "AttackH1", "Run", SubResource("AnimationNodeStateMachineTransition_qfrim"), "AttackH2", "Run", SubResource("AnimationNodeStateMachineTransition_yjgov"), "AttackH3", "Run", SubResource("AnimationNodeStateMachineTransition_w2unv"), "AttackH3", "Idle", SubResource("AnimationNodeStateMachineTransition_lq2pc"), "AttackH2", "Idle", SubResource("AnimationNodeStateMachineTransition_wcxt0"), "AttackH1", "Idle", SubResource("AnimationNodeStateMachineTransition_roiv3"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_ieflc"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_5w76b"), "Fall", "wallslide", SubResource("AnimationNodeStateMachineTransition_544f7"), "wallslide", "Fall", SubResource("AnimationNodeStateMachineTransition_wqfsy")]
-graph_offset = Vector2(-300.005, 225.105)
+graph_offset = Vector2(-183.366, -269.899)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e60t"]
 particle_flag_disable_z = true
@@ -1420,7 +1420,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xbmsm")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 8
+frame = 2
 speed_scale = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]

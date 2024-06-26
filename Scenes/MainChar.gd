@@ -122,7 +122,8 @@ func _on_damage_timer_timeout():
 	animatedSprite2D.modulate = Color(1, 1, 1)
 
 func _process(delta):
-
+	if InCinematic and bruitdepas.playing == true:
+		bruitdepas.stop()
 	if velocity != Vector2.ZERO and is_on_floor():
 		if not bruitdepas.playing:
 
@@ -184,9 +185,9 @@ func animation_handler():
 		jumpBufferCounter = 0
 		cayotteCounter = 0
 		jump()
-
+var InCinematic = false
 func _physics_process(delta):
-	if is_dead == false:
+	if is_dead == false and not InCinematic:
 		if life < 0 :
 			death()
 		motion.y += get_gravity() * delta

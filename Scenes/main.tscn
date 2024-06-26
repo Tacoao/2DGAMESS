@@ -1,12 +1,14 @@
-[gd_scene load_steps=174 format=3 uid="uid://gliin2hev3xh"]
+[gd_scene load_steps=177 format=3 uid="uid://gliin2hev3xh"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_y4lmc"]
 [ext_resource type="PackedScene" uid="uid://db84dya1w0cnl" path="res://Scenes/canvas_layerHUD.tscn" id="2_6ksq7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dpr0h"]
+[ext_resource type="PackedScene" uid="uid://bt7lm42sv7nrw" path="res://Scenes/boss_cinematic.tscn" id="2_yjl2l"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2plas"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_74e8m"]
 [ext_resource type="PackedScene" uid="uid://biic1783ehm6s" path="res://Scenes/character_body_2d.tscn" id="5_7ujc7"]
 [ext_resource type="PackedScene" uid="uid://bo4nkp5v3e7di" path="res://Scenes/deathMainChar.tscn" id="5_opfcr"]
+[ext_resource type="AudioStream" uid="uid://r4o47lq8hy53" path="res://Assets/Sound/MURMURES INQUIETANTS - Bruitage Gratuit.mp3" id="6_8m1oa"]
 [ext_resource type="PackedScene" uid="uid://bfhs6w71oie5u" path="res://Scenes/rope.tscn" id="6_gdj0r"]
 [ext_resource type="Script" path="res://addons/ropesim/RopeHandle.gd" id="7_2xvto"]
 [ext_resource type="Texture2D" uid="uid://bq0vehgwx0wpo" path="res://Assets/Tile/Mossy/Mossy - TileSet.png" id="8_or0cy"]
@@ -1437,6 +1439,8 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsf6h"]
 size = Vector2(125.775, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0sm"]
+
 [node name="Node" type="Node2D"]
 script = ExtResource("1_y4lmc")
 metadata/_edit_horizontal_guides_ = [-678.0]
@@ -1446,9 +1450,17 @@ texture_filter = 2
 position = Vector2(-5, 0)
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
+[node name="EndTiming" type="Timer" parent="."]
+wait_time = 52.0
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1168, -9640)
+position = Vector2(-970, -10304)
 zoom = Vector2(0.23, 0.23)
+
+[node name="CanvasLayer2" parent="Camera2D" instance=ExtResource("2_yjl2l")]
+layer = 9
+visible = false
 
 [node name="CanvasLayer" parent="Camera2D" instance=ExtResource("2_6ksq7")]
 layer = 8
@@ -1457,13 +1469,14 @@ layer = 8
 script = ExtResource("2_dpr0h")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_7ujc7")]
-position = Vector2(-1168, -9640)
+position = Vector2(-970, -10304)
 deathParticle = ExtResource("5_opfcr")
 
 [node name="Murmure" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("6_8m1oa")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-1168, -9640)
+position = Vector2(-970, -10304)
 script = ExtResource("3_2plas")
 priority = 5
 follow_mode = 1
@@ -2468,6 +2481,12 @@ texture = ExtResource("11_vsgey")
 
 [node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview" type="Sprite2D" parent="WorldDetails/3"]
 position = Vector2(-1590.77, -8733.08)
+rotation = 1.55919
+scale = Vector2(3.50398, 3.66538)
+texture = ExtResource("15_igt8y")
+
+[node name="CaptureDÉcran2024-04-27À00_13_46-removebg-preview17" type="Sprite2D" parent="WorldDetails/3"]
+position = Vector2(-1916.92, -8326.15)
 rotation = 1.55919
 scale = Vector2(3.50398, 3.66538)
 texture = ExtResource("15_igt8y")
@@ -4366,7 +4385,7 @@ scale = Vector2(15, 15)
 position = Vector2(8988.4, 83.8)
 
 [node name="PatrolPointB" type="Node2D" parent="VoidWalkerNode"]
-position = Vector2(10043.8, 93.6667)
+position = Vector2(10007.1, 93.6667)
 
 [node name="VoidWalker" parent="VoidWalkerNode" instance=ExtResource("22_pwq0k")]
 position = Vector2(9983.07, 77.1333)
@@ -4768,4 +4787,15 @@ stream = ExtResource("123_67ul5")
 volume_db = -10.0
 autoplay = true
 
+[node name="inCinematic" type="Area2D" parent="."]
+position = Vector2(131582, 1009)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inCinematic"]
+position = Vector2(0, -23)
+scale = Vector2(61.2681, 57.8966)
+shape = SubResource("RectangleShape2D_pn0sm")
+
+[connection signal="timeout" from="EndTiming" to="." method="_on_end_timing_timeout"]
 [connection signal="body_entered" from="InstantFallDeath" to="." method="_on_instant_fall_death_body_entered"]
+[connection signal="body_entered" from="inCinematic" to="." method="_on_in_cinematic_body_entered"]
+[connection signal="body_exited" from="inCinematic" to="." method="_on_in_cinematic_body_exited"]

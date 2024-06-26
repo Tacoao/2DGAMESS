@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://chu30euynk6i0"]
+[gd_scene load_steps=26 format=3 uid="uid://chu30euynk6i0"]
 
 [ext_resource type="Script" path="res://Script/EnterYourName.gd" id="1_1s761"]
 [ext_resource type="Texture2D" uid="uid://ct8pr7xi56dfw" path="res://Assets/Main Menu/WelcomescreenUpscaled.png" id="1_tmpsa"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://2twfwxp0kkoa" path="res://Assets/Main Menu/click-button-131479.mp3" id="5_qbyy8"]
 [ext_resource type="FontFile" uid="uid://67hfwlcnoqy8" path="res://Assets/Fonts/CinzelDecorative-Regular.ttf" id="5_xehyp"]
 [ext_resource type="Texture2D" uid="uid://dquukvq51p3mu" path="res://Assets/Main Menu/escape_dark.png" id="6_hwxnu"]
+[ext_resource type="VideoStream" path="res://Assets/Video/V3-mise-en-contexte.ogv" id="7_bvsjj"]
 [ext_resource type="Shader" path="res://main.gdshader" id="9_xomug"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lo17t"]
@@ -181,7 +182,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = null
+stream = ExtResource("7_bvsjj")
 
 [node name="PanelContainerEsc" type="PanelContainer" parent="."]
 layout_mode = 1
